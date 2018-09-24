@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+@font-face{
+    font-family: GS;
+    src: url("./fonts/GS-Bold.otf");
+    font-style: normal;
+    font-weight: 900;
+}
+@font-face{
+    font-family: GS;
+    src: url("./fonts/GS-Regular.otf");
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face{
+    font-family: GS;
+    src: url("./fonts/GS-Light.otf");
+    font-style: normal;
+    font-weight: 100;
+}
+@font-face{
+    font-family: MP;
+    src: url("./fonts/MP-Regular.otf");
+    font-style: normal;
+    font-weight: 500;
+}
+@font-face{
+    font-family: PG;
+    src: url("./fonts/Pangram-Black.otf");
+    font-style: normal;
+    font-weight: 900;
+}
+
+body{
+	background: white;
+	font-family: GS;
+	font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+p,h1,h2,h3,h4,h5{
+    margin: 0;
+    padding: 0;
+}
+
+*{
+    position: relative;
+    color: #2f2f2f;
+}
