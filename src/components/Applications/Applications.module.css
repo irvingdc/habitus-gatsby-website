@@ -1,0 +1,31 @@
+.container{
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    display: block;
+}
+.tripleA, .double, .tripleB{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(2, calc(50% - 15px));
+    grid-gap: 30px;
+    height: 500px;
+    padding: 0px 30px 30px;
+}
+.tripleA{
+    grid-template-columns: calc(55% - 15px) calc(45% - 15px);
+}
+.double{
+    grid-template-columns: repeat(2, calc(50% - 15px));
+    height: 220px;
+}
+.tripleB{
+    grid-template-columns: calc(45% - 15px) calc(55% - 15px);
+}
+.container > h2{
+    text-align: center;
+    padding: 30px;
+    font-size: 27px;
+    letter-spacing: 5px;
+    color: var(--habitus-gray);
+}

@@ -1,0 +1,14 @@
+.container{
+    width: fit-content;
+    padding: 5px;
+    height: fit-content;
+    border-radius: 8px;
+}
+.container img{
+    width: 140px;
+    height: auto;
+}
+.selected img{
+    width: 170px;
+    height: auto;
+}

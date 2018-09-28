@@ -1,0 +1,26 @@
+.button{
+    border: none;
+    background: white;
+    outline: none;
+    color: var(--habitus-gray);
+    font-size: 12px;
+    padding: 3px 10px;
+    font-size: 21px;
+    transition: background 0.1s;
+    border-radius: 1px;
+    cursor: pointer;
+    display: block;
+    letter-spacing: 3px;
+    font-family: GS;
+}
+.button:hover{
+    background: whitesmoke;
+}
+.ghost{
+    background: transparent;
+    padding: 5px 11px;
+    border: 2px solid var(--habitus-primary)
+}
+.ghost:hover{
+    background: transparent;
+}

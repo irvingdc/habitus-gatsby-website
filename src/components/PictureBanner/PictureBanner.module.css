@@ -1,0 +1,44 @@
+.container{
+    height: fit-content;
+    padding: 20px;
+}
+.container a{
+    text-decoration: none;
+}
+.content{
+    transition: all 0.2s;
+    overflow: hidden;
+    height: 400px;
+}
+.fade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 60;
+}
+.background{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 40;
+    left: 0;
+    top: 0;
+    transform: scale(1);
+    transition: all 0.35s;
+}
+.grid{
+    display: grid;
+    grid-template: repeat(1, 1fr);
+    grid-gap: 10px;
+    justify-content: center;
+}
+.grid span{
+    text-align: center;
+    color: white;
+    font-size: 65px;
+    letter-spacing: 8px;
+}
+.content:hover .background{
+    transform: scale(1.03);
+}

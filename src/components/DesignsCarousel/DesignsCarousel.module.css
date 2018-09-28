@@ -1,0 +1,62 @@
+.container{
+    background: white;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0px 1px 4px 0px #0000003d;
+    z-index: 200;
+}
+.container h3{
+    color: var(--habitus-primary);
+    text-align: center;
+    letter-spacing: 7px;
+    font-family: PG;
+    font-size: 26px;
+}
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1300px;
+    margin: 40px auto;
+}
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fadeIzq{
+    position: absolute;
+    height: 100%;
+    width: 160px;
+    background: linear-gradient(to right, #ffffffff, #ffffff88, #ffffff00);;
+    left: 0px;
+    top:0px;
+    z-index: 100;;
+}
+.fadeDer{
+    position: absolute;
+    height: 100%;
+    width: 160px;
+    background: linear-gradient(to left, #ffffffff, #ffffff88, #ffffff00);
+    right: 0px;
+    top:0px;
+    z-index: 100;;
+}
+.fadeIzq img{
+    display: block;
+    width: 25px;
+    top: 120px;
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+}
+.fadeDer img{
+    display: block;
+    width: 25px;
+    top: 120px;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+}

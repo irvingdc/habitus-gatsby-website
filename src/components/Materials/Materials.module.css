@@ -1,0 +1,18 @@
+.container{
+    padding: 20px 0px;
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+}
+.container h2{
+    font-size: 26px;
+    letter-spacing: 5px;
+    font-family: PG;
+    margin: 40px 0px 20px;
+    text-align: center;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+}

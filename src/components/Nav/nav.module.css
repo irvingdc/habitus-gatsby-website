@@ -1,3 +1,43 @@
 .container{
     background: white;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 70px;
+    z-index: 200;
+}
+.container img{
+    position: absolute;
+    display: block;
+    width: 250px;
+    top: 15px;
+    left: 15px;
+}
+.small{
+    width: 135px !important;
+}
+.container a{
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    color: var(--habitus-secondary);
+    margin: 0px 12px;
+    letter-spacing: 3px;
+    font-size: 11px;
+    font-weight: 900;
+    position: relative;
+    transition: all 0.1s;
+}
+.container a:hover, .active{
+    color: var(--habitus-primary) !important;
+}
+.active::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0px;
+    bottom: -8px;
+    width: 100%;
+    height: 2px;
+    background: var(--habitus-primary);
 }
