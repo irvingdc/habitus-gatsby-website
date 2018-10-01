@@ -5,10 +5,14 @@
     border-radius: 8px;
 }
 .container img{
-    width: 140px;
+    width: 100px;
     height: auto;
+    padding: 10px;
+    border: 5px solid var(--habitus-primary);
+    border-radius: 8px;
 }
 .selected img{
-    width: 170px;
+    width: 120px;
     height: auto;
+    padding: 10px 20px;
 }

@@ -1,6 +1,5 @@
 .container{
-    height: fit-content;
-    padding: 20px;
+    height: 100%;
 }
 .container a{
     text-decoration: none;
@@ -8,7 +7,7 @@
 .content{
     transition: all 0.2s;
     overflow: hidden;
-    height: 400px;
+    height: 100%;
 }
 .fade{
     display: flex;

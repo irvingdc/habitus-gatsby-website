@@ -1,0 +1,42 @@
+.table{
+    border-collapse: collapse;
+    background: #faf8f0;
+    margin: auto;
+}
+.table img{
+    width: 22px;
+}
+.table *{
+    color: var(--habitus-gray);
+    font-size: 12px;
+}
+.table td{
+    text-align: center;
+    height: 32px;
+    width: 40px;
+}
+.table th{
+    font-weight: 500;
+    padding: 10px 0px 20px;
+}
+.table td:first-child{
+    text-align: right;
+    width: 110px;
+    padding: 0px 20px;
+    font-size: 13px;
+    border-right: 1px solid var(--habitus-primary);
+}
+.table p span{
+    font-size: 35px;
+    position: relative;
+    top: 12px;
+    right: -1px;
+    line-height: 0px;
+}
+.table img + span{
+    font-size: 35px;
+    position: relative;
+    top: 2px;
+    color: var(--habitus-primary);
+    right: -2px;
+}

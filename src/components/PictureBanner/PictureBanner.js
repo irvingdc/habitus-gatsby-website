@@ -4,13 +4,13 @@ import Button from "../Button/Button"
 import classes from "./PictureBanner.module.css"
 import SocialRow from "../SocialRow/SocialRow";
 
-export default ({img, link, title, height, buttoncontent, buttonstyle, background,titlestyle,  showsocial}) =>{
+export default ({img, link, title, height, style, buttoncontent, buttonstyle, background,titlestyle, showsocial}) =>{
     let content = (
-        <div className={ classes.content } style={{ height }}>
+        <div className={ classes.content } style={{ ...style, height }}>
             <div className={ classes.background } style={{
                 background:`url(${img}) center center / cover no-repeat`,
             }}></div>
-            <div className={ classes.fade } style={{ background }}>
+            <div className={ classes.fade } style={{ background: (background ? background : "#00000088") }}>
                 <div className={ classes.grid }>
                     { title ? <span style={ titlestyle }>{ title }</span> : null}
                     { buttoncontent ? <Button style={ buttonstyle }>{ buttoncontent }</Button> : null }

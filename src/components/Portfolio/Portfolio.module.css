@@ -1,0 +1,12 @@
+.grid{
+    display: grid;
+    grid-gap: 20px;
+    width: 100%;
+}
+.container{
+    height: 900px;
+    padding: 20px;
+    width: calc(100% - 40px);
+    max-width: 1300px;
+    margin: auto;
+}

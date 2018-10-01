@@ -7,22 +7,25 @@ import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Materials from '../components/Materials/Materials'
 import DesignsIntroduction from '../components/DesignsIntroduction/DesignsIntroduction'
 import Footer from "../components/Footer/Footer"
+import { img10 } from "../images"
 
 export default () => (
-    <div className={classes.MainContainer}>
+    <div className={classes.container}>
         <Nav fixedlogo/>
-        <PictureBanner
-            showsocial
-            img="/static/img/10.jpg"
-            title="DISEÑOS Y MATERIALES"
-            height="550px"
-            titlestyle={{
-                fontSize: "24px",
-                fontFamily: "PG",
-                letterSpacing: "6px",
-            }}
-            background="linear-gradient(to right, #00000077, #00000044)"
-        />
+        <div style={{padding:"20px"}}>
+            <PictureBanner
+                showsocial
+                img={ img10 }
+                title="DISEÑOS Y MATERIALES"
+                height="550px"
+                titlestyle={{
+                    fontSize: "24px",
+                    fontFamily: "PG",
+                    letterSpacing: "6px",
+                }}
+                background="linear-gradient(to right, #00000077, #00000044)"
+            />
+        </div>
         <DesignsIntroduction/>
         <DesignsCarousel/>
         <div style={{ background: "var(--habitus-tertiary)", height: "40px"}}></div>

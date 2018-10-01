@@ -1,28 +1,29 @@
 import React from "react"
 import classes from "./Process.module.css"
-import ProcessCard from "../ProcessCard/ProcessCard";
+import ProcessCard from "../ProcessCard/ProcessCard"
+import { icono4, icono5, icono6, icono7 } from "../../images"
 
 export default () => {
     let elements = [
         {
             title: "APLICACIÓN",
             description: "Seleccionar aplicación y uso exterior o interior.",
-            img: "/static/img/icono5.png",
+            img: icono5,
         },
         {
             title: "DISEÑO",
             description: "Escoger o subir diseño. Formatos aceptados: PDF,AIorDWG",
-            img: "/static/img/icono4.png",
+            img: icono4,
         },
         {
             title: "MATERIAL",
             description: "Escoger material, dimesiones y cantidad",
-            img: "/static/img/icono6.png",
+            img: icono6,
         },
         {
             title: "PERSONALIZAR",
             description: "Personalizar tu proyecto con un asesor de Habitus",
-            img: "/static/img/icono7.png",
+            img: icono7,
         },
     ]
     return (

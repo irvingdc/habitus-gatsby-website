@@ -1,59 +1,68 @@
 import React from "react"
 import classes from "./Applications.module.css"
-import ApplicationBlock from "../ApplicationBlock/ApplicationBlock";
+import ApplicationBlock from "../ApplicationBlock/ApplicationBlock"
+import { img11, img13, img15, img16, img18, img6, img7 } from "../../images"
 
-export default () =>(
+export default ({ show }) =>(
     <div className={ classes.container }>
         <h2>APLICACIONES</h2>
         <div className={ classes.tripleA }>
             <ApplicationBlock 
                 title="REJAS" 
-                img="/static/img/8.jpg"
+                img={ img18 }
+                show={ () => show("rejas") }
             />
             <ApplicationBlock 
                 title="DIVISORES" 
-                img="/static/img/15.jpg"
+                img={ img15 }
+                show={ () => show("divisores") }
             />
             <ApplicationBlock 
                 title="DECORACIÓN" 
-                img="/static/img/18.jpg"
+                img={ img18 }
                 style={{
                     gridColumn: "2",
                     gridRow: "1/3"
                 }}
+                show={ () => show("decoracion") }
             />
         </div>
         <div className={ classes.double }>
             <ApplicationBlock 
                 title="PUERTAS Y PORTONES" 
-                img="/static/img/7.jpg"
+                img={ img7 }
                 style={{
                     gridRow: "1/3"
                 }}
+                show={ () => show("puertas_y_portones") }
             />
             <ApplicationBlock 
                 title="TRAGALUCES Y PLAFONES" 
-                img="/static/img/6.jpg"
+                img={ img6 }
                 style={{
                     gridRow: "1/3"
                 }}
+                show={ () => show("tragaluces_y_plafones") }
             />
         </div>
         <div className={ classes.tripleB }>
             <ApplicationBlock 
                 title="PÉRGOLAS" 
-                img="/static/img/11.jpg"
+                img={ img11 }
                 style={{
                     gridRow: "1/3"
                 }}
+                show={ () => show("pergolas") }
             />
             <ApplicationBlock 
                 title="BARANDALES" 
-                img="/static/img/16.jpg"
+                img={ img16 }
+                show={ () => show("barandales") }
             />
             <ApplicationBlock 
                 title="FACHADAS" 
-                img="/static/img/13.jpg"
+                img={ img13 }
+                show={ () => show("fachadas") }
             />
         </div>
     </div>
