@@ -88,6 +88,7 @@ export default ({ display, close, application }) => {
     }
     return (
         <Dialog 
+            showbutton
             display={ display } 
             title={ list[application].title } 
             close={ close } 

@@ -6,13 +6,17 @@
 }
 .container img{
     width: 100px;
-    height: auto;
-    padding: 10px;
-    border: 5px solid var(--habitus-primary);
-    border-radius: 8px;
+    height: 200px;
+    padding: 10px 15px;
+    border: 6px solid var(--habitus-primary);
+    border-radius: 10px;
+}
+.selectable img{
+    border: 6px solid var(--habitus-gray);
 }
 .selected img{
     width: 120px;
-    height: auto;
+    height: 240px;
     padding: 10px 20px;
+    border: 6px solid var(--habitus-primary);
 }

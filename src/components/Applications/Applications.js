@@ -1,7 +1,7 @@
 import React from "react"
 import classes from "./Applications.module.css"
 import ApplicationBlock from "../ApplicationBlock/ApplicationBlock"
-import { img11, img13, img15, img16, img18, img6, img7 } from "../../images"
+import { img8, img11, img13, img15, img16, img18, img6, img7 } from "../../images"
 
 export default ({ show }) =>(
     <div className={ classes.container }>
@@ -9,7 +9,7 @@ export default ({ show }) =>(
         <div className={ classes.tripleA }>
             <ApplicationBlock 
                 title="REJAS" 
-                img={ img18 }
+                img={ img8 }
                 show={ () => show("rejas") }
             />
             <ApplicationBlock 

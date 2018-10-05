@@ -26,6 +26,7 @@
 }
 .flex > img{
     width: 300px;
+    height: 467px;
 }
 .grid{
     display: grid;

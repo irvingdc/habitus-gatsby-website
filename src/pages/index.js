@@ -51,7 +51,7 @@ class Index extends Component{
                     <PictureBanner
                         img={ img12 }
                         buttoncontent="CREA Y COTIZA TU PROYECTO"
-                        link="/cotiza"
+                        link="/beta/cotiza/"
                         background="#00000088"
                         withpadding
                         height="400px"
@@ -72,7 +72,7 @@ class Index extends Component{
                         height="400px"
                         withpadding
                         buttoncontent="VE NUESTRO PORTAFOLIO"
-                        link="/portafolio"
+                        link="/beta/portafolio/"
                         background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
                         buttonstyle={{
                             padding: "12px 10px 10px",
