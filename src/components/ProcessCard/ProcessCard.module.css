@@ -39,3 +39,18 @@
         height: 70px;
     }
 }
+@media (max-width:460px){
+    .container{
+        padding: 5px;
+        width: 160px;
+        height: 180px;
+    }
+    .container > div {
+        margin: 5px auto 10px;
+        width: 60px;
+        height: 60px;
+    }
+    .container p{
+        font-size: 14px;
+    }
+}

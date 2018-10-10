@@ -108,3 +108,16 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+@media (max-width: 550px){
+    .container{
+        width: 150px;
+        margin: 0px 5px;
+    }
+    .img{
+        height: 80px;
+    }
+    .topTitle{
+        font-size: 13px;
+        letter-spacing: 2px;
+    }
+}

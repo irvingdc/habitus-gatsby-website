@@ -28,4 +28,14 @@
     .cards{
         grid-template-columns: repeat(2, 210px);
     }
+    .container > h2{
+        letter-spacing: 4px;
+    }
+}
+
+@media (max-width: 460px){
+    .cards{
+        grid-template-columns: repeat(2, 170px);
+        grid-gap: 15px;
+    }
 }

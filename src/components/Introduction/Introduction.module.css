@@ -49,11 +49,15 @@
         padding: 70px 0px 220px;
     }
     .text{
-        width: calc(100% - 70px);
+        width: calc(100% - 40px);
         margin: auto;
-        left: 35px;
+        left: 20px;
         order: 2;
         top: 618px;
+    }
+    .text p{
+        text-align: justify;
+        line-height: 25px;
     }
     .welcomeImage{
         width: 100%;
@@ -67,5 +71,14 @@
     .welcomeImage img{
         width: initial;
         height: 600px;
+    }
+}
+@media (max-width: 520px){
+    .container{
+        padding: 70px 0px 300px;
+    }
+    .text h1{
+        letter-spacing: 5px;
+        font-size: 35px;
     }
 }

@@ -21,3 +21,8 @@
         width: 100%;
     }
 }
+@media (max-width: 550px){
+    .grid{
+        width: 100%;
+    }
+}

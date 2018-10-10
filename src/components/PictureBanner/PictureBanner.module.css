@@ -41,3 +41,10 @@
 .content:hover .background{
     transform: scale(1.03);
 }
+
+@media (max-width: 550px){
+    .title{
+        font-size: 53px;
+        letter-spacing: 6px;
+    }
+}

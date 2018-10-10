@@ -37,6 +37,19 @@ class Index extends Component{
     render(){
         if(typeof window === "undefined") return <div></div>
         let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
+        let buttonstyle = window.innerWidth < 550 ? {
+            fontSize: "17px",
+            padding: "8px",
+            letterSpacing: "2px",
+            fontFamily: "GS",
+            fontWeight: "900",
+        } : {
+            fontSize: "20px",
+            padding: "10px",
+            letterSpacing: "3px",
+            fontFamily: "GS",
+            fontWeight: "900",
+        }
         return(
             <div className={classes.MainContainer}>
                 <Nav/>
@@ -63,13 +76,7 @@ class Index extends Component{
                         background="#00000088"
                         withpadding
                         height="400px"
-                        buttonstyle={{
-                            fontSize: "20px",
-                            padding: "10px",
-                            letterSpacing: "3px",
-                            fontFamily: "GS",
-                            fontWeight: "900",
-                        }}
+                        buttonstyle={buttonstyle}
                     />
                 </div>
                 <h3 className={ classes.middleMessage }>¿no estás seguro que buscas?</h3>
@@ -82,10 +89,7 @@ class Index extends Component{
                         buttoncontent="VE NUESTRO PORTAFOLIO"
                         link="/beta/portafolio/"
                         background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
-                        buttonstyle={{
-                            padding: "12px 10px 10px",
-                            fontWeight: "900",
-                        }}
+                        buttonstyle={buttonstyle}
                     />
                 </div>
                 <Footer/>
