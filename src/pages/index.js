@@ -25,11 +25,18 @@ class Index extends Component{
         this.setState({ application, applicationDialogDisplayed: true })
     }
 
+    selectApplication = application => {
+        console.log("application", application)
+        this.setState({ application })
+    }
+
     closeApplicationDialog = () => {
         this.setState({ applicationDialogDisplayed: false })
     }
 
     render(){
+        if(typeof window === "undefined") return <div></div>
+        let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
         return(
             <div className={classes.MainContainer}>
                 <Nav/>
@@ -40,6 +47,7 @@ class Index extends Component{
                     application={ this.state.application } 
                     display={ this.state.applicationDialogDisplayed }
                     close={ this.closeApplicationDialog }
+                    selectApplication={ this.selectApplication }
                 />
                 <div className={ classes.designsAndMaterials }>
                     <Header size="30px">DISEÑOS Y MATERIALES</Header>
@@ -47,7 +55,7 @@ class Index extends Component{
                     <DesignsCarousel showbutton/>
                     <Materials/>
                 </div>
-                <div style={{padding:"20px"}}>
+                <div style={ bannerStyle }>
                     <PictureBanner
                         img={ img12 }
                         buttoncontent="CREA Y COTIZA TU PROYECTO"
@@ -65,7 +73,7 @@ class Index extends Component{
                     />
                 </div>
                 <h3 className={ classes.middleMessage }>¿no estás seguro que buscas?</h3>
-                <div style={{padding:"20px"}}>
+                <div style={ bannerStyle }>
                     <PictureBanner
                         img={ img19 }
                         title="¡Inspírate!"

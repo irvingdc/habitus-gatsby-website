@@ -10,3 +10,14 @@
     grid-gap: 15px;
     align-items: flex-end;
 }
+@media (max-width: 770px){
+    .grid{
+        display: block;
+        margin: auto;
+        width: 480px;
+        text-align: center;
+    }
+    .withDetails{
+        width: 100%;
+    }
+}

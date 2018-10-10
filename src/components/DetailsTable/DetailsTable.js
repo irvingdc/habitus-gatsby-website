@@ -22,10 +22,10 @@ let renderContent = it => {
     }
 }
 
-export default ({ data, withlines }) =>{
+export default ({ data, withlines, scrollable }) =>{
     let linesStyle = withlines ? { borderBottom : "1px solid var(--habitus-gray)"} : {}
     return (
-        <table className={ classes.table }>
+        <table className={ [classes.table, (scrollable ? classes.scrollable : "")].join(" ") }>
             <thead>
                 <tr>
                     { data.head.map((it, index) => <th key={ index } style={ linesStyle }>{ it }</th> ) }

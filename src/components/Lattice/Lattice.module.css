@@ -3,6 +3,7 @@
     padding: 5px;
     height: fit-content;
     border-radius: 8px;
+    cursor: pointer;
 }
 .container img{
     width: 100px;
@@ -19,4 +20,15 @@
     height: 240px;
     padding: 10px 20px;
     border: 6px solid var(--habitus-primary);
+}
+
+@media (max-width: 770px){  
+    .container img{
+        width: 70px;
+        height: 140px;
+    }
+    .selected img{
+        width: 90px;
+        height: 180px;
+    }
 }

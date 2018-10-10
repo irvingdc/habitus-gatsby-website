@@ -95,7 +95,23 @@ class DesignsCarousel extends Component {
         if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===latticeSelected))
     }
 
+    selectLattice = (latticeSelected) => {
+        this.setState({ latticeSelected })
+        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===latticeSelected))
+    }
+
     render(){
+        if(typeof window === "undefined") return <div></div>
+        let buttonStyle = window.innerWidth < 770 
+        ? {
+            fontSize: "14px",
+            margin: "0px auto",
+            padding: "8px 16px"
+        } : {
+            fontSize: "14px",
+            margin: "20px auto",
+            padding: "8px 16px"
+        } 
         return (
             <div className={ [classes.container, (this.props.selectable ? classes.selectable : "")].join(' ') }>
                 { !this.props.selectable ? <Header size="26px">DISEÑOS</Header> : null }
@@ -104,19 +120,24 @@ class DesignsCarousel extends Component {
                         <img src={ icono11 } alt="Izquierda" title="Izquierda"/>
                     </div>
                     <div className={ classes.grid }>
-                        { this.getLatticesToDisplay().map((it, index) => <Lattice selectable={ this.props.selectable } key={ index } selected={ it.model === this.state.latticeSelected} img={ it.img } model={ it.model }/> ) }
+                        { this.getLatticesToDisplay().map((it, index) => (
+                            <Lattice 
+                                selectable={ this.props.selectable } 
+                                key={ index } 
+                                selected={ it.model === this.state.latticeSelected } 
+                                img={ it.img } 
+                                model={ it.model }
+                                click={ this.selectLattice }
+                            />
+                        ))}
                     </div>
                     <div className={ classes.fadeDer } onClick={ this.nextLattice }>
                         <img src={ icono12 } alt="Derecha" title="Derecha"/>
                     </div>
                 </div>
                 {   this.props.showbutton ? (
-                        <Link to="/beta/disenos-y-materiales" style={{ textDecoration: "none"}}>
-                            <Button ghost style={{
-                                fontSize: "14px",
-                                margin: "20px auto",
-                                padding: "8px 16px"
-                            }}>VER DISEÑOS</Button>
+                        <Link to="/beta/disenos-y-materiales" style={{ textDecoration: "none", display: "block", width: "fit-content", margin: "auto" }}>
+                            <Button ghost style={ buttonStyle }>VER DISEÑOS</Button>
                         </Link>
                     ) : null
                 }

@@ -4,6 +4,8 @@ import Dialog from "../Dialog/Dialog"
 import DetailsTable from "../DetailsTable/DetailsTable"
 
 export default ({ display, close }) => {
+    if(typeof window === "undefined") return <div></div>
+    let padding = window.innerWidth < 770 ? "30px 15px 35px" : "55px 35px 35px"
     let data = {
         head:  ["","Aluminio","Acero Inoxidable","Acero al Carbón","MDF","Triplay"],
         content: [
@@ -19,8 +21,8 @@ export default ({ display, close }) => {
         ]
     }
     return (
-        <Dialog display={ display } title="MATERIALES" close={ close } padding="55px 35px 35px">
-            <DetailsTable data={ data } withlines/>
+        <Dialog display={ display } title="MATERIALES" close={ close } padding={ padding } scrollable>
+            <DetailsTable data={ data } withlines scrollable/>
             <p className={ classes.warning }><span>*</span> Pintado</p>
         </Dialog>
     )

@@ -29,4 +29,20 @@
 .details h3{
     color: white;
     padding: 10px 0px;
+    font-family: PG;
+    font-weight: 900;
+    letter-spacing: 5px;
+}
+@media (max-width: 770px){
+    .container{
+        height: 120px;
+        margin-bottom: 10px;
+    }
+    .details h3{
+        letter-spacing: 7px;
+        font-size: 20px;
+    }
+    .details{
+        padding-left: 12px;
+    }
 }

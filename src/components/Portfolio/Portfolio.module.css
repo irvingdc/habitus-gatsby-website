@@ -10,3 +10,14 @@
     max-width: 1300px;
     margin: auto;
 }
+@media (max-width: 770px){
+    .container{
+        height: 1300px;
+        padding: 10px 10px 0px;
+        margin: 0px;
+        width: calc(100% - 20px);
+    }
+    .grid{
+        grid-gap: 10px;
+    }
+}

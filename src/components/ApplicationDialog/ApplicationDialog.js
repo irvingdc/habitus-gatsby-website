@@ -5,13 +5,13 @@ import DetailsTable from "../DetailsTable/DetailsTable"
 import { img12, img8, img7, img20, img15, img16, img6, img18 } from "../../images"
 import Header from "../Header/Header";
 
-export default ({ display, close, application }) => {
+export default ({ display, close, application, selectApplication }) => {
     let table1 = {
         head: ["", "Aluminio", "Acero Inoxidable", "Acero Al Carbón", "MDF", "Triplay"],
         content: [
             ["DUREZA", {val:false}, {val:true}, {val:true}, {val:true}, {val:true}],
             ["MALEABILIDAD", {val:true}, {val:false}, {val:true}, {val:false}, {val:false}],
-            ["PESO", {val:"bajo"}, {val:"alto"}, {val:"alto"}, {val:"medio"}, {val:"medipo"}],
+            ["PESO", {val:"bajo"}, {val:"alto"}, {val:"alto"}, {val:"medio"}, {val:"medio"}],
             ["SOLDEABILIDAD", {val:false}, {val:true}, {val:true}, {val:false}, {val:false}],
             ["MAQUINABILIDAD", {val:"alta"}, {val:"baja"}, {val:"media"}, {val:"alta"}, {val:"media"}],
             ["ACABADO", {val:"natural"}, {val:"natural"}, {val:"natural/ pintado"}, {val:"natural/ pintado"}, {val:"natural/ pintado"}],
@@ -79,21 +79,52 @@ export default ({ display, close, application }) => {
             data: table1
         },
         decoracion:{
-            title: "DIVISIONES",
+            title: "DECORACIÓN",
             img: img18,
-            subtitle: "ELIMINA TUS MUROS CON CELOSÍAS",
-            description: "Con Habitus puedes crear divisiones, brindando funcionalidad y un toque de belleza a un espacio, permitiendo luz y visibilidad a otras áreas.",
+            subtitle: "AÑADE DETALLES QUE MARQUEN LA DIFERENCIA",
+            description: "La imaginación es tu única limitante con Habitus, incorpora celosías en ambientes que quieras destacar de estilo y armonía",
             data: table1
         },
     }
+
+    let nextApplication = () => {
+        let keys = Object.keys(list)
+        let length = keys.length
+        let currentIndex = keys.findIndex(it => application === it)
+        let nextIndex = 0
+        if(currentIndex === length - 1){
+            nextIndex = 0
+        }
+        else {
+            nextIndex = currentIndex + 1
+        }
+        selectApplication(keys[nextIndex])
+    }
+    let previousApplication = () => {
+        let keys = Object.keys(list)
+        let length = keys.length
+        let currentIndex = keys.findIndex(it => application === it)
+        let nextIndex = 0
+        if(currentIndex === 0){
+            nextIndex = length - 1
+        }
+        else {
+            nextIndex = currentIndex - 1
+        }
+        selectApplication(keys[nextIndex])
+    }
+
     return (
         <Dialog 
             showbutton
+            showcontrols
             display={ display } 
             title={ list[application].title } 
             close={ close } 
             padding="55px 35px 35px"
             img={ list[application].img }
+            next={ nextApplication }
+            previous={ previousApplication }
         >
             <Header style={{ 
                 fontSize:"20px", 

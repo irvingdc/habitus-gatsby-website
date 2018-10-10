@@ -8,6 +8,7 @@ import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Footer from "../components/Footer/Footer"
 import { icono12, img1, img2, img3, img4, img5, img14, img8, img7, img15, img11, img18, img16, img6, img13 } from "../images"
 import Header from "../components/Header/Header";
+import FileInput from "../components/FileInput/FileInput";
 
 class Cotiza extends Component {
 
@@ -74,10 +75,14 @@ class Cotiza extends Component {
     }
 
     render(){
+        if(typeof window === "undefined") return <div></div>
+        let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
+        let headerStyle = window.innerWidth < 770 ? {letterSpacing: "5px", fontSize: "28px", margin: "30px 10px"} : {letterSpacing: "20px", fontSize: "28px", margin: "30px"}
+        let materialsWidth = window.innerWidth < 1300 ?  undefined : "210px"
         return (
             <div className={classes.container}>
                 <Nav fixedlogo/>
-                <div style={{padding:"20px"}}>
+                <div style={bannerStyle}>
                     <PictureBanner
                         showsocial
                         img={ img14 }
@@ -85,7 +90,7 @@ class Cotiza extends Component {
                         background="linear-gradient(to right, #00000022, #00000022)"
                     />
                 </div>
-                <Header style={{letterSpacing: "20px", fontSize: "28px", margin: "30px"}}>EMPIEZA A CREAR</Header>
+                <Header style={headerStyle}>EMPIEZA A CREAR</Header>
 
                 <i className={ classes.line }></i>
                 <h3 className={ classes.subheader}>USO</h3>
@@ -106,7 +111,7 @@ class Cotiza extends Component {
                 <div className={ classes.applicationsSection }>
                     { this.state.applications.map((it, index)=> (
                         <Option 
-                            textwidth="185px"
+                            textwidth="192px"
                             key={ index } 
                             selected={ it.selected } 
                             img={ it.img } 
@@ -123,13 +128,20 @@ class Cotiza extends Component {
                     onChange={ this.selectLattice }
                 />
 
+                <div className={ classes.fileSection }>
+                    <div>
+                        <p className={ classes.noteC }>sube tu diseño</p>
+                        <FileInput/>
+                    </div>
+                </div>
+
                 <i className={ classes.line }></i>
                 <h3 className={ classes.subheader}>MATERIAL</h3>
                 <div className={ classes.materialsSection }>
                     { this.state.materials.map((it, index)=> (
                         <Option 
                             textwidth="155px"
-                            imgwidth="210px"
+                            imgwidth={ materialsWidth }
                             key={ index } 
                             selected={ it.selected } 
                             img={ it.img } 
@@ -143,7 +155,7 @@ class Cotiza extends Component {
                 <i className={ classes.line }></i>
                 <h3 className={ classes.subheader}>ACABADOS</h3>
                 <p className={ classes.noteA }>* Solo aplica para MDF y Acero al carbón</p>
-                <p className={ classes.noteB }>pintura electrostática</p>
+                <p className={ classes.noteB }>pintura</p>
                 <div className={ classes.finishStylesSection }>
                     { this.state.finishStyles.map((it, index)=> (
                         <Option 
@@ -174,20 +186,20 @@ class Cotiza extends Component {
                 <div className={ classes.sizeSection }>
                     <div>
                         <i className={ classes.line }></i>
-                        <h3 className={ classes.subheader}><b>ALTURA</b> EN MM</h3>
-                        <p>* máximo 244 cm (8')</p>
+                        <h3 className={ classes.subheader}><b>ANCHURA</b> EN MM</h3>
+                        <p>* máximo <span>1220</span> mm (4')</p>
                         <input 
                             type="number" 
-                            onChange={ (event) => this.handleInputChange("height", event.target.value) }
+                            onChange={ (event) => this.handleInputChange("width", event.target.value) }
                         />
                     </div>
                     <div>
                         <i className={ classes.line }></i>
-                        <h3 className={ classes.subheader}><b>ANCHURA</b> EN MM</h3>
-                        <p>* máximo 122 cm (4')</p>
+                        <h3 className={ classes.subheader}><b>ALTURA</b> EN MM</h3>
+                        <p>* máximo <span>2440</span> mm (8')</p>
                         <input 
                             type="number" 
-                            onChange={ (event) => this.handleInputChange("width", event.target.value) }
+                            onChange={ (event) => this.handleInputChange("height", event.target.value) }
                         />
                     </div>
                 </div>
@@ -227,7 +239,7 @@ class Cotiza extends Component {
                     <span>
                         <p>correo</p>
                         <input 
-                            style={{ width: "300px" }}
+                            className={ classes.emailInput }
                             type="email"
                             placeholder="escribe tu correo" 
                             onChange={ (event) => this.handleInputChange("email", event.target.value) }

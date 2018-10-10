@@ -36,6 +36,8 @@ import icono14 from './images/icono14.svg'
 import icono15 from './images/icono15.svg'
 import icono16 from './images/icono16.png'
 import icono17 from './images/icono17.png'
+import icono18 from './images/icono18.png'
+import icono19 from './images/icono19.png'
 import celosia1 from './images/celosia1.svg'
 import celosia2 from './images/celosia2.svg'
 import celosia3 from './images/celosia3.svg'
@@ -62,6 +64,8 @@ import celosia23 from './images/celosia23.svg'
 import celosia24 from './images/celosia24.svg'
 import celosia25 from './images/celosia25.svg'
 import celosia26 from './images/celosia26.svg'
+import height from './images/height.png'
+import width from './images/width.png'
 
 export { 
     logo,
@@ -102,6 +106,8 @@ export {
     icono15,
     icono16,
     icono17,
+    icono18,
+    icono19,
     celosia1,
     celosia2,
     celosia3,
@@ -128,4 +134,6 @@ export {
     celosia24,
     celosia25,
     celosia26,
+    height,
+    width,
 };

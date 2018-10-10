@@ -5,3 +5,9 @@
     font-family: PG;
     font-size: 30px;
 }
+
+@media (max-width: 770px){
+    .container{
+        padding-top: 80px !important;
+    }
+}

@@ -7,7 +7,7 @@ export default () =>(
         <h3>contáctanos y habla con un experto</h3>
         <img src={ logoYellow } title="Logo" alt="Logo"/>
         <p>+ 52 1 (222) 122 8857</p>
-        <a href="mailto:info@habitus.com.mx">info@habitus.com.mx</a>
+        <a href="mailto:diseno@habitus.com.mx">diseno@habitus.com.mx</a>
         <div className={ classes.social }>
             <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
                 <img src={ icono15 } title="Facebook" alt="Facebook"/>

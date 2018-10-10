@@ -12,7 +12,7 @@ export default ({img, link, title, height, style, buttoncontent, buttonstyle, ba
             }}></div>
             <div className={ classes.fade } style={{ background: (background ? background : "#00000088") }}>
                 <div className={ classes.grid }>
-                    { title ? <span style={ titlestyle }>{ title }</span> : null}
+                    { title ? <div className={ classes.title } style={ titlestyle }>{ title }</div> : null}
                     { buttoncontent ? <Button style={ buttonstyle }>{ buttoncontent }</Button> : null }
                 </div>
             </div>

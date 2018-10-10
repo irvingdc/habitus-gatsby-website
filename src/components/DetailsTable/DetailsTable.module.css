@@ -26,10 +26,13 @@
     font-size: 13px;
     border-right: 1px solid var(--habitus-primary);
 }
+.table p{
+    min-width: 62px;
+}
 .table p span{
     font-size: 35px;
     position: relative;
-    top: 12px;
+    top: 15px;
     right: -1px;
     line-height: 0px;
 }
@@ -39,4 +42,15 @@
     top: 2px;
     color: var(--habitus-primary);
     right: -2px;
+}
+@media (max-width: 770px){
+    .scrollable{
+        border-collapse: collapse;
+        background: #faf8f0;
+        margin: auto;
+        overflow-x: scroll;
+        width: calc(100% - 0px);
+        box-shadow: 8px 0px 10px -5px #00000063 inset, -8px 0px 10px -5px #00000063 inset;
+        display: block;
+    }
 }

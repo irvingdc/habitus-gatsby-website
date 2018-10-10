@@ -12,7 +12,7 @@ export default () => {
         },
         {
             title: "DISEÑO",
-            description: "Escoger o subir diseño. Formatos aceptados: PDF,AIorDWG",
+            description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI or DWG</span>,
             img: icono4,
         },
         {
@@ -22,7 +22,7 @@ export default () => {
         },
         {
             title: "PERSONALIZAR",
-            description: "Personalizar tu proyecto con un asesor de Habitus",
+            description: "Adapta tu proyecto con un asesor de Habitus",
             img: icono7,
         },
     ]

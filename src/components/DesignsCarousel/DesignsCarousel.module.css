@@ -28,8 +28,8 @@
 .fadeIzq{
     position: absolute;
     height: 100%;
-    width: 50%;
-    background: linear-gradient(to right, #ffffffff, #ffffff33, #ffffff00);;
+    width: 100px;
+    background: linear-gradient(to right, #ffffffff, #ffffffbb, #ffffff00);;
     left: 0px;
     top:0px;
     z-index: 100;
@@ -38,8 +38,8 @@
 .fadeDer{
     position: absolute;
     height: 100%;
-    width: 50%;
-    background: linear-gradient(to left, #ffffffff, #ffffff33, #ffffff00);
+    width: 100px;
+    background: linear-gradient(to left, #ffffffff, #ffffffbb, #ffffff00);
     right: 0px;
     top:0px;
     z-index: 100;

@@ -20,20 +20,28 @@ class DisenosYMateriales extends Component {
     }
 
     render(){
+        if(typeof window === "undefined") return <div></div>
+        let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
+        let titleStyle = window.innerWidth < 770 ? {
+            fontSize: "30px",
+            width:"220px",
+            fontFamily: "PG",
+            letterSpacing: "6px",
+        } : {
+            fontSize: "24px",
+            fontFamily: "PG",
+            letterSpacing: "6px",
+        }
         return (
             <div className={classes.container}>
                 <Nav fixedlogo/>
-                <div style={{padding:"20px"}}>
+                <div style={bannerStyle}>
                     <PictureBanner
                         showsocial
                         img={ img10 }
                         title="DISEÑOS Y MATERIALES"
                         height="550px"
-                        titlestyle={{
-                            fontSize: "24px",
-                            fontFamily: "PG",
-                            letterSpacing: "6px",
-                        }}
+                        titlestyle={titleStyle}
                         background="linear-gradient(to right, #00000077, #00000044)"
                     />
                 </div>

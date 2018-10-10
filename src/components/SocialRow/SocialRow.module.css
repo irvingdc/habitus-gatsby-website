@@ -5,6 +5,7 @@
     height: calc(100% - 20px);
     width: 70px;
     padding-bottom: 20px;
+    z-index: 200;
 }
 .social::before{
     content: '';
@@ -22,4 +23,16 @@
     width: auto;
     height: 20px;
     margin: auto;
+}
+@media (max-width: 770px){
+    .colorSwitcher::before{
+        background: var(--habitus-secondary);
+    }
+    .colorSwitcher img{
+        filter: brightness(0.2);
+    }
+    .social{
+        height: calc(100% - 120px);
+        top: 40px;
+    }
 }

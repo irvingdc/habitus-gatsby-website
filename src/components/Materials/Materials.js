@@ -3,6 +3,7 @@ import classes from "./Materials.module.css"
 import MaterialBlock from '../MaterialBlock/MaterialBlock'
 import MaterialsDialog from "../MaterialsDialog/MaterialsDialog"
 import Button from "../Button/Button"
+import { navigate } from "gatsby"
 import { img1, img2, img3, img4, img5 } from "../../images"
 import Header from "../Header/Header";
 
@@ -88,15 +89,18 @@ class Materials extends Component {
         this.setState({ displayMaterialsDialog: false })
     }
     render(){
+        if(typeof window === "undefined") return <div></div>
         let showdetails = this.props.showdetails, titlestyle = this.props.titlestyle
+        let margin = window.innerWidth < 770 ? "10px auto 20px" : "30px auto 50px"
         return (
             <div className={ classes.container }>
                 <MaterialsDialog display={ this.state.displayMaterialsDialog } close={ this.hideMaterialsTable }/>
-                <Header style={{ ...titlestyle, margin: "30px auto 50px", fontSize: "30px"}}>MATERIALES</Header>
-                <div className={ classes.grid }>
+                <Header style={{ ...titlestyle, margin, fontSize: "30px"}}>MATERIALES</Header>
+                <div className={ [classes.grid, this.props.showdetails ? classes.withDetails : ""].join(" ") }>
                     {
                         this.materials.map((it,index) => (
                             <MaterialBlock 
+                                specialstyle={{ margin: (index === 2 && !this.props.showdetails && window.innerWidth < 770 ? "0px 80px !important" : undefined) }}
                                 showdetails={ showdetails }
                                 key={ index }
                                 title={ it.title }
@@ -108,13 +112,24 @@ class Materials extends Component {
                         ))
                     }
                 </div>
-                <Button ghost click={ this.showMaterialsTable } style={{
-                    fontSize: showdetails ? "13px" : "15px",
-                    letterSpacing: "2px",
-                    padding:"10px 18px",
-                    margin: showdetails ? "30px auto 20px" : "50px auto 0px",
-                    fontFamily: "GS",
-                }}>{ showdetails ? "VER TABLA DE COMPARACION" : "VER ESPECIFICACIONES"}</Button>
+                { showdetails ? (
+                    <Button ghost click={ this.showMaterialsTable } style={{
+                        fontSize: showdetails ? "13px" : "15px",
+                        letterSpacing: "2px",
+                        padding:"10px 18px",
+                        margin: showdetails ? "30px auto 20px" : "50px auto 0px",
+                        fontFamily: "GS",
+                    }}>VER TABLA DE COMPARACION</Button>
+                ) : (
+                    <Button ghost click={ ()=>navigate("/beta/materiales/") } style={{
+                        fontSize: showdetails ? "13px" : "15px",
+                        letterSpacing: "2px",
+                        padding:"10px 18px",
+                        margin: showdetails ? "30px auto 20px" : "50px auto 0px",
+                        fontFamily: "GS",
+                    }}>VER ESPECIFICACIONES</Button>
+                ) }
+                
             </div>
         )
     }

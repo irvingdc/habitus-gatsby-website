@@ -29,3 +29,13 @@
     letter-spacing: 5px;
     color: var(--habitus-gray);
 }
+@media (max-width: 770px){
+    .tripleA, .double, .tripleB{
+        display: block;
+        height: fit-content;
+        padding: 0px;
+    }
+    .tripleA > div, .double > div, .tripleB > div{
+        
+    }
+}

@@ -19,3 +19,15 @@
     font-weight: 500;
     color: var(--habitus-secondary);
 }
+@media (max-width: 770px){
+    .designsAndMaterials{
+        background: white;
+    }
+    .designsAndMaterials > p{
+        margin: 10px auto 20px;
+        font-size: 18px;
+    }
+    .middleMessage{
+        font-size: 26px;
+    }
+}

@@ -2,17 +2,18 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    height: 450px;
+    height: 600px;
     padding: 70px calc(50% - 700px) 80px 0px;
 }
 .text{
     position: absolute;
     display: block;
     width: calc(100% - 600px);
-    max-width: 700px;
-    left: 150px;
+    max-width: 770px;
+    left: 160px;
     z-index: 120;
-    top: 110px;
+    top: 145px;
+    font-size: 18px;
 }
 .text h1{
     font-family: PG;
@@ -39,4 +40,32 @@
 .welcomeImage{
     height: 100%;
     z-index: 80;
+}
+.welcomeImage img{
+    height: 100%;
+}
+@media (max-width: 770px){
+    .container{
+        padding: 70px 0px 220px;
+    }
+    .text{
+        width: calc(100% - 70px);
+        margin: auto;
+        left: 35px;
+        order: 2;
+        top: 618px;
+    }
+    .welcomeImage{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        position: absolute;
+        left: 0px;
+    }
+    .welcomeImage img{
+        width: initial;
+        height: 600px;
+    }
 }
