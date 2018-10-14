@@ -12,7 +12,7 @@
     max-width: 770px;
     left: 160px;
     z-index: 120;
-    top: 145px;
+    top: 240px;
     font-size: 18px;
 }
 .text h1{
@@ -57,7 +57,8 @@
     }
     .text p{
         text-align: justify;
-        line-height: 25px;
+        line-height: 24px;
+        font-size: 16px;
     }
     .welcomeImage{
         width: 100%;
@@ -75,7 +76,14 @@
 }
 @media (max-width: 520px){
     .container{
+        height: 500px;
         padding: 70px 0px 300px;
+    }
+    .container > img{
+        height: 500px;
+    }
+    .container .text{
+        top: 568px;
     }
     .text h1{
         letter-spacing: 5px;

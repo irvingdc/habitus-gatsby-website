@@ -6,6 +6,9 @@ import { img12, img8, img7, img20, img15, img16, img6, img18 } from "../../imag
 import Header from "../Header/Header";
 
 export default ({ display, close, application, selectApplication }) => {
+    
+    if(typeof window === "undefined") return <div></div>
+    
     let table1 = {
         head: ["", "Aluminio", "Acero Inoxidable", "Acero Al Carbón", "MDF", "Triplay"],
         content: [
@@ -113,7 +116,6 @@ export default ({ display, close, application, selectApplication }) => {
         }
         selectApplication(keys[nextIndex])
     }
-
     return (
         <Dialog 
             showbutton
@@ -121,18 +123,18 @@ export default ({ display, close, application, selectApplication }) => {
             display={ display } 
             title={ list[application].title } 
             close={ close } 
-            padding="55px 35px 35px"
             img={ list[application].img }
             next={ nextApplication }
             previous={ previousApplication }
         >
             <Header style={{ 
-                fontSize:"20px", 
+                fontSize:"18px", 
                 fontWeight: "900", 
                 fontFamily: "GS",
                 letterSpacing: "0px",
                 maxWidth: "300px",
-                margin: "0px auto 20px"
+                lineHeight: "26px",
+                margin: "0px auto 10px"
             }}>{ list[application].subtitle }</Header>
             <p className={ classes.description }>{ list[application].description }</p>
             <DetailsTable data={ list[application].data }/>

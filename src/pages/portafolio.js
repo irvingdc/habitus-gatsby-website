@@ -19,14 +19,15 @@ export default () => {
                 <PictureBanner
                     withpadding
                     showsocial
+                    special
                     img={ img17 }
-                    height="550px"
+                    height={ window.innerWidth < 550 ? "400px" : "600px"}
                     titlestyle={{
                         fontSize: "24px",
                         fontFamily: "PG",
                         letterSpacing: "6px",
                     }}
-                    background="#00000022"
+                    background="#00000016"
                 />
             </div>
             <Header style={ headerStyle }>NUESTRO PORTAFOLIO</Header>

@@ -1,8 +1,6 @@
 .container{
     opacity: 0;
     visibility: hidden;
-    display: flex;
-    width: 100vw;
     height: 100vh;
     position: fixed;
     left: 0;
@@ -11,14 +9,24 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    overflow-y: auto;
 }
+.scrollControl{
+    height: fit-content;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    min-height: 100vh;
+    align-items: center;
+}
+
 .displayed{
     opacity: 1;
     visibility: visible;
 }
 .background{
     background: #000000bb;
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     left: 0;
@@ -51,7 +59,8 @@
 }
 .grid{
     display: flex;
-    width: fit-content;
+    width: calc(100% - 210px);
+    max-width: fit-content;
 }
 .side{
     width: 350px;
@@ -70,10 +79,10 @@
     position: absolute;
     transform: translateX(-50%);
     left: 50%;
-    bottom: -20px;
+    bottom: 0px;
     background: white;
     box-shadow: 0px 0px 18px 0px #00000055;
-    padding: 30px 50px;
+    padding: 20px 40px;
 }
 .goRight{
     display: block;
@@ -92,21 +101,92 @@
     left: -60px;
     cursor: pointer;
 }
-@media (min-width: 770px){
+@media (max-width: 770px){
     .grid{
         flex-direction: column;
     }
+    .content{
+        padding-top: 210px;
+    }
+    .imgSide{
+        z-index: 10;
+        height: 250px;
+        top: -90px;
+        left: 0px;
+    }
+    .side{
+        width: calc(100% - 40px);
+        margin-right: 0px;
+        height: fit-content;
+        position: absolute;
+    }
+    .grid{
+        width: calc(100% - 110px);
+        margin: 30px 0px 60px;
+    }
+    .card{
+        min-width: unset;
+    }
+    .close{
+        right: -15px;
+        top: -28px;
+        z-index: 1000;
+    }
+    .headerSide{
+        z-index: 100;
+        width: 220px;
+        padding: 10px 50px;
+        bottom: -135px;
+        position: relative;
+    }
     .scrollable{
         min-width: 200px;
-        width: calc(100% - 25px);
+        width: 100%;
+    }
+    .scrollable.dialog{
+        padding: 40px 10px 10px !important;
     }
     .scrollable .headerTop{
         padding: 20px 30px;
+        top: -45px;
     }
     .scrollable .close{
         right: -2px;
     }
     .scrollable .content{
+        padding-top: 0px;
         width: 100%;
+    }
+}
+@media (max-width: 550px){
+    .content{
+        padding-top: 195px;
+    }
+    .card{
+        padding: 70px 10px 10px;
+    }
+    .headerSide{
+        width: 200px;
+        padding: 10px 20px;
+        bottom: -125px;
+    }
+    .side{
+        left: 20px;
+    }
+    .close{
+        width: 40px;
+    }
+    .grid{
+        width: calc(100% - 70px);
+    }
+    .goRight{
+        width: 19px;
+        right: -23px;
+        filter: brightness(10);
+    }
+    .goLeft{
+        width: 19px;
+        left: -23px;
+        filter: brightness(10);
     }
 }

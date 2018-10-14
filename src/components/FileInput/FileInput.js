@@ -16,12 +16,14 @@ class FileInput extends Component{
                 files: files[0],
                 name: files[0].name
             })
+            if(this.props.change) this.props.change(files[0])
         }
         else{
             this.setState({
                 files: [],
                 name: ""
             })
+            if(this.props.change) this.props.change(null)
         }
     }
 
@@ -30,7 +32,8 @@ class FileInput extends Component{
 			<div className={ classes.container }>
 				<input 
 					type="file" 
-					name="file"
+                    name="file"
+                    accept=".pdf,.ai,.dwg"
 					onChange={ this.handleFileChange }
                     />
 				<div>

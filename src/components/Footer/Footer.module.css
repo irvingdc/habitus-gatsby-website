@@ -8,7 +8,7 @@
     margin: auto;
     display: block;
 }
-.container > img{
+.container img{
     width: 150px;
     margin: 10px auto;
 }

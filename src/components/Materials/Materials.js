@@ -17,13 +17,14 @@ class Materials extends Component {
             img: img3,
             description: "Recomendado para uso en interiores, de gran dureza y maleabilidad.",
             thicknesses: [
+                { thickness: 0.91, unit: "mm (cal.20)", },
                 { thickness: 1.21, unit: "mm (cal.18)", },
                 { thickness: 1.51, unit: "mm (cal.16)", },
                 { thickness: 1.89, unit: "mm (cal.14)", },
                 { thickness: 2.65, unit: "mm (cal.12)", },
                 { thickness: 3.41, unit: "mm (cal.10)", },
                 { thickness: 4.76, unit: 'mm (3/16")', },
-                { thickness: 6.35, unit: 'mm (1/4")', }
+                { thickness: 6.35, unit: 'mm (1/4")', },
             ],
             finishedstyle: "natural o pintado",
         },
@@ -35,9 +36,6 @@ class Materials extends Component {
                 { thickness: 0.91, unit: "mm (cal.20)", },
                 { thickness: 1.21, unit: "mm (cal.18)", },
                 { thickness: 1.51, unit: "mm (cal.16)", },
-                { thickness: 1.89, unit: "mm (cal.14)", },
-                { thickness: 2.65, unit: "mm (cal.12)", },
-                { thickness: 3.41, unit: "mm (cal.10)", },
             ],
             finishedstyle: "natural",
         },
@@ -46,6 +44,7 @@ class Materials extends Component {
             img: img2,
             description: "Para uso en exteriores, de amplia duración y resistente a la intemperie. Menor dureza y peso que el acero inoxinable pero mayor maleabilidad.",
             thicknesses: [
+                { thickness: 0.91, unit: "mm (cal.20)", },
                 { thickness: 1.89, unit: "mm (cal.14)", },
                 { thickness: 2.65, unit: "mm (cal.12)", },
                 { thickness: 3.41, unit: "mm (cal.10)", },
@@ -71,11 +70,8 @@ class Materials extends Component {
             img: img5,
             description: "Tablero elaborado mediante un proceso de laminado de chapas de madera blanda pegadas unas a otras. Recomendado solamente para interiores.",
             thicknesses: [
-                { thickness: 3, unit: "mm", },
-                { thickness: 5.5, unit: "mm", },
-                { thickness: 9, unit: "mm", },
+                { thickness: 5, unit: "mm", },
                 { thickness: 12, unit: "mm", },
-                { thickness: 15, unit: "mm", },
                 { thickness: 18, unit: "mm", },
             ],
             finishedstyle: "natural",
@@ -100,7 +96,6 @@ class Materials extends Component {
                     {
                         this.materials.map((it,index) => (
                             <MaterialBlock 
-                                specialstyle={{ margin: (index === 2 && !this.props.showdetails && window.innerWidth < 770 ? "0px 80px !important" : undefined) }}
                                 showdetails={ showdetails }
                                 key={ index }
                                 title={ it.title }
@@ -121,7 +116,7 @@ class Materials extends Component {
                         fontFamily: "GS",
                     }}>VER TABLA DE COMPARACION</Button>
                 ) : (
-                    <Button ghost click={ ()=>navigate("/beta/materiales/") } style={{
+                    <Button ghost click={ ()=>navigate("/disenos-y-materiales/") } style={{
                         fontSize: showdetails ? "13px" : "15px",
                         letterSpacing: "2px",
                         padding:"10px 18px",

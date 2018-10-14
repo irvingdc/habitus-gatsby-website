@@ -11,7 +11,8 @@
     cursor: pointer;
 }
 .disabled{
-    opacity: 0.4;
+    opacity: 0.3;
+    cursor: default;
 }
 .text{
     display: flex;
@@ -40,8 +41,8 @@
         height: 100px;
     }
     .text{
-        font-size: 15px;
-        height: 34px;
+        font-size: 13.5px;
+        height: 30px;
         max-width: 150px !important;
     }
 }

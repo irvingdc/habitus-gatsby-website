@@ -27,10 +27,14 @@
     margin: auto;
 }
 .thicknessesSection{
-    display: flex;
+    display: block;
     width: 620px;
-    justify-content: space-between;
+    text-align: center;
     margin: auto;
+}
+.thicknessesSection > *{
+    display: inline-flex !important;
+    margin: 10px;
 }
 .line{
     width: 30px;
@@ -163,8 +167,15 @@
     flex-direction: column;
     align-items: center;
 }
-::placeholder{
+.container input::placeholder{
     color: #a5a5a5;
+}
+.container input:focus::placeholder{
+    color: transparent;
+}
+.error, .error *{
+    border-color: #ff4747 !important;
+    color: #ff4747 !important;
 }
 @media (max-width: 1300px){
     .materialsSection{
@@ -178,6 +189,17 @@
     }
 }
 @media (max-width: 770px){
+    .materialsSection{
+        max-width: 400px !important;
+    }
+    .subheader{
+        font-size: 17px;
+        margin: 25px;
+    }
+    .noteA{
+        top: -15px;
+        font-size: 16px;
+    }
     .container{
         padding-top: 80px;
     }
@@ -211,7 +233,10 @@
         width: 150px;
     }
     .sizeSection p{
-        font-size: 15px;
+        font-size: 14px;
+    }
+    .sizeSection p span{
+        font-size: 20px;
     }
     .sizeSection input{
         width: 160px;
@@ -221,10 +246,13 @@
     }
     .sizeSection h3{
         letter-spacing: 2px;
-        font-size: 17px;
+        font-size: 16px;
     }
     .noteD{
         font-size: 16px;
         margin: 40px 25px 50px;
+    }
+    .informationSection p, .informationSection input{
+        font-size: 15px;
     }
 }

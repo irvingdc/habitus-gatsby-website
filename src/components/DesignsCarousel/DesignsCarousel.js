@@ -68,6 +68,10 @@ class DesignsCarousel extends Component {
         latticeSelected: 6
     }   
 
+    componentDidMount(){
+        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===this.state.latticeSelected))
+    }
+
     getLatticesToDisplay = () => {
         let selectedIndex = this.state.lattices.findIndex(it => it.model === this.state.latticeSelected)
         var lattices = [], i

@@ -40,7 +40,7 @@ class DisenosYMateriales extends Component {
                         showsocial
                         img={ img10 }
                         title="DISEÑOS Y MATERIALES"
-                        height="550px"
+                        height="500px"
                         titlestyle={titleStyle}
                         background="linear-gradient(to right, #00000077, #00000044)"
                     />

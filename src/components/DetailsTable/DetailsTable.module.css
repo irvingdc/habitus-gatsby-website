@@ -26,10 +26,10 @@
     font-size: 13px;
     border-right: 1px solid var(--habitus-primary);
 }
-.table p{
+.table td > span{
     min-width: 62px;
 }
-.table p span{
+.table span span{
     font-size: 35px;
     position: relative;
     top: 15px;
@@ -44,13 +44,28 @@
     right: -2px;
 }
 @media (max-width: 770px){
-    .scrollable{
-        border-collapse: collapse;
-        background: #faf8f0;
-        margin: auto;
-        overflow-x: scroll;
-        width: calc(100% - 0px);
-        box-shadow: 8px 0px 10px -5px #00000063 inset, -8px 0px 10px -5px #00000063 inset;
-        display: block;
+    .table td > span{
+        min-width: unset;
+    }
+    .table img + span{
+        top: 8px;
+    }
+}
+@media (max-width: 550px){
+    .table td{
+        height: 18px;
+    }
+    .table th{
+        padding: 10px 0px;
+    }
+    .table td:first-child{
+        padding: 0px 2px;
+        font-size: 10px;
+    }
+    .table img{
+        width: 18px;
+    }
+    .table *{
+        font-size: 10px;
     }
 }

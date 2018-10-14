@@ -7,13 +7,15 @@ import DesignsCarousel from '../components/DesignsCarousel/DesignsCarousel'
 import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Footer from "../components/Footer/Footer"
 import { icono12, img1, img2, img3, img4, img5, img14, img8, img7, img15, img11, img18, img16, img6, img13 } from "../images"
-import Header from "../components/Header/Header";
-import FileInput from "../components/FileInput/FileInput";
+import Header from "../components/Header/Header"
+import FileInput from "../components/FileInput/FileInput"
+import EventBus from 'eventbusjs'
+import Toast from "../components/Toast/Toast"
+import Axios from "axios"
 
 class Cotiza extends Component {
 
     state = {
-        latticeSelected: null,
         usage: [
             { value: "interior", selected: false },
             { value: "exterior", selected: false },
@@ -28,6 +30,7 @@ class Cotiza extends Component {
             { value: "tragaluces y plafones", selected: false, img: img6 },
             { value: "fachadas", selected: false, img: img13 },
         ],
+        latticeSelected: null,
         materials: [
             { value: "acero al carbón", selected: false, img: img3 },
             { value: "acero inoxidable", selected: false, img: img1 },
@@ -40,9 +43,21 @@ class Cotiza extends Component {
             { value: "no", selected: false },
         ],
         thicknesses: [
+            { value: "0.91 mm (cal.20)", selected: false },
+            { value: "1.21 mm (cal.18)", selected: false },
+            { value: "1.51 mm (cal.16)", selected: false },
             { value: "1.89 mm (cal.14)", selected: false },
             { value: "2.65 mm (cal.12)", selected: false },
             { value: "3.41 mm (cal 10)", selected: false },
+            { value: '4.76 mm (3/16”)', selected: false },
+            { value: '6.35 mm (1/4”)', selected: false },
+            { value: "18 mm", selected: false },
+            { value: "15 mm", selected: false },
+            { value: "12 mm", selected: false },
+            { value: "9 mm", selected: false },
+            { value: "5.5 mm", selected: false },
+            { value: "3 mm", selected: false },
+            
         ],
         height: "",
         width: "",
@@ -50,28 +65,194 @@ class Cotiza extends Component {
         name: "",
         phone: "",
         email: "",
+        loading: false,
+        file: null,
     }
 
     selectLattice = (latticeSelected) => {
         this.setState({ latticeSelected })
     }
 
-    selectOption = (option, name) => {
-        console.log("selecting "+name+": ", option)
-        let copy = this.state[name].map(it=>({
-            ...it,
-            selected: (it.value === option)
-        }))
-        this.setState({ [name]: copy })
+    selectOption = (field, value) => {
+        console.log("selecting "+field+": ", value)
+
+        let state = {}
+        switch(field){
+            case "usage":
+                let allowedApplications = value === "interior" ? ["decoración", "divisores", "tragaluces y plafones"] : ["puertas y portones","rejas","pérgolas","barandales","fachadas"]
+                let allowedMaterials = value === "interior" ? ["mdf","triplay","acero al carbón", "acero inoxidable", "aluminio"] : ["acero al carbón", "aluminio", "acero inoxidable"]
+                state = {
+                    usage: this.state.usage.map(it=> ({...it, selected: (it.value === value)})),
+                    applications: this.state.applications.map(it=>({ ...it, selected:false, disabled: !allowedApplications.find(val => val === it.value) })),
+                    materials: this.state.materials.map(it=>({ ...it, selected:false, disabled: !allowedMaterials.find(val => val === it.value)})),
+                    finishStyles: this.state.finishStyles.map(it=>({...it, selected:false, disabled: false})),
+                    thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
+                }
+                break;
+            case "applications":
+                state = {
+                    applications: this.state.applications.map(it=> ({...it, selected: (it.value === value)})),
+                    materials: this.state.materials.map(it=>({...it, selected:false})),
+                    finishStyles: this.state.finishStyles.map(it=>({...it, selected:false, disabled: false})),
+                    thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
+                }
+                break;
+            case "materials":
+                state = {
+                    materials: this.state.materials.map(it=> ({...it, selected: (it.value === value)})),
+                    finishStyles: this.state.finishStyles.map(it=>({...it, selected:false, disabled: !(value === "mdf" || value === "acero al carbón")})),
+                    thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
+                }
+                break;
+            case "finishStyles":
+                state = {
+                    finishStyles: this.state.finishStyles.map(it=> ({...it, selected: (it.value === value)})),
+                    thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
+                }
+                break;
+            case "thicknesses":
+                state = {
+                    thicknesses: this.state.thicknesses.map(it=>({...it, selected: (it.value === value)})),
+                }
+                break;
+            default:
+                state = {error: true}
+                break;
+        }
+        this.setState(state)
     }
 
     handleInputChange = (field, value) => {
-        console.log("changing "+field+" to: ", value)
         this.setState({ [field]: value })
     }
 
-    sendForm = () => {
-        console.log("sending form")
+    filterThicknesses = () => {
+        let material = this.state.materials.find(it => it.selected)
+        let materialValue = material && material.value
+        let options = []
+        switch(materialValue){
+            case "acero al carbón":
+                options = [
+                    '0.91 mm (cal.20)',
+                    '1.21 mm (cal.18)',
+                    '1.51 mm (cal.16)',
+                    '1.89 mm (cal.14)',
+                    '2.65 mm (cal.12)',
+                    '3.41 mm (cal 10)',
+                    '4.76 mm (3/16”)',
+                    '6.35 mm (1/4”)',
+                ]
+            break;
+            case "acero inoxidable":
+                options = [
+                    '0.91 mm (cal.20)',
+                    '1.21 mm (cal.18)',
+                    '1.51 mm (cal.16)',
+                ]
+            break;
+            case "aluminio":
+            options = [
+                '0.91 mm (cal.20)',
+                '1.89 mm (cal.14)',
+                '2.65 mm (cal.12)',
+                '3.41 mm (cal 10)',
+            ]
+            break;
+            case "mdf":
+                options = [
+                    "18 mm",                  
+                    "15 mm",
+                    "12 mm",
+                    "9 mm",
+                    "5.5 mm",
+                    "3 mm",
+                ]
+            break;
+            case "triplay":
+                options = [
+                    "18 mm",                  
+                    "12 mm",
+                    "5.5 mm",
+                ]
+            break;
+        }
+        return this.state.thicknesses.filter(it=>options.find(option => it.value === option))
+    }
+
+    sendForm = event => {
+        event.preventDefault()
+        if(this.state.height > 2440){
+            EventBus.dispatch("ALERT", this, "La altura debe ser menor a 2440 mm.")
+        }
+        else if(this.state.width > 1220){
+            EventBus.dispatch("ALERT", this, "La anchura debe ser menor a 1220 mm.")
+        }
+        else if( this.state.height === ""
+            || this.state.width === ""
+            || this.state.amount === ""
+            || this.state.name === ""
+            || this.state.phone === ""
+            || this.state.email === ""
+            || !this.state.usage.find(it=>it.selected)
+            || !this.state.applications.find(it=>it.selected)
+            || !this.state.materials.find(it=>it.selected)
+            || !this.state.thicknesses.find(it=>it.selected)
+        ){
+            EventBus.dispatch("ALERT", this, "Por favor completa todos los campos.")
+        }
+        else{
+            if(!this.state.loading){
+                EventBus.dispatch("ALERT", this, "Enviando...")
+                this.makeRequest()
+            }
+        }
+    }
+
+    makeRequest = () => {
+        this.setState({loading: true})
+        let url = "https://habitus.com.mx/contact.php"
+        let formData = new FormData()
+
+        let usage = this.state.usage.find(it=>it.selected)
+        let application  = this.state.applications.find(it=>it.selected)
+        let latticeSelected = this.state.latticeSelected
+        let material = this.state.materials.find(it=>it.selected)
+        let finishStyle  = this.state.finishStyles.find(it=>it.selected)
+        let thickness = this.state.thicknesses.find(it=>it.selected)
+
+        formData.append("usage", usage ? usage.value : "")
+        formData.append("application", application ? application.value : "")
+        formData.append("lattice", latticeSelected ? latticeSelected.img : "")
+        formData.append("material", material ? material.value : "")
+        formData.append("style", finishStyle ? finishStyle.value : "")
+        formData.append("thickness", thickness ? thickness.value : "")
+
+        formData.append("width", this.state.width)
+        formData.append("height", this.state.height)
+        formData.append("amount", this.state.amount)
+        formData.append("name", this.state.name)
+        formData.append("phone", this.state.phone)
+        formData.append("email", this.state.email)
+
+        Axios({
+            method: 'post',
+            url: url,
+            data: formData,
+            config: { headers: {'Content-Type': 'multipart/form-data' }}
+        }).then(result => {
+                this.setState({loading: false})
+                if(result.data === "success")
+                    EventBus.dispatch("ALERT", this, "¡Muchas gracias! Nos pondremos en contacto contigo.")
+                else throw result
+            })
+            .catch( error => {
+                this.setState({loading: false})
+                console.log("Error 2:",error)
+            })   
+    }
+
+    selectFile = file => {
+        this.setState({file})
     }
 
     render(){
@@ -80,13 +261,14 @@ class Cotiza extends Component {
         let headerStyle = window.innerWidth < 770 ? {letterSpacing: "5px", fontSize: "28px", margin: "30px 10px"} : {letterSpacing: "20px", fontSize: "28px", margin: "30px"}
         let materialsWidth = window.innerWidth < 1300 ?  undefined : "210px"
         return (
-            <div className={classes.container}>
+            <form className={classes.container} onSubmit={ this.sendForm }>
+                <Toast/>
                 <Nav fixedlogo/>
                 <div style={bannerStyle}>
                     <PictureBanner
                         showsocial
                         img={ img14 }
-                        height="600px"
+                        height="500px"
                         background="linear-gradient(to right, #00000022, #00000022)"
                     />
                 </div>
@@ -100,6 +282,7 @@ class Cotiza extends Component {
                             key={ index } 
                             selected={ it.selected } 
                             value={ it.value } 
+                            disabled={ it.disabled }
                             name="usage"
                             onSelect={ this.selectOption }
                         />
@@ -111,9 +294,11 @@ class Cotiza extends Component {
                 <div className={ classes.applicationsSection }>
                     { this.state.applications.map((it, index)=> (
                         <Option 
-                            textwidth="192px"
+                            textwidth="195px"
+                            imgheight={window.innerWidth < 770 ? "75px" : "100px"}
                             key={ index } 
                             selected={ it.selected } 
+                            disabled={ it.disabled }
                             img={ it.img } 
                             value={ it.value } 
                             name="applications"
@@ -131,7 +316,7 @@ class Cotiza extends Component {
                 <div className={ classes.fileSection }>
                     <div>
                         <p className={ classes.noteC }>sube tu diseño</p>
-                        <FileInput/>
+                        <FileInput change={this.selectFile}/>
                     </div>
                 </div>
 
@@ -140,11 +325,14 @@ class Cotiza extends Component {
                 <div className={ classes.materialsSection }>
                     { this.state.materials.map((it, index)=> (
                         <Option 
-                            textwidth="155px"
+                            textwidth={window.innerWidth < 770 ? "140px" : "155px"}
+                            imgheight={window.innerWidth < 770 ? "75px" : "100px"}
                             imgwidth={ materialsWidth }
+                            disabled={ it.disabled }
                             key={ index } 
                             selected={ it.selected } 
                             img={ it.img } 
+                            containerstyle={{padding: it.value==="aluminio" && window.innerWidth < 770 ? "10px 80px" : "0px"}}
                             value={ it.value } 
                             name="materials"
                             onSelect={ this.selectOption }
@@ -162,6 +350,7 @@ class Cotiza extends Component {
                             key={ index } 
                             selected={ it.selected } 
                             value={ it.value } 
+                            disabled={ it.disabled }
                             name="finishStyles"
                             onSelect={ this.selectOption }
                         />
@@ -171,12 +360,13 @@ class Cotiza extends Component {
                 <i className={ classes.line }></i>
                 <h3 className={ classes.subheader}>ESPESOR</h3>
                 <div className={ classes.thicknessesSection }>
-                    { this.state.thicknesses.map((it, index)=> (
+                    { this.filterThicknesses().map((it, index)=> (
                         <Option 
                             key={ index } 
                             selected={ it.selected } 
                             value={ it.value }
                             textwidth="180px"
+                            disabled={ it.disabled }
                             name="thicknesses" 
                             onSelect={ this.selectOption }
                         />
@@ -187,8 +377,11 @@ class Cotiza extends Component {
                     <div>
                         <i className={ classes.line }></i>
                         <h3 className={ classes.subheader}><b>ANCHURA</b> EN MM</h3>
-                        <p>* máximo <span>1220</span> mm (4')</p>
-                        <input 
+                        <p className={ this.state.width > 1220 ? classes.error : "" }>* máximo <span>1220</span> mm (4')</p>
+                        <input
+                            className={ this.state.width > 1220 ? classes.error : "" }
+                            required 
+                            max="1220"
                             type="number" 
                             onChange={ (event) => this.handleInputChange("width", event.target.value) }
                         />
@@ -196,8 +389,11 @@ class Cotiza extends Component {
                     <div>
                         <i className={ classes.line }></i>
                         <h3 className={ classes.subheader}><b>ALTURA</b> EN MM</h3>
-                        <p>* máximo <span>2440</span> mm (8')</p>
+                        <p className={ this.state.height > 2440 ? classes.error : "" }>* máximo <span>2440</span> mm (8')</p>
                         <input 
+                            className={ this.state.height > 2440 ? classes.error : "" }
+                            required
+                            max="2440"
                             type="number" 
                             onChange={ (event) => this.handleInputChange("height", event.target.value) }
                         />
@@ -209,6 +405,7 @@ class Cotiza extends Component {
                         <h3 className={ classes.subheader}><b>CANTIDAD A SOLICITAR</b></h3>
                         <p className={ classes.noteC }></p>
                         <input 
+                            required
                             type="number" 
                             onChange={ (event) => this.handleInputChange("amount", event.target.value) }
                         />
@@ -223,6 +420,7 @@ class Cotiza extends Component {
                     <span>
                         <p>nombre</p>
                         <input 
+                            required
                             type="text"
                             placeholder="escribe tu nombre" 
                             onChange={ (event) => this.handleInputChange("name", event.target.value) }
@@ -231,6 +429,7 @@ class Cotiza extends Component {
                     <span>
                         <p>teléfono</p>
                         <input 
+                            required
                             type="text"
                             placeholder="escribe tu teléfono" 
                             onChange={ (event) => this.handleInputChange("phone", event.target.value) }
@@ -239,6 +438,7 @@ class Cotiza extends Component {
                     <span>
                         <p>correo</p>
                         <input 
+                            required
                             className={ classes.emailInput }
                             type="email"
                             placeholder="escribe tu correo" 
@@ -250,7 +450,7 @@ class Cotiza extends Component {
                     </span>
                 </div>
                 <Footer/>
-            </div>
+            </form>
         )
     }
 }

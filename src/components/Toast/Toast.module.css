@@ -1,0 +1,30 @@
+.Toast{
+	z-index: 99999;
+	position: fixed;
+	color: white;
+	padding: 20px;
+	background: black;
+	border-radius: 4px;
+	left: 10px;
+	bottom: -100px;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.4s;
+}
+
+.Toast.Visible{
+	visibility: visible;
+	opacity: 1;
+	bottom: 10px;
+}
+
+@media (max-width: 770px){
+	.Toast{
+		left: 0px;
+		width: calc(100% - 40px);
+		border-radius: 0px;
+	}
+	.Toast.Visible{
+		bottom: 0px;
+	}
+}

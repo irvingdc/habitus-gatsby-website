@@ -6,18 +6,18 @@ let renderContent = it => {
     if(typeof it === "string") return it
     else if(typeof it.val !== "string"){
         return (
-            <p>
+            <span>
                 { it.val ? <img src={ icono16 }/> : <img src={ icono17 }/> }
                 { it.special ? <span>*</span> : ""}
-            </p>
+            </span>
         )
     }
     else{
         return (
-            <p>
+            <span>
                 { it.val }
                 { it.special ? <span>*</span> : ""}
-            </p>
+            </span>
         )
     }
 }

@@ -49,7 +49,7 @@
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 40px;
-    padding-left: 45px;
+    padding-left: 55px;
 }
 .grid img{
     display: block;
@@ -68,6 +68,10 @@
     }
     .img{
         height: 240px;
+    }
+    .grid img{
+        width: 45px;
+        height: 45px;
     }
     .width{
         width: 120px;

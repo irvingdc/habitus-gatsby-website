@@ -1,10 +1,11 @@
 import React from "react"
 import classes from "./MaterialBlock.module.css"
 
-export default ({ showdetails, title, img, description, thicknesses, finishedstyle, specialstyle }) =>{
-    console.log("specialstyle",specialstyle)
+export default ({ showdetails, title, img, description, thicknesses, finishedstyle }) =>{
+    if(typeof window === "undefined") return <div></div>
+    let padding = title==="ALUMINIO" && !showdetails && window.innerWidth < 770 ? "10px 80px" : "0px"
     return (
-        <div className={ [classes.container, (showdetails ? classes.withDetails : "")].join(" ")} style={{ ...specialstyle}}>  
+        <div className={ [classes.container, (showdetails ? classes.withDetails : "")].join(" ")} style={{ padding: padding }}>  
             { showdetails ? null : <h3 className={ classes.topTitle }>{ title }</h3> }
             <div className={ classes.img } style={{
                 background:`url(${img}) center center / cover no-repeat`,
