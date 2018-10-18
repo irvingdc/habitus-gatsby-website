@@ -11,6 +11,7 @@ import Header from "../components/Header/Header"
 import FileInput from "../components/FileInput/FileInput"
 import EventBus from 'eventbusjs'
 import Toast from "../components/Toast/Toast"
+import Message from "../components/Message/Message"
 import Axios from "axios"
 
 class Cotiza extends Component {
@@ -67,6 +68,8 @@ class Cotiza extends Component {
         email: "",
         loading: false,
         file: null,
+        showMessage: false,
+        message: ""
     }
 
     selectLattice = (latticeSelected) => {
@@ -74,8 +77,6 @@ class Cotiza extends Component {
     }
 
     selectOption = (field, value) => {
-        console.log("selecting "+field+": ", value)
-
         let state = {}
         switch(field){
             case "usage":
@@ -202,14 +203,18 @@ class Cotiza extends Component {
         }
         else{
             if(!this.state.loading){
-                EventBus.dispatch("ALERT", this, "Enviando...")
                 this.makeRequest()
             }
         }
     }
 
     makeRequest = () => {
-        this.setState({loading: true})
+        console.log("request")
+        this.setState({
+            message: "Tu solicitud está siendo procesada. Quedará lista en unos momentos.",
+            showMessage: true,
+            loading: true,
+        })
         let url = "https://habitus.com.mx/contact.php"
         let formData = new FormData()
 
@@ -240,13 +245,21 @@ class Cotiza extends Component {
             data: formData,
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         }).then(result => {
-                this.setState({loading: false})
-                if(result.data === "success")
-                    EventBus.dispatch("ALERT", this, "¡Muchas gracias! Nos pondremos en contacto contigo.")
+                if(result.data === "success"){
+                    setTimeout(()=>this.setState({
+                        showMessage: false,
+                        loading: false,
+                    }),2000)
+                    setTimeout(()=>this.setState({
+                        message: "Agradecemos tu interés, pronto nos estaremos comunicando contigo.",
+                        showMessage: true,
+                    }),2700)
+                    setTimeout(()=>window.location.reload(),7700)
+                }
                 else throw result
             })
             .catch( error => {
-                this.setState({loading: false})
+                this.setState({loading: false, showMessage: false,})
                 console.log("Error 2:",error)
             })   
     }
@@ -263,6 +276,10 @@ class Cotiza extends Component {
         return (
             <form className={classes.container} onSubmit={ this.sendForm }>
                 <Toast/>
+                <Message 
+                    display={ this.state.showMessage }
+                    close={ ()=>this.setState({showMessage: false}) } 
+                    title={this.state.message}/>
                 <Nav fixedlogo/>
                 <div style={bannerStyle}>
                     <PictureBanner
@@ -317,6 +334,7 @@ class Cotiza extends Component {
                     <div>
                         <p className={ classes.noteC }>sube tu diseño</p>
                         <FileInput change={this.selectFile}/>
+                        <span>Formatos aceptados: PDF, AI or DWG</span>
                     </div>
                 </div>
 
@@ -438,6 +456,7 @@ class Cotiza extends Component {
                     <span>
                         <p>correo</p>
                         <input 
+                            style={{padding:"5px 35px 5px 5px",width:"250px"}}
                             required
                             className={ classes.emailInput }
                             type="email"

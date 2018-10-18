@@ -4,9 +4,9 @@ import Button from "../Button/Button"
 import classes from "./PictureBanner.module.css"
 import SocialRow from "../SocialRow/SocialRow";
 
-export default ({img, link, title, height, style, special, buttoncontent, buttonstyle, background,titlestyle, showsocial}) =>{
+export default ({img, link, title, height, style, special, buttoncontent, buttonstyle, background,titlestyle, showsocial, click}) =>{
     let content = (
-        <div className={ classes.content } style={{ ...style, height }}>
+        <div className={ classes.content } style={{ ...style, height, cursor: (click ? "pointer" : "auto") }} onClick={ click ? ()=>click(img) : ()=>{}}>
             <div className={ classes.background } style={{
                 background: window.innerWidth < 550
                     ? `url(${img}) center ${special ? "left": "center"} / ${special ? "auto 80%": "cover"} no-repeat`

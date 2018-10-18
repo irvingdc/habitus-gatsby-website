@@ -10,8 +10,8 @@ export default ({ display, close }) => {
         head:  ["","Aluminio","Acero Inoxidable","Acero al Carbón","MDF","Triplay"],
         content: [
             ["RESISTENCIA A LA INTEMPERIE", {val:true, special:false}, {val:true, special:false}, {val:true, special:true}, {val:false, special:false}, {val:false, special:false}],
-            ["OXIDACIÓN", {val:true, special:false}, {val:true, special:false}, {val:true, special:true}, {val:false, special:false}, {val:false, special:false}],
-            ["DUREZA", {val:false, special:false}, {val:false, special:false}, {val:false, special:true}, "n/a", "n/a"],
+            ["OXIDACIÓN", {val:true, special:false}, {val:true, special:false}, {val:false, special:true}, {val:false, special:false}, {val:false, special:false}],
+            ["DUREZA", {val:false, special:false}, {val:false, special:false}, {val:true, special:true}, "n/a", "n/a"],
             ["MALEABILIDAD", {val:true, special:false}, {val:false, special:false}, {val:true, special:false}, {val:true, special:false}, {val:true, special:false}],
             ["DURABILIDAD EN INTERIORES", {val:"Alto", special:false}, {val:"Alto", special:false}, {val:"Alto", special:false}, {val:"Alto", special:false}, {val:"Alto", special:false}],
             ["PESO", {val:"Bajo", special:false}, {val:"Alto", special:false}, {val:"Alto", special:false}, {val:"Bajo", special:false}, {val:"Bajo", special:false}],

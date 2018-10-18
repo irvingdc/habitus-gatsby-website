@@ -78,7 +78,7 @@ export default ({ display, close, application, selectApplication }) => {
             title: "TRAGALUCES Y PLAFONES",
             img: img6,
             subtitle: "CREA EFECTOS ÚNICOS DE LUZ CON TRAGALUCES",
-            description: "Habitus te ofrece una variedad de diseños con los que puedes el paso de luz solar de acuerdo a tus necesidades, creando un ambiente agradable.",
+            description: "Habitus te ofrece una variedad de diseños con los que puedes ceder el paso de luz solar de acuerdo a tus necesidades, creando un ambiente agradable.",
             data: table1
         },
         decoracion:{

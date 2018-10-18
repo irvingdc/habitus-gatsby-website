@@ -140,7 +140,7 @@ class DesignsCarousel extends Component {
                     </div>
                 </div>
                 {   this.props.showbutton ? (
-                        <Link to="/beta/disenos-y-materiales" style={{ textDecoration: "none", display: "block", width: "fit-content", margin: "auto" }}>
+                        <Link to="/disenos-y-materiales" style={{ textDecoration: "none", display: "block", width: "fit-content", margin: "auto" }}>
                             <Button ghost style={ buttonStyle }>VER DISEÑOS</Button>
                         </Link>
                     ) : null

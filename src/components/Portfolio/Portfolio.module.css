@@ -10,6 +10,10 @@
     max-width: 1300px;
     margin: auto;
 }
+.previewImg{
+    max-width: 85vw;
+    max-height: 85vh;
+}
 @media (max-width: 770px){
     .container{
         height: 1300px;

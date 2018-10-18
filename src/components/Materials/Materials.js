@@ -15,7 +15,7 @@ class Materials extends Component {
         {
             title: "ACERO AL CARBÓN",
             img: img3,
-            description: "Recomendado para uso en interiores, de gran dureza y maleabilidad.",
+            description: "Recomendado para uso en exteriores (sólo pintando) por su gran dureza y maleabilidad.",
             thicknesses: [
                 { thickness: 0.91, unit: "mm (cal.20)", },
                 { thickness: 1.21, unit: "mm (cal.18)", },
@@ -42,7 +42,7 @@ class Materials extends Component {
         {
             title: "ALUMINIO",
             img: img2,
-            description: "Para uso en exteriores, de amplia duración y resistente a la intemperie. Menor dureza y peso que el acero inoxinable pero mayor maleabilidad.",
+            description: "Para uso en exteriores, de amplia duración y resistente a la intemperie. Menor dureza y peso que el acero inoxidable pero con mayor maleabilidad.",
             thicknesses: [
                 { thickness: 0.91, unit: "mm (cal.20)", },
                 { thickness: 1.89, unit: "mm (cal.14)", },
@@ -54,7 +54,7 @@ class Materials extends Component {
         {
             title: "MDF",
             img: img4,
-            description: "Un aglomerado fabricado a partir de fibras de maderas y resinas sintéticas comprimidas. Recomendado únicamente para interiores.",
+            description: "Tablero de fibra de madera media densidad, recomendado únicamente para interiores.",
             thicknesses: [
                 { thickness: 3, unit: "mm", },
                 { thickness: 5.5, unit: "mm", },
@@ -114,7 +114,7 @@ class Materials extends Component {
                         padding:"10px 18px",
                         margin: showdetails ? "30px auto 20px" : "50px auto 0px",
                         fontFamily: "GS",
-                    }}>VER TABLA DE COMPARACION</Button>
+                    }}>VER TABLA DE COMPARACIÓN</Button>
                 ) : (
                     <Button ghost click={ ()=>navigate("/disenos-y-materiales/") } style={{
                         fontSize: showdetails ? "13px" : "15px",

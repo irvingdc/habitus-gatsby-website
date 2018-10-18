@@ -27,12 +27,14 @@
     border-right: 1px solid var(--habitus-primary);
 }
 .table td > span{
-    min-width: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .table span span{
     font-size: 35px;
     position: relative;
-    top: 15px;
+    top: 8px;
     right: -1px;
     line-height: 0px;
 }

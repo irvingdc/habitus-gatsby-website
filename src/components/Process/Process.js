@@ -7,7 +7,7 @@ export default () => {
     let elements = [
         {
             title: "APLICACIÓN",
-            description: "Seleccionar aplicación y uso exterior o interior.",
+            description: "Seleccionar uso exterior o interior y aplicación",
             img: icono5,
         },
         {
