@@ -21,59 +21,37 @@ import { 
     celosia13,
     celosia14,
     celosia15,
-    celosia16,
-    celosia17,
-    celosia18,
-    celosia19,
-    celosia20,
-    celosia21,
-    celosia22,
-    celosia23,
-    celosia24,
-    celosia25,
-    celosia26,
  } from "../../images"
 import Header from "../Header/Header";
 
 class DesignsCarousel extends Component {
     state={
         lattices: [
-            { model: 1, img: celosia1 },
-            { model: 2, img: celosia2 },
-            { model: 3, img: celosia3 },
-            { model: 4, img: celosia4 },
-            { model: 5, img: celosia5 },
-            { model: 6, img: celosia6 },
-            { model: 7, img: celosia7 },
-            { model: 8, img: celosia8 },
-            { model: 9, img: celosia9 },
-            { model: 10, img: celosia10 },
-            { model: 11, img: celosia11 },
-            { model: 12, img: celosia12 },
-            { model: 13, img: celosia13 },
-            { model: 14, img: celosia14 },
-            { model: 15, img: celosia15 },
-            { model: 16, img: celosia16 },
-            { model: 17, img: celosia17 },
-            { model: 18, img: celosia18 },
-            { model: 19, img: celosia19 },
-            { model: 20, img: celosia20 },
-            { model: 21, img: celosia21 },
-            { model: 22, img: celosia22 },
-            { model: 23, img: celosia23 },
-            { model: 24, img: celosia24 },
-            { model: 25, img: celosia25 },
-            { model: 26, img: celosia26 },
+            { model: "C.CU", img: celosia1 },
+            { model: "C.RO", img: celosia2 },
+            { model: "C.AR", img: celosia3 },
+            { model: "C.FD", img: celosia4 },
+            { model: "C.FL", img: celosia5 },
+            { model: "C.HA", img: celosia6 },
+            { model: "C.MO", img: celosia7 },
+            { model: "C.RA", img: celosia8 },
+            { model: "C.PA", img: celosia9 },
+            { model: "C.HO", img: celosia10 },
+            { model: "C.TR", img: celosia11 },
+            { model: "C.LI", img: celosia12 },
+            { model: "C.RT", img: celosia13 },
+            { model: "C.LC", img: celosia14 },
+            { model: "C.ES", img: celosia15 },
         ],
-        latticeSelected: 6
+        latticeSelected: 5
     }   
 
     componentDidMount(){
-        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===this.state.latticeSelected))
+        if(this.props.onChange) this.props.onChange(this.state.lattices[this.state.latticeSelected])
     }
 
     getLatticesToDisplay = () => {
-        let selectedIndex = this.state.lattices.findIndex(it => it.model === this.state.latticeSelected)
+        let selectedIndex = this.state.latticeSelected
         var lattices = [], i
         for(i=-4; i<=4; i++){
             var tempIndex = i + selectedIndex
@@ -86,22 +64,22 @@ class DesignsCarousel extends Component {
     }
 
     previousLattice = () => {
-        var latticeSelected = this.state.latticeSelected - 1
-        latticeSelected = latticeSelected < 1 ? this.state.lattices.length : latticeSelected
-        this.setState({ latticeSelected })
-        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===latticeSelected))
+        var index = this.state.latticeSelected - 1
+        index = index < 0 ? this.state.lattices.length - 1 : index
+        this.selectLattice(this.state.lattices[index].model)
     }
 
     nextLattice = () => {
-        var latticeSelected = this.state.latticeSelected + 1
-        latticeSelected = latticeSelected > (this.state.lattices.length) ? 1 : latticeSelected
-        this.setState({ latticeSelected })
-        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===latticeSelected))
+        var index = this.state.latticeSelected + 1
+        index = index > (this.state.lattices.length - 1) ? 0 : index
+        this.selectLattice(this.state.lattices[index].model)
     }
 
-    selectLattice = (latticeSelected) => {
-        this.setState({ latticeSelected })
-        if(this.props.onChange) this.props.onChange(this.state.lattices.find(it=>it.model===latticeSelected))
+    selectLattice = (model) => {
+        let index = this.state.lattices.findIndex(it=>it.model===model)
+        this.setState({ latticeSelected: index })
+        if(this.props.onChange) this.props.onChange(this.state.lattices[index])
+
     }
 
     render(){
@@ -128,7 +106,7 @@ class DesignsCarousel extends Component {
                             <Lattice 
                                 selectable={ this.props.selectable } 
                                 key={ index } 
-                                selected={ it.model === this.state.latticeSelected } 
+                                selected={ this.state.lattices.findIndex(lattice => lattice.model === it.model) === this.state.latticeSelected } 
                                 img={ it.img } 
                                 model={ it.model }
                                 click={ this.selectLattice }

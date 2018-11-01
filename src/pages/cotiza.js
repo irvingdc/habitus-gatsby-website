@@ -6,13 +6,14 @@ import Option from '../components/Option/Option'
 import DesignsCarousel from '../components/DesignsCarousel/DesignsCarousel'
 import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Footer from "../components/Footer/Footer"
-import { icono12, img1, img2, img3, img4, img5, img14, img8, img7, img15, img11, img18, img16, img6, img13 } from "../images"
+import { icono12, img1, img2, img3, img4, img5, img14, img8, img7, img15, img11, img18, img16, img6, img13, logo } from "../images"
 import Header from "../components/Header/Header"
 import FileInput from "../components/FileInput/FileInput"
 import EventBus from 'eventbusjs'
 import Toast from "../components/Toast/Toast"
 import Message from "../components/Message/Message"
 import Axios from "axios"
+import {Helmet} from "react-helmet"
 
 class Cotiza extends Component {
 
@@ -182,6 +183,7 @@ class Cotiza extends Component {
 
     sendForm = event => {
         event.preventDefault()
+        var errors = []
         if(this.state.height > 2440){
             EventBus.dispatch("ALERT", this, "La altura debe ser menor a 2440 mm.")
         }
@@ -199,7 +201,16 @@ class Cotiza extends Component {
             || !this.state.materials.find(it=>it.selected)
             || !this.state.thicknesses.find(it=>it.selected)
         ){
-            EventBus.dispatch("ALERT", this, "Por favor completa todos los campos.")
+            if(this.state.amount === "") errors.push("cantidad")
+            if(this.state.name === "") errors.push("nombre")
+            if(this.state.phone === "") errors.push("teléfono")
+            if(this.state.email === "") errors.push("correo")
+            if(!this.state.usage.find(it=>it.selected)) errors.push("uso")
+            if(!this.state.applications.find(it=>it.selected)) errors.push("aplicación")
+            if(!this.state.materials.find(it=>it.selected)) errors.push("material")
+            if(!this.state.thicknesses.find(it=>it.selected)) errors.push("espesor")
+
+            EventBus.dispatch("ALERT", this, { text:"Por favor completa los campos faltanes: "+errors.join(", ")+".", time: 9000 })
         }
         else{
             if(!this.state.loading){
@@ -227,7 +238,7 @@ class Cotiza extends Component {
 
         formData.append("usage", usage ? usage.value : "")
         formData.append("application", application ? application.value : "")
-        formData.append("lattice", latticeSelected ? latticeSelected.img : "")
+        formData.append("lattice", latticeSelected ? latticeSelected.model : "")
         formData.append("material", material ? material.value : "")
         formData.append("style", finishStyle ? finishStyle.value : "")
         formData.append("thickness", thickness ? thickness.value : "")
@@ -275,6 +286,13 @@ class Cotiza extends Component {
         let materialsWidth = window.innerWidth < 1300 ?  undefined : "210px"
         return (
             <form className={classes.container} onSubmit={ this.sendForm }>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Habitus | Cotiza</title>
+                    <link rel="canonical" href="https://habitus.com.mx/cotiza/" />
+                    <meta name="description" content="HABITUS pone a tu alcance soluciones en arquitectura e interiorismo en forma de celosías y páneles detalladamente diseñados, ideales para llenar de vida un espacio o cualquier proyecto."/>
+                    <link rel="shortcut icon" href="https://habitus.com.mx/logo.png"/>
+                </Helmet>
                 <Toast/>
                 <Message 
                     display={ this.state.showMessage }

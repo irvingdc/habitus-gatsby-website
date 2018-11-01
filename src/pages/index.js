@@ -9,9 +9,10 @@ import DesignsCarousel from '../components/DesignsCarousel/DesignsCarousel'
 import Materials from '../components/Materials/Materials'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
-import PictureBanner from '../components/PictureBanner/PictureBanner';
-import { img12, img19 } from '../images'
-import ApplicationDialog from '../components/ApplicationDialog/ApplicationDialog';
+import PictureBanner from '../components/PictureBanner/PictureBanner'
+import { img12, img19, logo } from '../images'
+import ApplicationDialog from '../components/ApplicationDialog/ApplicationDialog'
+import {Helmet} from "react-helmet"
 
 class Index extends Component{
     
@@ -52,6 +53,13 @@ class Index extends Component{
         }
         return(
             <div className={classes.MainContainer}>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Habitus | Ambientes que destacan</title>
+                    <link rel="canonical" href="https://habitus.com.mx" />
+                    <meta name="description" content="HABITUS pone a tu alcance soluciones en arquitectura e interiorismo en forma de celosías y páneles detalladamente diseñados, ideales para llenar de vida un espacio o cualquier proyecto."/>
+                    <link rel="shortcut icon" href="https://habitus.com.mx/logo.png"/>
+                </Helmet>
                 <Nav/>
                 <Introduction/>
                 <Process/>

@@ -1,0 +1,36 @@
+.introduction{
+    background: var(--habitus-tertiary);
+    padding: 50px 0px;
+    margin-top: 20px;
+}
+.whiteSection{
+    background: white;
+    box-shadow: 0px 0px 10px 0px #0000004d;
+    padding: 20px;
+}
+.introduction > p{
+    font-size: 15px;
+    text-align: center;
+    padding: 20px;
+}
+.flex{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 1200px;
+    margin: auto;
+}
+.otherArticles{
+    max-width: 700px;
+    width: 100%;
+}
+.otherArticles > h2{
+    text-align: center;
+    padding: 20px;
+    color: var(--habitus-primary);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 5px;
+    font-family: GS;
+    font-size: 22px;
+}

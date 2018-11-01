@@ -7,7 +7,8 @@ import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Materials from '../components/Materials/Materials'
 import DesignsIntroduction from '../components/DesignsIntroduction/DesignsIntroduction'
 import Footer from "../components/Footer/Footer"
-import { img10, celosia6 } from "../images"
+import { img10, celosia6, logo } from "../images"
+import {Helmet} from "react-helmet"
 
 class DisenosYMateriales extends Component {
 
@@ -34,6 +35,13 @@ class DisenosYMateriales extends Component {
         }
         return (
             <div className={classes.container}>
+                <Helmet>
+                    <meta charSet="utf-8" />
+                    <title>Habitus | Diseños y materiales</title>
+                    <link rel="canonical" href="https://habitus.com.mx/disenos-y-materiales/" />
+                    <meta name="description" content="HABITUS pone a tu alcance soluciones en arquitectura e interiorismo en forma de celosías y páneles detalladamente diseñados, ideales para llenar de vida un espacio o cualquier proyecto."/>
+                    <link rel="shortcut icon" href="https://habitus.com.mx/logo.png"/>
+                </Helmet>
                 <Nav fixedlogo/>
                 <div style={bannerStyle}>
                     <PictureBanner

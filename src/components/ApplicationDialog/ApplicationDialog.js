@@ -2,7 +2,7 @@ import React from "react"
 import classes from "./ApplicationDialog.module.css"
 import Dialog from "../Dialog/Dialog"
 import DetailsTable from "../DetailsTable/DetailsTable"
-import { img12, img8, img7, img20, img15, img16, img6, img18 } from "../../images"
+import { img13, img8, img7, img11, img15, img16, img6, img18 } from "../../images"
 import Header from "../Header/Header";
 
 export default ({ display, close, application, selectApplication }) => {
@@ -34,7 +34,7 @@ export default ({ display, close, application, selectApplication }) => {
     let list = {
         fachadas: {
             title: "FACHADAS",
-            img: img12,
+            img: img13,
             subtitle: "EMBELLECE TU EXTERIOR CON FACHADAS",
             description: "Plasma tu creatividad a través de los diseños que te ofrece Habitus para cubrir espacios en una fachada o simplemente para generar un ambiente con estilo.",
             data: table2
@@ -55,7 +55,7 @@ export default ({ display, close, application, selectApplication }) => {
         },
         pergolas:{
             title: "PÉRGOLAS",
-            img: img20,
+            img: img11,
             subtitle: "CREA SOMBRAS ÚNICAS A TRAVÉS DE PÉRGOLAS",
             description: "Armoniza el exterior de un espacio con el estilo que deseas a través de celosías que permiten la difusión de la luz solar de acuerdo a tus necesidades.",
             data: table2

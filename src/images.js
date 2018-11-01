@@ -53,17 +53,6 @@ import celosia12 from './images/celosia12.svg'
 import celosia13 from './images/celosia13.svg'
 import celosia14 from './images/celosia14.svg'
 import celosia15 from './images/celosia15.svg'
-import celosia16 from './images/celosia16.svg'
-import celosia17 from './images/celosia17.svg'
-import celosia18 from './images/celosia18.svg'
-import celosia19 from './images/celosia19.svg'
-import celosia20 from './images/celosia20.svg'
-import celosia21 from './images/celosia21.svg'
-import celosia22 from './images/celosia22.svg'
-import celosia23 from './images/celosia23.svg'
-import celosia24 from './images/celosia24.svg'
-import celosia25 from './images/celosia25.svg'
-import celosia26 from './images/celosia26.svg'
 import height from './images/height.png'
 import width from './images/width.png'
 
@@ -123,17 +112,6 @@ export {
     celosia13,
     celosia14,
     celosia15,
-    celosia16,
-    celosia17,
-    celosia18,
-    celosia19,
-    celosia20,
-    celosia21,
-    celosia22,
-    celosia23,
-    celosia24,
-    celosia25,
-    celosia26,
     height,
     width,
 };
