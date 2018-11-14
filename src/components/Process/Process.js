@@ -6,23 +6,23 @@ import { icono4, icono5, icono6, icono7 } from "../../images"
 export default () => {
     let elements = [
         {
-            title: "APLICACIÓN",
-            description: "Seleccionar uso exterior o interior y aplicación",
+            title: "DISEÑO",
+            description: "Determinar el uso y aplicación de tu panel.",
             img: icono5,
         },
         {
-            title: "DISEÑO",
-            description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI or DWG</span>,
+            title: "APLICACIÓN",
+            description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI ó DWG</span>,
             img: icono4,
         },
         {
             title: "MATERIAL",
-            description: "Escoger material, dimesiones y cantidad",
+            description: "Escoger material, dimensiones y cantidad de paneles.",
             img: icono6,
         },
         {
             title: "PERSONALIZAR",
-            description: "Adapta tu proyecto con un asesor de Habitus",
+            description: "Adapta tu celosía a tu proyecto planeado.",
             img: icono7,
         },
     ]

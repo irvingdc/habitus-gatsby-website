@@ -1,7 +1,7 @@
 import React from "react"
 import classes from "./Applications.module.css"
 import ApplicationBlock from "../ApplicationBlock/ApplicationBlock"
-import { img8, img11, img13, img15, img16, img18, img6, img7 } from "../../images"
+import { img8, img11, img13, img15, img16, img22, img6, img7 } from "../../images"
 
 export default ({ show }) =>(
     <div className={ classes.container }>
@@ -19,7 +19,7 @@ export default ({ show }) =>(
             />
             <ApplicationBlock 
                 title="DECORACIÓN" 
-                img={ img18 }
+                img={ img22 }
                 style={{
                     gridColumn: "2",
                     gridRow: "1/3"

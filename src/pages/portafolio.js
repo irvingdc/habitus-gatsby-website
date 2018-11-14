@@ -38,7 +38,7 @@ export default () => {
                     background="#00000016"
                 />
             </div>
-            <Header style={ headerStyle }>NUESTRO PORTAFOLIO</Header>
+            <Header style={ headerStyle }>INSPÍRATE CON NUESTROS PROYECTOS</Header>
             <Portfolio/>
             <Footer/>
         </div>

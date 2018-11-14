@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import classes from "./Portfolio.module.css"
 import Preview from "../Preview/Preview"
 import PictureBanner from "../PictureBanner/PictureBanner"
-import {img8, img15, img18, img7, img6, img11, img16, img13, } from "../../images"
+import {img8, img15, img22, img7, img6, img11, img16, img13, } from "../../images"
 
 class Portfolio extends Component {
 
@@ -14,7 +14,7 @@ class Portfolio extends Component {
     images = [
         img8,
         img15,
-        img18,
+        img22,
         img7,
         img6,
         img11,

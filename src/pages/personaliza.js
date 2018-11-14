@@ -1,12 +1,12 @@
 import React, { Component } from "react"
-import classes from "./cotiza.module.css"
+import classes from "./personaliza.module.css"
 import '../main.module.css'
 import Nav from '../components/Nav/Nav'
 import Option from '../components/Option/Option'
 import DesignsCarousel from '../components/DesignsCarousel/DesignsCarousel'
 import PictureBanner from '../components/PictureBanner/PictureBanner'
 import Footer from "../components/Footer/Footer"
-import { icono12, img1, img2, img3, img4, img5, img14, img8, img7, img15, img11, img18, img16, img6, img13, logo } from "../images"
+import { icono12, img1, img2, img3, img4, img5, img14, img19 } from "../images"
 import Header from "../components/Header/Header"
 import FileInput from "../components/FileInput/FileInput"
 import EventBus from 'eventbusjs'
@@ -15,22 +15,12 @@ import Message from "../components/Message/Message"
 import Axios from "axios"
 import {Helmet} from "react-helmet"
 
-class Cotiza extends Component {
+class Personaliza extends Component {
 
     state = {
         usage: [
             { value: "interior", selected: false },
             { value: "exterior", selected: false },
-        ],
-        applications: [
-            { value: "rejas", selected: false, img: img8 },
-            { value: "puertas y portones", selected: false, img: img7 },
-            { value: "divisores", selected: false, img: img15 },
-            { value: "pérgolas", selected: false, img: img11 },
-            { value: "decoración", selected: false, img: img18 },
-            { value: "barandales", selected: false, img: img16 },
-            { value: "tragaluces y plafones", selected: false, img: img6 },
-            { value: "fachadas", selected: false, img: img13 },
         ],
         latticeSelected: null,
         materials: [
@@ -67,10 +57,11 @@ class Cotiza extends Component {
         name: "",
         phone: "",
         email: "",
+        message: "",
         loading: false,
         file: null,
         showMessage: false,
-        message: ""
+        comments: ""
     }
 
     selectLattice = (latticeSelected) => {
@@ -81,20 +72,10 @@ class Cotiza extends Component {
         let state = {}
         switch(field){
             case "usage":
-                let allowedApplications = value === "interior" ? ["decoración", "divisores", "tragaluces y plafones"] : ["puertas y portones","rejas","pérgolas","barandales","fachadas"]
                 let allowedMaterials = value === "interior" ? ["mdf","triplay","acero al carbón", "acero inoxidable", "aluminio"] : ["acero al carbón", "aluminio", "acero inoxidable"]
                 state = {
                     usage: this.state.usage.map(it=> ({...it, selected: (it.value === value)})),
-                    applications: this.state.applications.map(it=>({ ...it, selected:false, disabled: !allowedApplications.find(val => val === it.value) })),
                     materials: this.state.materials.map(it=>({ ...it, selected:false, disabled: !allowedMaterials.find(val => val === it.value)})),
-                    finishStyles: this.state.finishStyles.map(it=>({...it, selected:false, disabled: false})),
-                    thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
-                }
-                break;
-            case "applications":
-                state = {
-                    applications: this.state.applications.map(it=> ({...it, selected: (it.value === value)})),
-                    materials: this.state.materials.map(it=>({...it, selected:false})),
                     finishStyles: this.state.finishStyles.map(it=>({...it, selected:false, disabled: false})),
                     thicknesses: this.state.thicknesses.map(it=>({...it, selected:false})),
                 }
@@ -197,7 +178,6 @@ class Cotiza extends Component {
             || this.state.phone === ""
             || this.state.email === ""
             || !this.state.usage.find(it=>it.selected)
-            || !this.state.applications.find(it=>it.selected)
             || !this.state.materials.find(it=>it.selected)
             || !this.state.thicknesses.find(it=>it.selected)
         ){
@@ -206,7 +186,6 @@ class Cotiza extends Component {
             if(this.state.phone === "") errors.push("teléfono")
             if(this.state.email === "") errors.push("correo")
             if(!this.state.usage.find(it=>it.selected)) errors.push("uso")
-            if(!this.state.applications.find(it=>it.selected)) errors.push("aplicación")
             if(!this.state.materials.find(it=>it.selected)) errors.push("material")
             if(!this.state.thicknesses.find(it=>it.selected)) errors.push("espesor")
 
@@ -230,14 +209,12 @@ class Cotiza extends Component {
         let formData = new FormData()
 
         let usage = this.state.usage.find(it=>it.selected)
-        let application  = this.state.applications.find(it=>it.selected)
         let latticeSelected = this.state.latticeSelected
         let material = this.state.materials.find(it=>it.selected)
         let finishStyle  = this.state.finishStyles.find(it=>it.selected)
         let thickness = this.state.thicknesses.find(it=>it.selected)
 
         formData.append("usage", usage ? usage.value : "")
-        formData.append("application", application ? application.value : "")
         formData.append("lattice", latticeSelected ? latticeSelected.model : "")
         formData.append("material", material ? material.value : "")
         formData.append("style", finishStyle ? finishStyle.value : "")
@@ -249,6 +226,7 @@ class Cotiza extends Component {
         formData.append("name", this.state.name)
         formData.append("phone", this.state.phone)
         formData.append("email", this.state.email)
+        formData.append("comments", this.state.comments)
 
         Axios({
             method: 'post',
@@ -284,12 +262,25 @@ class Cotiza extends Component {
         let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
         let headerStyle = window.innerWidth < 770 ? {letterSpacing: "5px", fontSize: "28px", margin: "30px 10px"} : {letterSpacing: "20px", fontSize: "28px", margin: "30px"}
         let materialsWidth = window.innerWidth < 1300 ?  undefined : "210px"
+        let buttonstyle = window.innerWidth < 550 ? {
+            fontSize: "17px",
+            padding: "8px",
+            letterSpacing: "2px",
+            fontFamily: "GS",
+            fontWeight: "900",
+        } : {
+            fontSize: "20px",
+            padding: "10px",
+            letterSpacing: "3px",
+            fontFamily: "GS",
+            fontWeight: "900",
+        }
         return (
             <form className={classes.container} onSubmit={ this.sendForm }>
                 <Helmet>
                     <meta charSet="utf-8" />
-                    <title>Habitus | Cotiza</title>
-                    <link rel="canonical" href="https://habitus.com.mx/cotiza/" />
+                    <title>Habitus | Personaliza</title>
+                    <link rel="canonical" href="https://habitus.com.mx/personaliza/" />
                     <meta name="description" content="HABITUS pone a tu alcance soluciones en arquitectura e interiorismo en forma de celosías y páneles detalladamente diseñados, ideales para llenar de vida un espacio o cualquier proyecto."/>
                     <link rel="shortcut icon" href="https://habitus.com.mx/logo.png"/>
                 </Helmet>
@@ -307,7 +298,7 @@ class Cotiza extends Component {
                         background="linear-gradient(to right, #00000022, #00000022)"
                     />
                 </div>
-                <Header style={headerStyle}>EMPIEZA A CREAR</Header>
+                <Header style={headerStyle}>EMPIEZA A CREAR TU CELOSÍA</Header>
 
                 <i className={ classes.line }></i>
                 <h3 className={ classes.subheader}>USO</h3>
@@ -319,24 +310,6 @@ class Cotiza extends Component {
                             value={ it.value } 
                             disabled={ it.disabled }
                             name="usage"
-                            onSelect={ this.selectOption }
-                        />
-                    ))}
-                </div>
-
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>TIPO DE APLICACIÓN</h3>
-                <div className={ classes.applicationsSection }>
-                    { this.state.applications.map((it, index)=> (
-                        <Option 
-                            textwidth="195px"
-                            imgheight={window.innerWidth < 770 ? "75px" : "100px"}
-                            key={ index } 
-                            selected={ it.selected } 
-                            disabled={ it.disabled }
-                            img={ it.img } 
-                            value={ it.value } 
-                            name="applications"
                             onSelect={ this.selectOption }
                         />
                     ))}
@@ -449,10 +422,19 @@ class Cotiza extends Component {
                 </div>
 
                 <i className={ classes.line }></i>
-                <p className={ classes.noteD }>obten la cotización de tu proyecto y la asesoria de nuestros expertos</p>
+                <p className={ classes.noteD }>obten la cotización de tu celosía y la asesoria de nuestros expertos</p>
 
-                <h3 className={ classes.subheader}>DEJANOS TUS DATOS</h3>
+                <h3 className={ classes.subheader}>DEJANOS TUS DATOS Y COMENTARIOS</h3>
                 <div className={ classes.informationSection }>
+                    <span>
+                        <p>cuéntanos más sobre tu proyecto</p>
+                        <input 
+                            style={{padding:"5px 35px 5px 5px",width:"250px"}}
+                            required
+                            type="text"
+                            onChange={ (event) => this.handleInputChange("comments", event.target.value) }
+                        /> 
+                    </span>
                     <span>
                         <p>nombre</p>
                         <input 
@@ -486,9 +468,22 @@ class Cotiza extends Component {
                         </button>
                     </span>
                 </div>
+                <h3 className={ classes.middleMessage }>¿todavía no estás seguro?</h3>
+                <div style={ bannerStyle }>
+                    <PictureBanner
+                        img={ img19 }
+                        title="¡Inspírate!"
+                        height="400px"
+                        withpadding
+                        buttoncontent="VE NUESTRO PORTAFOLIO"
+                        link="/portafolio/"
+                        background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
+                        buttonstyle={buttonstyle}
+                    />
+                </div>
                 <Footer/>
             </form>
         )
     }
 }
-export default Cotiza
+export default Personaliza

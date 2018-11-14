@@ -79,7 +79,7 @@ class Index extends Component{
                 <div style={ bannerStyle }>
                     <PictureBanner
                         img={ img12 }
-                        buttoncontent="CREA Y COTIZA TU PROYECTO"
+                        buttoncontent="CREA Y COTIZA TU CELOSÍA"
                         link="/cotiza/"
                         background="#00000088"
                         withpadding

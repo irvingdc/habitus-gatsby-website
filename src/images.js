@@ -19,6 +19,8 @@ import img17 from './images/17.jpg'
 import img18 from './images/18.jpg'
 import img19 from './images/19.jpg'
 import img20 from './images/20.jpg'
+import img21 from './images/21.jpg'
+import img22 from './images/22.jpg'
 import icono1 from './images/icono1.svg'
 import icono2 from './images/icono2.svg'
 import icono3 from './images/icono3.svg'
@@ -53,6 +55,14 @@ import celosia12 from './images/celosia12.svg'
 import celosia13 from './images/celosia13.svg'
 import celosia14 from './images/celosia14.svg'
 import celosia15 from './images/celosia15.svg'
+import balcon_h from './images/balcon_h.jpg'
+import decoracion_h from './images/decoracion_h.jpg'
+import division_h from './images/division_h.jpg'
+import fachada_h from './images/fachada_h.jpg'
+import pergola_h from './images/pergola_h.jpg'
+import puerta_h from './images/puerta_h.jpg'
+import reja_h from './images/reja_h.jpg'
+import tragaluz_h from './images/tragaluz_h.jpg'
 import height from './images/height.png'
 import width from './images/width.png'
 
@@ -78,6 +88,8 @@ export {
     img18,
     img19,
     img20,
+    img21,
+    img22,
     icono1,
     icono2,
     icono3,
@@ -114,4 +126,12 @@ export {
     celosia15,
     height,
     width,
+    balcon_h,
+    decoracion_h,
+    division_h,
+    fachada_h,
+    pergola_h,
+    puerta_h,
+    reja_h,
+    tragaluz_h,
 };

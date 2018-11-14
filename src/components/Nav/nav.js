@@ -24,10 +24,9 @@ class Nav extends Component {
                     <img src={ logo } alt="Logo" title="Logo" className={ [classes.logo, (this.state.open ? classes.open : ""), (this.props.fixedlogo ? classes.small : "")].join(" ")}/>
                 </Link>
                 <div className={ classes.menu }>
-                    <Link activeClassName={ classes.active } to="/">Nosotros</Link>
                     <Link activeClassName={ classes.active } to="/disenos-y-materiales/">Diseños y Materiales</Link>
+                    <Link activeClassName={ classes.active } to="/personaliza/">Personaliza</Link>
                     <Link activeClassName={ classes.active } to="/portafolio/" >Portafolio</Link>
-                    <Link activeClassName={ classes.active } to="/cotiza/">Cotiza</Link>
                 </div>
                 <div className={[classes.responsiveMenu, (this.state.open ? classes.open : "")].join(" ")}>
                     <img src={ icono18 } alt="Menu" title="Menu" onClick={ this.openMenu }/>
