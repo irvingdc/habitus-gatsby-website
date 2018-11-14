@@ -6,6 +6,10 @@
     max-width: 450px;
     margin: auto;
 }
+.detailedImage{
+    width: 100%;
+    z-index: -20;
+}
 
 @media (max-width: 770px){
     .description{

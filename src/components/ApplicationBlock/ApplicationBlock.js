@@ -10,7 +10,7 @@ export default ({title, img, style, show}) =>(
         <div className={ classes.fade }>
             <div className={ classes.details }>
                 <h3>{ title }</h3>
-                <Button style={{ fontSize: "14px", fontWeight: "900"}} click={ show }>CREA</Button>
+                <Button style={{ fontSize: "14px", fontWeight: "900"}} click={ show }>EXPLORA</Button>
             </div>
         </div>
     </div>
