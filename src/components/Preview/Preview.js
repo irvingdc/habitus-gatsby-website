@@ -5,7 +5,7 @@ import { icono10, icono11, icono12 } from "../../images"
 export default ({ display, close, children, previous, next, scrollable }) =>{
     return (
         <div className={ [classes.container, (display ? classes.displayed : ""), (scrollable ? classes.scrollable : "")].join(" ") }>
-            <div className={ classes.background }></div>
+            <div className={ classes.background } onClick={ close ? close : ()=>{} }></div>
             <div className={ classes.scrollControl }>
                 <div className={ classes.content }>
                     <img src={ icono12 } alt="Derecha" title="Derecha" className={ classes.goRight } onClick={ next }/>

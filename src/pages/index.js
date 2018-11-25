@@ -23,7 +23,8 @@ class Index extends Component{
 
     showApplicationDialog = (application) => {
         console.log("applicacion", application)
-        this.setState({ application, applicationDialogDisplayed: true })
+        this.setState({ application })
+        setTimeout(()=>this.setState({applicationDialogDisplayed: true}),75)
     }
 
     selectApplication = application => {
