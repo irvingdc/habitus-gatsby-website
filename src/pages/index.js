@@ -81,7 +81,7 @@ class Index extends Component{
                     <PictureBanner
                         img={ img12 }
                         buttoncontent="CREA Y COTIZA TU CELOSÍA"
-                        link="/cotiza/"
+                        link="/personaliza/"
                         background="#00000088"
                         withpadding
                         height="400px"

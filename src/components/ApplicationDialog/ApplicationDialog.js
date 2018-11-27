@@ -132,7 +132,7 @@ export default ({ display, close, application, selectApplication }) => {
             }}>{ list[application].subtitle }</Header>
             <p className={ classes.description }>{ list[application].description }</p>
             <img src={list[application].detailedImage} className={classes.detailedImage}/>
-            <p className={ classes.details }>El sistema de fijación se adecua a cada proyecto. Quedará como se muestra en la imagen. </p>
+            <p className={ classes.details }>El sistema de fijación se adecua a cada proyecto.</p>
         </Dialog>
     )
 }

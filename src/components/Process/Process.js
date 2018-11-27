@@ -7,13 +7,13 @@ export default () => {
     let elements = [
         {
             title: "APLICACIÓN",
-            description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI ó DWG</span>,
-            img: icono4,
+            description: "Determinar el uso y aplicación de tu panel.",
+            img: icono5,
         },
         {
             title: "DISEÑO",
-            description: "Determinar el uso y aplicación de tu panel.",
-            img: icono5,
+            description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI ó DWG</span>,
+            img: icono4,
         },
         {
             title: "MATERIAL",
