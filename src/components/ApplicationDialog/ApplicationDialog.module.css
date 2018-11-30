@@ -10,6 +10,11 @@
     width: 100%;
     z-index: -20;
 }
+.details{
+    font-size: 12px;
+    padding-top: 8px;
+    text-align: right;
+}
 
 @media (max-width: 770px){
     .description{

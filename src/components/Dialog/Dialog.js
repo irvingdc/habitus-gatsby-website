@@ -27,7 +27,7 @@ export default ({ display, close, children, img, title, padding, showbutton, sho
     }
     return (
         <div className={ [classes.container, (display ? classes.displayed : ""), (scrollable ? classes.scrollable : "")].join(" ") }>
-            <div className={ classes.background }></div>
+            <div className={ classes.background } onClick={ close ? close : ()=>{} }></div>
             <div className={ classes.scrollControl }>
                 <div className={ [classes.card, (img ? classes.grid : "")].join(' ') } style={{ padding: padding }}>
                 { showcontrols ? <img src={ icono12 } alt="Derecha" title="Derecha" className={ classes.goRight } onClick={ next }/> : null }
@@ -55,11 +55,11 @@ export default ({ display, close, children, img, title, padding, showbutton, sho
                             color:"var(--habitus-primary)",
                             position: "absolute",
                             bottom: (window.innerWidth > 550 ? "-60px" : "-45px"),
-                            width: (window.innerWidth > 550 ? "340px" : "90%"),
+                            width: (window.innerWidth > 550 ? "410px" : "90%"),
                             fontSize: (window.innerWidth > 550 ? "23px" : "16px"),
                             transform: "translateX(-50%)",
                             left:"50%"
-                        }} click={ ()=>navigate("/cotiza/") }>COTIZA TU PROYECTO</Button>
+                        }} click={ ()=>navigate("/personaliza/") }>CREA Y COTIZA TU CELOSÍA</Button>
                     ) : null}
                 </div>
             </div>

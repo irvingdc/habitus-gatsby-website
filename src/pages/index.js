@@ -23,7 +23,8 @@ class Index extends Component{
 
     showApplicationDialog = (application) => {
         console.log("applicacion", application)
-        this.setState({ application, applicationDialogDisplayed: true })
+        this.setState({ application })
+        setTimeout(()=>this.setState({applicationDialogDisplayed: true}),75)
     }
 
     selectApplication = application => {
@@ -80,7 +81,7 @@ class Index extends Component{
                     <PictureBanner
                         img={ img12 }
                         buttoncontent="CREA Y COTIZA TU CELOSÍA"
-                        link="/cotiza/"
+                        link="/personaliza/"
                         background="#00000088"
                         withpadding
                         height="400px"

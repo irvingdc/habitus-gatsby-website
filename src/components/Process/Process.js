@@ -6,12 +6,12 @@ import { icono4, icono5, icono6, icono7 } from "../../images"
 export default () => {
     let elements = [
         {
-            title: "DISEÑO",
+            title: "APLICACIÓN",
             description: "Determinar el uso y aplicación de tu panel.",
             img: icono5,
         },
         {
-            title: "APLICACIÓN",
+            title: "DISEÑO",
             description: <span>Escoger o subir diseño. Formatos aceptados: <br/>PDF, AI ó DWG</span>,
             img: icono4,
         },
@@ -21,7 +21,7 @@ export default () => {
             img: icono6,
         },
         {
-            title: "PERSONALIZAR",
+            title: "PERSONALIZA",
             description: "Adapta tu celosía a tu proyecto planeado.",
             img: icono7,
         },
