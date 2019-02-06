@@ -62,7 +62,7 @@ class Personaliza extends Component {
         loading: false,
         file: null,
         showMessage: false,
-        showConfirmationMessage: true,
+        showConfirmationMessage: false,
         comments: ""
     }
 
