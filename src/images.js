@@ -55,6 +55,8 @@ import celosia12 from './images/celosia12.svg'
 import celosia13 from './images/celosia13.svg'
 import celosia14 from './images/celosia14.svg'
 import celosia15 from './images/celosia15.svg'
+import facebook from './images/facebook.svg'
+import instagram from './images/instagram.svg'
 import balcon_h from './images/balcon_h.jpg'
 import decoracion_h from './images/decoracion_h.jpg'
 import division_h from './images/division_h.jpg'
@@ -65,6 +67,7 @@ import reja_h from './images/reja_h.jpg'
 import tragaluz_h from './images/tragaluz_h.jpg'
 import height from './images/height.png'
 import width from './images/width.png'
+import map from './images/map.jpg'
 
 export { 
     logo,
@@ -134,4 +137,7 @@ export {
     puerta_h,
     reja_h,
     tragaluz_h,
+    map,
+    instagram,
+    facebook,
 };

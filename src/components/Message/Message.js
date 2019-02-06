@@ -5,7 +5,7 @@ import { icono10, logo } from "../../images"
 export default ({ display, close, title }) =>{
     return (
         <div className={ [classes.container, (display ? classes.displayed : "")].join(" ") }>
-            <div className={ classes.background }></div>
+            <div className={ classes.background } onClick={ close ? close : ()=>{} }></div>
             <div className={ classes.scrollControl }>
                 <div className={ classes.card }>
                     <img src={ icono10 } className={ classes.close } onClick={ close ? close : ()=>{} }/>

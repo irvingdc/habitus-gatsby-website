@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import classes from "./personaliza.module.css"
 import '../main.module.css'
 import Nav from '../components/Nav/Nav'
@@ -12,8 +12,9 @@ import FileInput from "../components/FileInput/FileInput"
 import EventBus from 'eventbusjs'
 import Toast from "../components/Toast/Toast"
 import Message from "../components/Message/Message"
+import ConfirmationMessage from "../components/ConfirmationMessage/ConfirmationMessage"
 import Axios from "axios"
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet"
 
 class Personaliza extends Component {
 
@@ -61,6 +62,7 @@ class Personaliza extends Component {
         loading: false,
         file: null,
         showMessage: false,
+        showConfirmationMessage: true,
         comments: ""
     }
 
@@ -227,6 +229,7 @@ class Personaliza extends Component {
         formData.append("phone", this.state.phone)
         formData.append("email", this.state.email)
         formData.append("comments", this.state.comments)
+        formData.append("file", this.state.file)
 
         Axios({
             method: 'post',
@@ -240,10 +243,8 @@ class Personaliza extends Component {
                         loading: false,
                     }),2000)
                     setTimeout(()=>this.setState({
-                        message: "Agradecemos tu interés, pronto nos estaremos comunicando contigo.",
-                        showMessage: true,
+                        showConfirmationMessage: true,
                     }),2700)
-                    setTimeout(()=>window.location.reload(),7700)
                 }
                 else throw result
             })
@@ -276,7 +277,7 @@ class Personaliza extends Component {
             fontWeight: "900",
         }
         return (
-            <form className={classes.container} onSubmit={ this.sendForm }>
+            <Fragment>
                 <Helmet>
                     <meta charSet="utf-8" />
                     <title>Habitus | Personaliza</title>
@@ -289,200 +290,206 @@ class Personaliza extends Component {
                     display={ this.state.showMessage }
                     close={ ()=>this.setState({showMessage: false}) } 
                     title={this.state.message}/>
-                <Nav fixedlogo/>
-                <div style={bannerStyle}>
-                    <PictureBanner
-                        showsocial
-                        img={ img14 }
-                        height="500px"
-                        background="linear-gradient(to right, #00000022, #00000022)"
-                    />
-                </div>
-                <Header style={headerStyle}>EMPIEZA A CREAR TU CELOSÍA</Header>
-
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>USO</h3>
-                <div className={ classes.usageSection }>
-                    { this.state.usage.map((it, index)=> (
-                        <Option 
-                            key={ index } 
-                            selected={ it.selected } 
-                            value={ it.value } 
-                            disabled={ it.disabled }
-                            name="usage"
-                            onSelect={ this.selectOption }
-                        />
-                    ))}
-                </div>
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>DISEÑO</h3>
-                <DesignsCarousel 
-                    selectable
-                    onChange={ this.selectLattice }
+                <ConfirmationMessage 
+                    display={ this.state.showConfirmationMessage }
+                    close={ ()=>this.setState({showConfirmationMessage: false}) } 
                 />
-
-                <div className={ classes.fileSection }>
-                    <div>
-                        <p className={ classes.noteC }>sube tu diseño</p>
-                        <FileInput change={this.selectFile}/>
-                        <span>Formatos aceptados: PDF, AI or DWG</span>
-                    </div>
-                </div>
-
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>MATERIAL</h3>
-                <div className={ classes.materialsSection }>
-                    { this.state.materials.map((it, index)=> (
-                        <Option 
-                            textwidth={window.innerWidth < 770 ? "140px" : "155px"}
-                            imgheight={window.innerWidth < 770 ? "75px" : "100px"}
-                            imgwidth={ materialsWidth }
-                            disabled={ it.disabled }
-                            key={ index } 
-                            selected={ it.selected } 
-                            img={ it.img } 
-                            containerstyle={{padding: it.value==="aluminio" && window.innerWidth < 770 ? "10px 80px" : "0px"}}
-                            value={ it.value } 
-                            name="materials"
-                            onSelect={ this.selectOption }
-                        />
-                    ))}
-                </div>
-
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>ACABADOS</h3>
-                <p className={ classes.noteA }>* Solo aplica para MDF y Acero al carbón</p>
-                <p className={ classes.noteB }>pintura</p>
-                <div className={ classes.finishStylesSection }>
-                    { this.state.finishStyles.map((it, index)=> (
-                        <Option 
-                            key={ index } 
-                            selected={ it.selected } 
-                            value={ it.value } 
-                            disabled={ it.disabled }
-                            name="finishStyles"
-                            onSelect={ this.selectOption }
-                        />
-                    ))}
-                </div>
-
-                <i className={ classes.line }></i>
-                <h3 className={ classes.subheader}>ESPESOR</h3>
-                <div className={ classes.thicknessesSection }>
-                    { this.filterThicknesses().map((it, index)=> (
-                        <Option 
-                            key={ index } 
-                            selected={ it.selected } 
-                            value={ it.value }
-                            textwidth="180px"
-                            disabled={ it.disabled }
-                            name="thicknesses" 
-                            onSelect={ this.selectOption }
-                        />
-                    ))}
-                </div>
-
-                <div className={ classes.sizeSection }>
-                    <div>
-                        <i className={ classes.line }></i>
-                        <h3 className={ classes.subheader}><b>ANCHURA</b> EN MM</h3>
-                        <p className={ this.state.width > 1220 ? classes.error : "" }>* máximo <span>1220</span> mm (4')</p>
-                        <input
-                            className={ this.state.width > 1220 ? classes.error : "" }
-                            required 
-                            max="1220"
-                            type="number" 
-                            onChange={ (event) => this.handleInputChange("width", event.target.value) }
+                <Nav fixedlogo/>
+                <form className={classes.container} onSubmit={ this.sendForm }>
+                    <div style={bannerStyle}>
+                        <PictureBanner
+                            showsocial
+                            img={ img14 }
+                            height="500px"
+                            background="linear-gradient(to right, #00000022, #00000022)"
                         />
                     </div>
-                    <div>
-                        <i className={ classes.line }></i>
-                        <h3 className={ classes.subheader}><b>ALTURA</b> EN MM</h3>
-                        <p className={ this.state.height > 2440 ? classes.error : "" }>* máximo <span>2440</span> mm (8')</p>
-                        <input 
-                            className={ this.state.height > 2440 ? classes.error : "" }
-                            required
-                            max="2440"
-                            type="number" 
-                            onChange={ (event) => this.handleInputChange("height", event.target.value) }
-                        />
-                    </div>
-                </div>
-                <div className={ classes.amountSection }>
-                    <div>
-                        <i className={ classes.line }></i>
-                        <h3 className={ classes.subheader}><b>CANTIDAD A SOLICITAR</b></h3>
-                        <p className={ classes.noteC }></p>
-                        <input 
-                            required
-                            type="number" 
-                            onChange={ (event) => this.handleInputChange("amount", event.target.value) }
-                        />
-                    </div>
-                </div>
+                    <Header style={headerStyle}>EMPIEZA A CREAR TU CELOSÍA</Header>
 
-                <i className={ classes.line }></i>
-                <p className={ classes.noteD }>obten la cotización de tu celosía y la asesoria de nuestros expertos</p>
-
-                <h3 className={ classes.subheader}>DEJANOS TUS DATOS Y COMENTARIOS</h3>
-                <div className={ classes.informationSection }>
-                    <span>
-                        <p>cuéntanos más sobre tu proyecto</p>
-                        <input 
-                            style={{padding:"5px 35px 5px 5px",width:"250px"}}
-                            required
-                            type="text"
-                            onChange={ (event) => this.handleInputChange("comments", event.target.value) }
-                        /> 
-                    </span>
-                    <span>
-                        <p>nombre</p>
-                        <input 
-                            required
-                            type="text"
-                            placeholder="escribe tu nombre" 
-                            onChange={ (event) => this.handleInputChange("name", event.target.value) }
-                        /> 
-                    </span>
-                    <span>
-                        <p>teléfono</p>
-                        <input 
-                            required
-                            type="text"
-                            placeholder="escribe tu teléfono" 
-                            onChange={ (event) => this.handleInputChange("phone", event.target.value) }
-                        /> 
-                    </span>
-                    <span>
-                        <p>correo</p>
-                        <input 
-                            style={{padding:"5px 35px 5px 5px",width:"250px"}}
-                            required
-                            className={ classes.emailInput }
-                            type="email"
-                            placeholder="escribe tu correo" 
-                            onChange={ (event) => this.handleInputChange("email", event.target.value) }
-                        /> 
-                        <button onClick={ this.sendForm } className={ classes.sendForm }>
-                            <img src={ icono12 } alt="send" title="send"/>
-                        </button>
-                    </span>
-                </div>
-                <h3 className={ classes.middleMessage }>¿todavía no estás seguro?</h3>
-                <div style={ bannerStyle }>
-                    <PictureBanner
-                        img={ img19 }
-                        title="¡Inspírate!"
-                        height="400px"
-                        withpadding
-                        buttoncontent="VE NUESTRO PORTAFOLIO"
-                        link="/portafolio/"
-                        background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
-                        buttonstyle={buttonstyle}
+                    <i className={ classes.line }></i>
+                    <h3 className={ classes.subheader}>USO</h3>
+                    <div className={ classes.usageSection }>
+                        { this.state.usage.map((it, index)=> (
+                            <Option 
+                                key={ index } 
+                                selected={ it.selected } 
+                                value={ it.value } 
+                                disabled={ it.disabled }
+                                name="usage"
+                                onSelect={ this.selectOption }
+                            />
+                        ))}
+                    </div>
+                    <i className={ classes.line }></i>
+                    <h3 className={ classes.subheader}>DISEÑO</h3>
+                    <DesignsCarousel 
+                        selectable
+                        onChange={ this.selectLattice }
                     />
-                </div>
+
+                    <div className={ classes.fileSection }>
+                        <div>
+                            <p className={ classes.noteC }>sube tu diseño</p>
+                            <FileInput change={this.selectFile}/>
+                            <span>Formatos aceptados: PDF, AI or DWG</span>
+                        </div>
+                    </div>
+
+                    <i className={ classes.line }></i>
+                    <h3 className={ classes.subheader}>MATERIAL</h3>
+                    <div className={ classes.materialsSection }>
+                        { this.state.materials.map((it, index)=> (
+                            <Option 
+                                textwidth={window.innerWidth < 770 ? "140px" : "155px"}
+                                imgheight={window.innerWidth < 770 ? "75px" : "100px"}
+                                imgwidth={ materialsWidth }
+                                disabled={ it.disabled }
+                                key={ index } 
+                                selected={ it.selected } 
+                                img={ it.img } 
+                                containerstyle={{padding: it.value==="aluminio" && window.innerWidth < 770 ? "10px 80px" : "0px"}}
+                                value={ it.value } 
+                                name="materials"
+                                onSelect={ this.selectOption }
+                            />
+                        ))}
+                    </div>
+
+                    <i className={ classes.line }></i>
+                    <h3 className={ classes.subheader}>ACABADOS</h3>
+                    <p className={ classes.noteA }>* Solo aplica para MDF y Acero al carbón</p>
+                    <p className={ classes.noteB }>pintura</p>
+                    <div className={ classes.finishStylesSection }>
+                        { this.state.finishStyles.map((it, index)=> (
+                            <Option 
+                                key={ index } 
+                                selected={ it.selected } 
+                                value={ it.value } 
+                                disabled={ it.disabled }
+                                name="finishStyles"
+                                onSelect={ this.selectOption }
+                            />
+                        ))}
+                    </div>
+
+                    <i className={ classes.line }></i>
+                    <h3 className={ classes.subheader}>ESPESOR</h3>
+                    <div className={ classes.thicknessesSection }>
+                        { this.filterThicknesses().map((it, index)=> (
+                            <Option 
+                                key={ index } 
+                                selected={ it.selected } 
+                                value={ it.value }
+                                textwidth="180px"
+                                disabled={ it.disabled }
+                                name="thicknesses" 
+                                onSelect={ this.selectOption }
+                            />
+                        ))}
+                    </div>
+
+                    <div className={ classes.sizeSection }>
+                        <div>
+                            <i className={ classes.line }></i>
+                            <h3 className={ classes.subheader}><b>ANCHURA</b> EN MM</h3>
+                            <p className={ this.state.width > 1220 ? classes.error : "" }>* máximo <span>1220</span> mm (4')</p>
+                            <input
+                                className={ this.state.width > 1220 ? classes.error : "" }
+                                required 
+                                max="1220"
+                                type="number" 
+                                onChange={ (event) => this.handleInputChange("width", event.target.value) }
+                            />
+                        </div>
+                        <div>
+                            <i className={ classes.line }></i>
+                            <h3 className={ classes.subheader}><b>ALTURA</b> EN MM</h3>
+                            <p className={ this.state.height > 2440 ? classes.error : "" }>* máximo <span>2440</span> mm (8')</p>
+                            <input 
+                                className={ this.state.height > 2440 ? classes.error : "" }
+                                required
+                                max="2440"
+                                type="number" 
+                                onChange={ (event) => this.handleInputChange("height", event.target.value) }
+                            />
+                        </div>
+                    </div>
+                    <div className={ classes.amountSection }>
+                        <div>
+                            <i className={ classes.line }></i>
+                            <h3 className={ classes.subheader}><b>CANTIDAD A SOLICITAR</b></h3>
+                            <p className={ classes.noteC }></p>
+                            <input 
+                                required
+                                type="number" 
+                                onChange={ (event) => this.handleInputChange("amount", event.target.value) }
+                            />
+                        </div>
+                    </div>
+
+                    <i className={ classes.line }></i>
+                    <p className={ classes.noteD }>obten la cotización de tu celosía y la asesoria de nuestros expertos</p>
+
+                    <h3 className={ classes.subheader}>DEJANOS TUS DATOS Y COMENTARIOS</h3>
+                    <div className={ classes.informationSection }>
+                        <span>
+                            <p>cuéntanos más sobre tu proyecto</p>
+                            <input 
+                                style={{padding:"5px 35px 5px 5px",width:"250px"}}
+                                required
+                                type="text"
+                                onChange={ (event) => this.handleInputChange("comments", event.target.value) }
+                            /> 
+                        </span>
+                        <span>
+                            <p>nombre</p>
+                            <input 
+                                required
+                                type="text"
+                                placeholder="escribe tu nombre" 
+                                onChange={ (event) => this.handleInputChange("name", event.target.value) }
+                            /> 
+                        </span>
+                        <span>
+                            <p>teléfono</p>
+                            <input 
+                                required
+                                type="text"
+                                placeholder="escribe tu teléfono" 
+                                onChange={ (event) => this.handleInputChange("phone", event.target.value) }
+                            /> 
+                        </span>
+                        <span>
+                            <p>correo</p>
+                            <input 
+                                style={{padding:"5px 35px 5px 5px",width:"250px"}}
+                                required
+                                className={ classes.emailInput }
+                                type="email"
+                                placeholder="escribe tu correo" 
+                                onChange={ (event) => this.handleInputChange("email", event.target.value) }
+                            /> 
+                            <button onClick={ this.sendForm } className={ classes.sendForm }>
+                                <img src={ icono12 } alt="send" title="send"/>
+                            </button>
+                        </span>
+                    </div>
+                    <h3 className={ classes.middleMessage }>¿todavía no estás seguro?</h3>
+                    <div style={ bannerStyle }>
+                        <PictureBanner
+                            img={ img19 }
+                            title="¡Inspírate!"
+                            height="400px"
+                            withpadding
+                            buttoncontent="VE NUESTRO PORTAFOLIO"
+                            link="/portafolio/"
+                            background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
+                            buttonstyle={buttonstyle}
+                        />
+                    </div>  
+                </form>
                 <Footer/>
-            </form>
+            </Fragment>
         )
     }
 }
