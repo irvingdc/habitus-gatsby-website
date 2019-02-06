@@ -189,7 +189,7 @@ class Personaliza extends Component {
             if(!this.state.materials.find(it=>it.selected)) errors.push("material")
             if(!this.state.thicknesses.find(it=>it.selected)) errors.push("espesor")
 
-            EventBus.dispatch("ALERT", this, { text:"Por favor completa los campos faltanes: "+errors.join(", ")+".", time: 9000 })
+            EventBus.dispatch("ALERT", this, { text:"Por favor completa los campos faltantes: "+errors.join(", ")+".", time: 9000 })
         }
         else{
             if(!this.state.loading){
@@ -199,7 +199,7 @@ class Personaliza extends Component {
     }
 
     makeRequest = () => {
-        console.log("request")
+        if(typeof window.fbq === "function") window.fbq('track', 'Lead');
         this.setState({
             message: "Tu solicitud está siendo procesada. Quedará lista en unos momentos.",
             showMessage: true,
