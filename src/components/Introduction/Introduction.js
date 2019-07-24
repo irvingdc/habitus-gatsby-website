@@ -3,13 +3,14 @@ import classes from "./Introduction.module.less";
 import { intro, dotsIcon, phoneIcon } from "../../images";
 import SocialRow from "components/SocialRow/SocialRow";
 import Button from "../Button/Button";
+import { Link } from "gatsby";
 
 export default () => (
   <div className={classes.container}>
     <div className={classes.img}>
       <img src={intro} alt="Ejemplo" title="Ejemplo" />
       <div>
-        <SocialRow gray/>
+        <SocialRow gray />
       </div>
     </div>
     <div className={classes.text}>
@@ -26,16 +27,20 @@ export default () => (
       <div className="boxWithShadow">
         <img src={phoneIcon} alt="icono" />
         <p>Déjanos tus datos y un asesor se comunicará contigo</p>
-        <Button reverse size="large">
-          ASESÓRATE
-        </Button>
+        <Link to="/contacto">
+          <Button reverse size="large">
+            ASESÓRATE
+          </Button>
+        </Link>
       </div>
       <div className="boxWithShadow">
         <img src={dotsIcon} alt="icono" />
         <p>Explora la variedad de opciones que te ofrecemos en celosías</p>
-        <Button reverse size="large">
-          CONÓCENOS
-        </Button>
+        <Link to="/aplicaciones">
+          <Button reverse size="large">
+            CONÓCENOS
+          </Button>
+        </Link>
       </div>
     </div>
   </div>

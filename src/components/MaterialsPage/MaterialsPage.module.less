@@ -64,44 +64,100 @@
       }
     }
     .bigLine {
-      width: 300px;
+      max-width: 300px;
+      width: 80%;
       border-bottom: 1px solid gray;
       margin: auto;
       display: block;
     }
     h3 {
-      padding: 40px 10px 30px;
+      padding: 40px 0px 30px;
     }
-    .icons{
-        text-align: center;
-        padding-top: 35px;
-        div{
-            vertical-align: bottom;
-            display: inline-block;
-            margin: 15px;
-            img{
-                width: 50px;
-                height: auto;
-            }
-            p{
-                font-size: 14px;
-                text-align: center;
-            }
+    .icons {
+      text-align: center;
+      padding-top: 35px;
+      div {
+        vertical-align: bottom;
+        display: inline-block;
+        margin: 15px;
+        img {
+          width: 50px;
+          height: auto;
         }
+        p {
+          font-size: 14px;
+          text-align: center;
+        }
+      }
     }
   }
 }
-.moreButton{
-    text-align: center;
-    padding: 20px 10px 50px;
-    a{
-        display: block;
-        text-decoration: none;
-        width: 300px;
-        margin: auto;
-        padding: 12px;
-        font-size: 20px;
-        color: var(--habitus-primary);
-        letter-spacing: 3px;
+.moreButton {
+  text-align: center;
+  padding: 20px 10px 50px;
+  a {
+    display: block;
+    text-decoration: none;
+    width: 280px;
+    margin: auto;
+    padding: 12px;
+    font-size: 20px;
+    color: var(--habitus-primary);
+    letter-spacing: 3px;
+  }
+}
+
+@media (max-width: 700px) {
+  .content {
+    .left {
+      padding: 0px 20px;
+      width: auto;
+      min-width: 170px;
+      ul{
+        li{
+          font-size: 12px;
+          b{
+            font-size: 20px;
+          }
+        }
+      }
     }
+    .right {
+      padding: 20px;
+      h3{
+        font-size: 14px;
+        letter-spacing: 2px;
+      }
+      p {
+        line-height: 22px;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    .left {
+      padding: 0px 5px;
+      min-width: 110px;
+      height: 520px;
+    }
+    .right {
+      padding: 14px;
+      p {
+        line-height: 22px;
+        font-size: 14px;
+      }
+      h3{
+        letter-spacing: 1px;
+        font-size: 13px;
+      }
+      .icons{
+        div{
+          margin: 10px;
+        }
+      }
+    }
+  }
 }

@@ -80,24 +80,28 @@ export default class Contact extends Component {
         </p>
         <div className={classes.flex}>
           <div className={classes.left}>
-            <h4>Teléfono</h4>
-            <a
-              href="https://wa.me/5212221228857"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              + 52 1 (222) 122 8857
-            </a>
-            <img src={whatsapp} alt="Whatsapp" title="Whatsapp" />
-            <h4>Correo</h4>
-            <a
-              href="mailto:diseno@habitus.com.mx"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              diseno@habitus.com.mx
-            </a>
-            <img src={mailIcon} alt="Whatsapp" title="Whatsapp" />
+            <div>
+              <h4>Teléfono</h4>
+              <a
+                href="https://wa.me/5212221228857"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                + 52 1 (222) 122 8857
+              </a>
+              <img src={whatsapp} alt="Whatsapp" title="Whatsapp" />
+            </div>
+            <div>
+              <h4>Correo</h4>
+              <a
+                href="mailto:diseno@habitus.com.mx"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                diseno@habitus.com.mx
+              </a>
+              <img src={mailIcon} alt="Email" title="Email" />
+            </div>
           </div>
           <div className={classes.right}>
             <input

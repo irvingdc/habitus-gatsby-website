@@ -82,6 +82,7 @@ import latticeHead4 from "./images/lattice-head4.jpeg";
 import exteriorIcon from "./images/exteriorIcon.png";
 import interiorIcon from "./images/interiorIcon.png";
 import strengthIcon from "./images/strengthIcon.png";
+import menuIcon from "./images/menu.svg";
 import handIcon from "./images/handIcon.png";
 import lightIcon from "./images/lightIcon.png";
 import dropIcon from "./images/dropIcon.png";
@@ -136,6 +137,7 @@ export {
   exteriorIcon,
   interiorIcon,
   strengthIcon,
+  menuIcon,
   lightIcon,
   handIcon,
   dropIcon,

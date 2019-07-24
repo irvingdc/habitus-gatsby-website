@@ -13,7 +13,6 @@
     align-items: flex-start;
     margin: auto;
     .cards {
-      display: block;
       padding: 0px 40px;
       display: flex;
       flex-direction: column;
@@ -40,7 +39,7 @@
             h3 {
               font-size: 14px;
               color: white;
-              padding: 0px 20px 10px 0px;
+              margin: 0px 20px 10px 0px;
               display: inline-block;
             }
             a {
@@ -78,6 +77,68 @@
     .left {
       padding-top: 110px;
       border-right: 2px solid var(--habitus-primary);
+    }
+  }
+}
+@media (max-width: 910px) {
+  .container {
+    .text{
+      padding: 40px 10px 80px;
+    }
+    .flex {
+      .cards {
+        width: 100%;
+        padding: 0 20px;
+        .card {
+          width: 100%;
+          .img {
+            width: calc(100% - 16px);
+            height: calc(100% - 20px);
+            h3,
+            a {
+              margin: 0px 10px 10px 0px !important;
+            }
+          }
+        }
+        h4 {
+          width: auto;
+          font-size: 15px;
+          letter-spacing: 3px;
+          b {
+            font-size: 17px;
+          }
+        }
+      }
+      .left {
+        padding-top: 90px;
+      }
+    }
+  }
+}
+
+@media (max-width: 440px) {
+  .container {
+    .flex {
+      .left {
+        padding: 80px 5px 0px 10px !important;
+        border: none;
+        h3{
+          letter-spacing: 2px !important;
+        }
+      }
+      .right{
+        padding: 0px 10px 0px 5px !important;
+        h3{
+          letter-spacing: 2px !important;
+        }
+        h4{
+          font-size: 13px;
+          letter-spacing: 2px;
+          b{
+            font-size: 15px;
+          }
+        }
+      }
     }
   }
 }

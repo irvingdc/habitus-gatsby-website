@@ -54,9 +54,53 @@
     }
     p {
       text-align: center;
-        padding-top: 16px;
-        font-size: 17px;
-        width: 90%;
+      padding-top: 16px;
+      font-size: 17px;
+      width: 90%;
+    }
+  }
+}
+@media (max-width: 830px) {
+  .container {
+    .largeText {
+      h2 {
+        font-size: 40px;
+        padding: 20px 20px 15px;
+        letter-spacing: 10px;
+      }
+    }
+    .text {
+      h2 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 20px;
+        letter-spacing: 3px;
+        line-height: 26px;
+      }
+    }
+    .elements{
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 682px) {
+  .container {
+    .elements {
+      display: block;
+      > div {
+        width: calc(100% - 40px);
+        margin: auto;
+      }
+      .img {
+        height: 250px;
+      }
+      p{
+        padding: 8px 10px 30px;
+      }
     }
   }
 }

@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "eventbusjs": "^0.2.0",
     "gatsby": "^2.0.0",
+    "gatsby-plugin-less": "^2.1.2",
     "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-root-import": "^2.0.5",

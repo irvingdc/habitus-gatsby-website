@@ -16,11 +16,11 @@
   }
   .text {
     h1 {
-      margin: 40px 0px;
+      margin: 40px 10px;
     }
     p {
       text-align: center;
-      margin-bottom: 100px;
+      margin: 0px 10px 100px;
       b {
         color: var(--habitus-primary);
       }
@@ -29,27 +29,62 @@
   .cards {
     display: flex;
     max-width: 1000px;
-    width: 100%;
+    width: calc(100% - 40px);
     margin: auto;
     justify-content: space-between;
-    padding-bottom: 80px;
+    padding: 0px 20px 80px;
     > div {
       display: flex;
       flex-direction: column;
       align-items: center;
       width: 360px;
       padding: 30px;
+      a{
+        text-decoration: none;
+      }
       img {
         height: 60px;
-        margin-bottom: 20px;
       }
       p {
         max-width: 240px;
         text-align: center;
-        padding-bottom: 20px;
+        padding: 20px;
       }
       button {
         width: 200px;
+      }
+    }
+  }
+}
+
+@media (max-width: 830px) {
+  .container {
+    .img {
+      width: calc(100% - 0px);
+      > img {
+        width: calc(100% - 20px);
+        margin-left: 20px;
+        height: 260px;
+        object-fit: cover;
+      }
+    }
+    .cards {
+      display: block;
+      width: calc(100% - 40px);
+      > div {
+        margin: 0px auto 30px;
+        width: calc(100% - 60px);
+        padding: 20px;
+        p{
+          font-size: 14px;
+          padding: 10px;
+        }
+        img{
+          height: 40px;
+        }
+        button{
+          font-size: 16px;
+        }
       }
     }
   }

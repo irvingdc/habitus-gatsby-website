@@ -63,33 +63,23 @@
     width: auto;
   }
 }
-@media (max-width: 770px) {
+@media (max-width: 650px) {
   .container {
-    margin-top: 30px;
-    flex-direction: column;
-    .map {
-      img {
-        width: 240px;
-        height: 120px;
-        display: block;
+    padding: 40px 10px 20px;
+    display: block;
+    > *{
+      left: 0px;
+      display: block;
+      margin: auto;
+    }
+    .map{
+      img{
+        margin: 0px auto 30px;
       }
     }
-    > img {
-      width: 90px;
-      margin: 5px auto;
-    }
-  }
-  .social {
-    width: 140px;
-    justify-content: space-around;
-    a {
-      width: 38px;
-      height: 38px;
-      margin: 0px;
-      border: 2px solid white;
-    }
-    img {
-      height: 20px;
+    .social{
+      border: none;
+      height: 70px;
     }
   }
 }

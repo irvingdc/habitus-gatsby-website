@@ -2,6 +2,7 @@
   display: flex;
   align-items: flex-end;
   max-width: 1220px;
+  padding: 0px 20px;
   justify-content: space-between;
   margin: auto;
   > img {
@@ -35,13 +36,31 @@
     text-decoration: none;
   }
 }
-.iconBottom{
-    height: 30px;
+.iconBottom {
+  height: 30px;
+  display: block;
+  position: relative;
+  top: -64px;
+  text-align: center;
+  img {
+    height: 68px;
+  }
+}
+@media (max-width: 790px) {
+  .text {
+    font-size: 16px;
+  }
+  .lattices {
     display: block;
-    position: relative;
-    top: -64px;
-    text-align: center;
-    img{
-        height: 68px;
+    padding: 10px;
+    > img{
+      height: 320px;
+      width: auto;
+      margin: 0px auto 30px;
+      display: block;
     }
+    > div{
+      width: 100%;
+    }
+  }
 }
