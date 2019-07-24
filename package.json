@@ -3,7 +3,7 @@
   "description": "Gatsby hello world starter",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "rm -rf public && gatsby build && rm -rf .cache",
     "serve": "gatsby serve"
   },
@@ -11,7 +11,12 @@
     "axios": "^0.18.0",
     "eventbusjs": "^0.2.0",
     "gatsby": "^2.0.0",
+    "gatsby-plugin-manifest": "^2.2.4",
     "gatsby-plugin-react-helmet": "^3.0.0",
+    "gatsby-plugin-root-import": "^2.0.5",
+    "gatsby-plugin-sharp": "^2.2.9",
+    "gatsby-source-filesystem": "^2.1.6",
+    "gatsby-transformer-sharp": "^2.2.4",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",

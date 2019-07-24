@@ -24,7 +24,6 @@ export default ({img, link, title, height, style, special, buttoncontent, button
                 top: "25px",
                 right: "0px",
                 height: "calc(100% - 50px)",
-                filter: "brightness(10)"
             }}/> : null }
         </div>
     )

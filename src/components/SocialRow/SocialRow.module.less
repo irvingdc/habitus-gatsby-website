@@ -1,0 +1,42 @@
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: calc(100% - 20px);
+  width: 70px;
+  padding-bottom: 20px;
+  z-index: 200;
+  a {
+    margin: 30px 0px 0px;
+  }
+  img {
+    display: block;
+    width: auto;
+    height: 24px;
+    margin: auto;
+  }
+}
+
+.social::before {
+    content: "";
+    width: 2px;
+    height: 100%;
+    background: var(--habitus-primary);
+    display: block;
+    margin: auto;
+  }
+.gray{
+    img{
+        filter: grayscale(10) brightness(1.4);
+    }
+}
+.gray::before{
+    background: #cfcfcf;
+}
+@media (max-width: 770px) {
+  .social {
+    height: calc(100% - 120px);
+    top: 40px;
+    width: 40px;
+  }
+}

@@ -1,0 +1,71 @@
+.container{
+    background: white;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0px 1px 4px 0px #0000003d;
+    z-index: 200;
+}
+.selectable{
+    padding: 10px;
+}
+.title{
+    color: gray;
+    font-size: 16px;
+}
+.carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1300px;
+    margin: 40px auto;
+}
+.selectable .carousel{
+    margin: 0px auto;
+}
+.grid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fadeIzq{
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(to right, #ffffffff, #ffffffbb, #ffffff00);;
+    left: 0px;
+    top:0px;
+    z-index: 100;
+    cursor: pointer;
+}
+.fadeDer{
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(to left, #ffffffff, #ffffffbb, #ffffff00);
+    right: 0px;
+    top:0px;
+    z-index: 100;
+    cursor: pointer;
+}
+.fadeIzq img{
+    display: block;
+    width: 25px;
+    top: calc(50% - 29px);
+    position: absolute;
+    left: 10px;
+}
+.fadeDer img{
+    display: block;
+    width: 25px;
+    top: calc(50% - 29px);
+    position: absolute;
+    right: 10px;
+}
+.small{
+    padding: 20px;
+    .carousel{
+        margin: 20px;
+    }
+}

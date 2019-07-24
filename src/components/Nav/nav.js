@@ -71,9 +71,6 @@ class Nav extends Component {
           <Link activeClassName={classes.active} to="/personaliza/">
             Personaliza
           </Link>
-          <Link activeClassName={classes.active} to="/portafolio/">
-            Portafolio
-          </Link>
         </div>
         <div
           className={[
