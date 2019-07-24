@@ -1,18 +1,18 @@
 import React, { Component, Fragment } from "react"
-import classes from "./personaliza.module.css"
-import '../main.module.css'
-import Nav from '../components/Nav/Nav'
-import Option from '../components/Option/Option'
-import DesignsCarousel from '../components/DesignsCarousel/DesignsCarousel'
-import PictureBanner from '../components/PictureBanner/PictureBanner'
-import Footer from "../components/Footer/Footer"
+import classes from "styles/personaliza.module.css"
+import 'src/main.module.less'
+import Nav from 'components/Nav/Nav'
+import Option from 'components/Option/Option'
+import DesignsCarousel from 'components/DesignsCarousel/DesignsCarousel'
+import PictureBanner from 'components/PictureBanner/PictureBanner'
+import Footer from "components/Footer/Footer"
 import { icono12, img1, img2, img3, img4, img5, img14, img19 } from "../images"
-import Header from "../components/Header/Header"
-import FileInput from "../components/FileInput/FileInput"
+import Header from "components/Header/Header"
+import FileInput from "components/FileInput/FileInput"
 import EventBus from 'eventbusjs'
-import Toast from "../components/Toast/Toast"
-import Message from "../components/Message/Message"
-import ConfirmationMessage from "../components/ConfirmationMessage/ConfirmationMessage"
+import Toast from "components/Toast/Toast"
+import Message from "components/Message/Message"
+import ConfirmationMessage from "components/ConfirmationMessage/ConfirmationMessage"
 import Axios from "axios"
 import { Helmet } from "react-helmet"
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
-import classes from "./Nav.module.css";
-import { logo, icono18, icono10 } from "../../images";
+import classes from "./Nav.module.less";
+import { logo, menuIcon, icono10 } from "src/images";
 
 class Nav extends Component {
   state = {
@@ -44,52 +44,78 @@ class Nav extends Component {
   render() {
     return (
       <div className={classes.container}>
-        <Link
-          to="/"
-          style={{
-            position: "absolute",
-            left: "15px",
-            top: "15px",
-            zIndex: "400"
-          }}
-        >
+        <Link to="/" className={classes.logo}>
           <img
             src={logo}
             alt="Logo"
             title="Logo"
-            className={[
-              classes.logo,
-              this.state.open ? classes.open : "",
-              this.props.fixedlogo ? classes.small : ""
-            ].join(" ")}
+            className={[this.state.open ? classes.open : ""].join(" ")}
           />
         </Link>
-        <div className={classes.menu}>
-          <Link activeClassName={classes.active} to="/disenos-y-materiales/">
-            Diseños y Materiales
-          </Link>
-          <Link activeClassName={classes.active} to="/personaliza/">
-            Personaliza
-          </Link>
-          <Link activeClassName={classes.active} to="/portafolio/">
-            Portafolio
-          </Link>
-        </div>
         <div
           className={[
-            classes.responsiveMenu,
+            classes.content,
             this.state.open ? classes.open : ""
           ].join(" ")}
         >
-          <img src={icono18} alt="Menu" title="Menu" onClick={this.openMenu} />
+          <div className={classes.menu}>
+            <Link activeClassName={classes.active} to="/aplicaciones/">
+              Aplicaciones
+            </Link>
+            <div className={classes.options}>
+              <Link to="/aplicaciones/barandales/">Barandales</Link>
+              <Link to="/aplicaciones/divisores/">Divisores</Link>
+              <Link to="/aplicaciones/portones/">Portones</Link>
+              <Link to="/aplicaciones/fachadas/">Fachadas</Link>
+              <Link to="/aplicaciones/rejas/">Rejas</Link>
+              <Link to="/aplicaciones/pergolas/">Pérgolas</Link>
+              <Link to="/aplicaciones/decoracion/">Decoración</Link>
+              <Link to="/aplicaciones/tragaluces/">Tragaluces</Link>
+            </div>
+          </div>
+          <div className={classes.menu}>
+            <Link activeClassName={classes.active} to="/diseños/">
+              Diseños
+            </Link>
+          </div>
+          <div className={classes.menu}>
+            <Link activeClassName={classes.active} to="/materiales/">
+              Materiales
+            </Link>
+            <div className={classes.options}>
+              <Link to="/materiales/acero-al-carbon/">Acero al carbón</Link>
+              <Link to="/materiales/acero-inoxidable/">Acero inoxidable</Link>
+              <Link to="/materiales/aluminio/">Aluminio</Link>
+              <Link to="/materiales/mdf/">MDF</Link>
+              <Link to="/materiales/triplay/">Triplay</Link>
+            </div>
+          </div>
+          <div className={classes.menu}>
+            <Link activeClassName={classes.active} to="/contacto/">
+              Contacto
+            </Link>
+          </div>
         </div>
         <div
           className={[
-            classes.backdrop,
+            classes.actions,
             this.state.open ? classes.open : ""
           ].join(" ")}
         >
-          <img src={icono10} alt="Menu" title="Menu" onClick={this.closeMenu} />
+          <img
+            src={menuIcon}
+            alt="Menu"
+            title="Menu"
+            onClick={this.openMenu}
+            className={classes.openButton}
+          />
+          <img
+            src={icono10}
+            alt="Menu"
+            title="Menu"
+            onClick={this.closeMenu}
+            className={classes.closeButton}
+          />
         </div>
       </div>
     );

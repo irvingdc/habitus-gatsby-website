@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import '../main.module.css'
-import Nav from '../components/Nav/Nav'
-import Footer from '../components/Footer/Footer'
-import Header from '../components/Header/Header'
+import 'src/main.module.less'
+import Nav from 'components/Nav/Nav'
+import Footer from 'components/Footer/Footer'
+import Header from 'components/Header/Header'
 import {Helmet} from "react-helmet"
-import BlogCarousel from '../components/BlogCarousel/BlogCarousel'
-import classes from './blog.module.css'
-import BlogCard from '../components/BlogCard/BlogCard'
-import BlogSideBar from '../components/BlogSideBar/BlogSideBar'
-import BLOG_ARTICLES from "../articles";
+import BlogCarousel from 'components/BlogCarousel/BlogCarousel'
+import classes from 'styles/blog.module.css'
+import BlogCard from 'components/BlogCard/BlogCard'
+import BlogSideBar from 'components/BlogSideBar/BlogSideBar'
+import BLOG_ARTICLES from "src/articles";
 
 class Blog extends Component{
     

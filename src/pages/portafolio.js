@@ -1,12 +1,12 @@
 import React from "react"
-import '../main.module.css'
-import classes from "./portafolio.module.css"
-import Nav from '../components/Nav/Nav'
-import PictureBanner from '../components/PictureBanner/PictureBanner'
-import { img17, logo } from "../images"
-import Header from "../components/Header/Header"
-import Portfolio from "../components/Portfolio/Portfolio"
-import Footer from "../components/Footer/Footer"
+import 'src/main.module.less'
+import classes from "styles/portafolio.module.css"
+import Nav from 'components/Nav/Nav'
+import PictureBanner from 'components/PictureBanner/PictureBanner'
+import { img17, logo } from "src/images"
+import Header from "components/Header/Header"
+import Portfolio from "components/Portfolio/Portfolio"
+import Footer from "components/Footer/Footer"
 import {Helmet} from "react-helmet"
 
 export default () => {
