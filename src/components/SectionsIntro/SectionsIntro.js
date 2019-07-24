@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./SectionsIntro.module.less";
 import Button from "components/Button/Button";
 import { img7, latticesMix, img3 } from "src/images";
+import { Link } from "gatsby";
 
 export default () => (
   <div className={classes.container}>
@@ -21,22 +22,25 @@ export default () => (
         title="APLICACIÓN"
         text="¿Para qué o dónde usarás la celosía?"
         img={img7}
+        link="/aplicaciones/"
       />
       <Block
         title="DISEÑO"
         text="¿Cuál es el diseño que va con tu proyecto?"
         img={latticesMix}
+        link="/diseño/"
       />
       <Block
         title="MATERIAL"
         text="¿Cuál de nuestros materiales va con tu necesidad?"
         img={img3}
+        link="/materiales/"
       />
     </div>
   </div>
 );
 
-const Block = ({ title, img, text }) => (
+const Block = ({ title, img, text, link }) => (
   <div className={classes.application}>
     <div
       className={classes.img}
@@ -44,7 +48,9 @@ const Block = ({ title, img, text }) => (
         background: `url(${img}) center center / cover no-repeat`
       }}
     >
-      <Button>{title}</Button>
+      <Link to={link}>
+        <Button>{title}</Button>
+      </Link>
     </div>
     <p>{text}</p>
   </div>
