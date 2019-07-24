@@ -5,6 +5,7 @@ import DesignsCarousel from "components/DesignsCarousel/DesignsCarousel";
 import Nav from "components/Nav/Nav";
 import { latticeHead3, celosia6, icono21 } from "src/images";
 import classes from "styles/diseños.module.less";
+import "src/main.module.less";
 
 export default class Diseños extends Component {
   state = {

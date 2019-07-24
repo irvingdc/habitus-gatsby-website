@@ -11,7 +11,6 @@ module.exports = {
         styles: path.join(__dirname, "src/styles"),
       },
     },
-    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-less",
       options: {

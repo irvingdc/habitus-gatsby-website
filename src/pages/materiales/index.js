@@ -6,6 +6,7 @@ import Nav from "components/Nav/Nav";
 import { latticeHead1, img1, img2, img3, img4, img5 } from "src/images";
 import classes from "styles/materiales.module.less";
 import { Link } from "gatsby";
+import "src/main.module.less";
 
 export default () => (
   <div className={classes.container}>

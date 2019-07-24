@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import MaterialsPage from "../../components/MaterialsPage/MaterialsPage";
 import { img5, interiorIcon, lightIcon } from "src/images";
+import "src/main.module.less";
 
 export default () => (
   <MaterialsPage

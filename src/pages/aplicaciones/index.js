@@ -2,6 +2,7 @@ import React from "react";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 import Footer from "components/Footer/Footer";
 import Nav from "components/Nav/Nav";
+import "src/main.module.less";
 import {
   latticeHead2,
   img15,

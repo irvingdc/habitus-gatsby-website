@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import ApplicationsPage from "../../components/ApplicationsPage/ApplicationsPage";
 import { img15, division_h } from "src/images";
+import "src/main.module.less";
 
 export default () => (
   <ApplicationsPage

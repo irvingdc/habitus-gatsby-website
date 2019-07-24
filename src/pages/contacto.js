@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import SectionHeader from "components/SectionHeader/SectionHeader";
 import Footer from "components/Footer/Footer";
 import Nav from "components/Nav/Nav";
@@ -14,6 +14,7 @@ import { Link } from "gatsby";
 import Toast from "components/Toast/Toast";
 import Message from "components/Message/Message";
 import ConfirmationMessage from "components/ConfirmationMessage/ConfirmationMessage";
+import "src/main.module.less";
 
 export default class Contact extends Component {
   state = {
@@ -60,10 +61,7 @@ export default class Contact extends Component {
 
   render() {
     return (
-      <div className={classes.container}>
-        <Nav />
-        <SectionHeader type="A" img={latticeHead4} title="¡CONTÁCTANOS!" />
-        <Toast />
+      <Fragment>
         <Message
           display={this.state.showMessage}
           close={() => this.setState({ showMessage: false })}
@@ -73,91 +71,96 @@ export default class Contact extends Component {
           display={this.state.showConfirmationMessage}
           close={() => this.setState({ showConfirmationMessage: false })}
         />
-        <p className={classes.intro}>
-          ¡Déjate asesorar por nuestros expertos!
-          <br />
-          Con gusto te brindarán la asesoría que necesitas para tu celosía
-        </p>
-        <div className={classes.flex}>
-          <div className={classes.left}>
-            <div>
-              <h4>Teléfono</h4>
-              <a
-                href="https://wa.me/5212221228857"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                + 52 1 (222) 122 8857
-              </a>
-              <img src={whatsapp} alt="Whatsapp" title="Whatsapp" />
+        <div className={classes.container}>
+          <Nav />
+          <SectionHeader type="A" img={latticeHead4} title="¡CONTÁCTANOS!" />
+          <Toast />
+          <p className={classes.intro}>
+            ¡Déjate asesorar por nuestros expertos!
+            <br />
+            Con gusto te brindarán la asesoría que necesitas para tu celosía
+          </p>
+          <div className={classes.flex}>
+            <div className={classes.left}>
+              <div>
+                <h4>Teléfono</h4>
+                <a
+                  href="https://wa.me/5212221228857"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  + 52 1 (222) 122 8857
+                </a>
+                <img src={whatsapp} alt="Whatsapp" title="Whatsapp" />
+              </div>
+              <div>
+                <h4>Correo</h4>
+                <a
+                  href="mailto:diseno@habitus.com.mx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  diseno@habitus.com.mx
+                </a>
+                <img src={mailIcon} alt="Email" title="Email" />
+              </div>
             </div>
-            <div>
-              <h4>Correo</h4>
-              <a
-                href="mailto:diseno@habitus.com.mx"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                diseno@habitus.com.mx
-              </a>
-              <img src={mailIcon} alt="Email" title="Email" />
+            <div className={classes.right}>
+              <input
+                required
+                type="text"
+                placeholder="Nombre"
+                onChange={event =>
+                  this.handleInputChange("first_name", event.target.value)
+                }
+              />
+              <input
+                required
+                type="text"
+                placeholder="Apellido"
+                onChange={event =>
+                  this.handleInputChange("last_name", event.target.value)
+                }
+              />
+              <input
+                required
+                type="text"
+                placeholder="Correo"
+                onChange={event =>
+                  this.handleInputChange("email", event.target.value)
+                }
+              />
+              <input
+                required
+                className={classes.emailInput}
+                type="email"
+                placeholder="Teléfono"
+                onChange={event =>
+                  this.handleInputChange("phone", event.target.value)
+                }
+              />
+              <textarea
+                required
+                className={classes.emailInput}
+                type="email"
+                placeholder="Cuentanos sobre tu celosía o proyecto"
+                onChange={event =>
+                  this.handleInputChange("message", event.target.value)
+                }
+              />
+              <button onClick={this.sendForm} className={classes.sendForm}>
+                <img src={arrowIcon} alt="send" title="send" />
+              </button>
             </div>
           </div>
-          <div className={classes.right}>
-            <input
-              required
-              type="text"
-              placeholder="Nombre"
-              onChange={event =>
-                this.handleInputChange("first_name", event.target.value)
-              }
-            />
-            <input
-              required
-              type="text"
-              placeholder="Apellido"
-              onChange={event =>
-                this.handleInputChange("last_name", event.target.value)
-              }
-            />
-            <input
-              required
-              type="text"
-              placeholder="Correo"
-              onChange={event =>
-                this.handleInputChange("email", event.target.value)
-              }
-            />
-            <input
-              required
-              className={classes.emailInput}
-              type="email"
-              placeholder="Teléfono"
-              onChange={event =>
-                this.handleInputChange("phone", event.target.value)
-              }
-            />
-            <textarea
-              required
-              className={classes.emailInput}
-              type="email"
-              placeholder="Cuentanos sobre tu celosía o proyecto"
-              onChange={event =>
-                this.handleInputChange("message", event.target.value)
-              }
-            />
-            <button onClick={this.sendForm} className={classes.sendForm}>
-              <img src={arrowIcon} alt="send" title="send" />
-            </button>
-          </div>
+          <p className={classes.or}>ó</p>
+          <h3>¡EMPIEZA A CREAR TU CELOSÍA!</h3>
+          <Link to="/personaliza" className={classes.personaliza}>
+            <img src={handIcon} />
+          </Link>
+          <Footer />
         </div>
-        <p className={classes.or}>ó</p>
-        <h3>¡EMPIEZA A CREAR TU CELOSÍA!</h3>
-        <Link to="/personaliza" className={classes.personaliza}>
-          <img src={handIcon} />
-        </Link>
-        <Footer />
-      </div>
+      </Fragment>
     );
   }
 }
