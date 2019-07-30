@@ -5,6 +5,24 @@ import SocialRow from "components/SocialRow/SocialRow";
 import Button from "../Button/Button";
 import { Link } from "gatsby";
 
+function scrollToSection() {
+  window.scroll({
+    top: getOffsetTop(document.getElementById("conocenos")) - 60,
+    left: 0,
+    behavior: "smooth"
+  });
+}
+
+function getOffsetTop(elem) {
+  var offsetTop = 0;
+  do {
+    if (!isNaN(elem.offsetTop)) {
+      offsetTop += elem.offsetTop;
+    }
+  } while ((elem = elem.offsetParent));
+  return offsetTop;
+}
+
 export default () => (
   <div className={classes.container}>
     <div className={classes.img}>
@@ -36,11 +54,9 @@ export default () => (
       <div className="boxWithShadow">
         <img src={dotsIcon} alt="icono" />
         <p>Explora la variedad de opciones que te ofrecemos en celosías</p>
-        <Link to="/aplicaciones">
-          <Button reverse size="large">
-            CONÓCENOS
-          </Button>
-        </Link>
+        <Button reverse size="large" click={scrollToSection}>
+          CONÓCENOS
+        </Button>
       </div>
     </div>
   </div>

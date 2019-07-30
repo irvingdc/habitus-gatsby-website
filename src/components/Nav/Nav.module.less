@@ -65,7 +65,7 @@
       padding: 8px 0px 16px;
       opacity: 0;
       visibility: hidden;
-      transition: all 0.2s;
+      transition: all 0.4s;
       a {
         color: white;
         padding: 4px;
@@ -122,6 +122,10 @@
       display: none;
     }
   }
+  .expandButton,
+  .shrinkButton {
+    display: none;
+  }
 }
 @media (max-width: 650px) {
   .container {
@@ -143,20 +147,24 @@
       padding-top: 60px;
       overflow: auto;
       width: 100vw;
-      background: whitesmoke;
       transition: all 0.3s;
+      background: white;
       .menu {
         display: block;
         width: 100%;
         text-align: center;
-        a{
-            text-align: center;
+        background: white;
+        a {
+          text-align: center;
           padding: 10px 0px;
         }
-        >a{
-            font-size: 15px;
-            color: var(--habitus-secondary);
-            font-weight: 100;
+        > a {
+          font-size: 15px;
+          color: var(--habitus-secondary);
+          font-weight: 100;
+        }
+        > a.active::after {
+          display: none;
         }
         .options {
           position: relative;
@@ -166,14 +174,51 @@
           width: 100%;
           right: unset;
           text-align: center;
+          max-height: 1000px;
         }
       }
+      .menu {
+        border-top: 1px solid gainsboro;
+      }
     }
-    .content:not(.open){
-        top: -100%;
+    .content:not(.open) {
+      top: -100%;
     }
-    .content.open{
-        top: 0px;
+    .content.open {
+      top: 0px;
     }
+  }
+  .options.notExpanded {
+    max-height: 0px !important;
+    padding: 0px !important;
+    overflow: hidden;
+  }
+  .expandButton,
+  .shrinkButton {
+    display: block !important;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+    font-size: 30px;
+    color: #a7a7a7;
+    font-weight: 100;
+    line-height: 20px;
+    padding: 4px 8px;
+  }
+  .shrinkButton {
+    top: 10px;
+    right: 14px;
+  }
+  .expandButton.notExpanded {
+    display: block !important;
+  }
+  .expandButton.expanded {
+    display: none !important;
+  }
+  .shrinkButton.notExpanded {
+    display: none !important;
+  }
+  .shrinkButton.expanded {
+    display: block !important;
   }
 }

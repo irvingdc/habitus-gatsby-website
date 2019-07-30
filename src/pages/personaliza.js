@@ -474,19 +474,6 @@ class Personaliza extends Component {
                             </button>
                         </span>
                     </div>
-                    <h3 className={ classes.middleMessage }>¿todavía no estás seguro?</h3>
-                    <div style={ bannerStyle }>
-                        <PictureBanner
-                            img={ img19 }
-                            title="¡Inspírate!"
-                            height="400px"
-                            withpadding
-                            buttoncontent="VE NUESTRO PORTAFOLIO"
-                            link="/portafolio/"
-                            background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
-                            buttonstyle={buttonstyle}
-                        />
-                    </div>  
                 </form>
                 <Footer/>
             </Fragment>

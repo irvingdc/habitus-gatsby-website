@@ -84,6 +84,21 @@
     text-align: center;
     padding: 50px;
     font-size: 22px;
+    span{
+        background: white;
+        padding: 8px;
+        z-index: 20;
+    }
+  }
+  .or::after {
+    content: "";
+    display: block;
+    width: calc(100% - 40px);
+    max-width: 600px;
+    margin: auto;
+    border-bottom: 2px solid gainsboro;
+    bottom: 13px;
+    position: relative;
   }
   .personaliza {
     padding: 20px;
@@ -113,11 +128,11 @@
         width: calc(100% - 20px);
         margin: auto;
         justify-content: space-around;
-        a{
-            font-size: 15px;
+        a {
+          font-size: 15px;
         }
-        > div{
-            padding: 0px 5px;
+        > div {
+          padding: 0px 5px;
         }
       }
       .right {
@@ -127,8 +142,8 @@
         max-width: 400px;
       }
     }
-    .or{
-        padding: 30px;
+    .or {
+      padding: 30px;
     }
   }
 }

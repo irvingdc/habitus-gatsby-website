@@ -1,11 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "gatsby";
 import classes from "./Nav.module.less";
 import { logo, menuIcon, icono10 } from "src/images";
 
 class Nav extends Component {
   state = {
-    open: false
+    open: false,
+    applicacionsOpen: false,
+    materialsOpen: false
   };
 
   externalScripts = `
@@ -41,7 +43,31 @@ class Nav extends Component {
     }
   }
 
+  menuActions = (menuClass, option) => (
+    <Fragment>
+      <b
+        className={[classes.expandButton, menuClass].join(" ")}
+        onClick={() => this.setState({ [option]: true })}
+      >
+        +
+      </b>
+      <b
+        className={[classes.shrinkButton, menuClass].join(" ")}
+        onClick={() => this.setState({ [option]: false })}
+      >
+        -
+      </b>
+    </Fragment>
+  );
+
   render() {
+    const { applicacionsOpen, materialsOpen } = this.state;
+    const applicacionsMenuClass = applicacionsOpen
+      ? classes.expanded
+      : classes.notExpanded;
+    const materialsMenuClass = materialsOpen
+      ? classes.expanded
+      : classes.notExpanded;
     return (
       <div className={classes.container}>
         <Link to="/" className={classes.logo}>
@@ -62,7 +88,8 @@ class Nav extends Component {
             <Link activeClassName={classes.active} to="/aplicaciones/">
               Aplicaciones
             </Link>
-            <div className={classes.options}>
+            {this.menuActions(applicacionsMenuClass, "applicacionsOpen")}
+            <div className={[classes.options, applicacionsMenuClass].join(" ")}>
               <Link to="/aplicaciones/barandales/">Barandales</Link>
               <Link to="/aplicaciones/divisores/">Divisores</Link>
               <Link to="/aplicaciones/portones/">Portones</Link>
@@ -82,7 +109,8 @@ class Nav extends Component {
             <Link activeClassName={classes.active} to="/materiales/">
               Materiales
             </Link>
-            <div className={classes.options}>
+            {this.menuActions(materialsMenuClass, "materialsOpen")}
+            <div className={[classes.options, materialsMenuClass].join(" ")}>
               <Link to="/materiales/acero-al-carbon/">Acero al carbón</Link>
               <Link to="/materiales/acero-inoxidable/">Acero inoxidable</Link>
               <Link to="/materiales/aluminio/">Aluminio</Link>

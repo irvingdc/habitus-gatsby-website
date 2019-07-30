@@ -153,7 +153,9 @@ export default class Contact extends Component {
               </button>
             </div>
           </div>
-          <p className={classes.or}>ó</p>
+          <p className={classes.or}>
+            <span>ó</span>
+          </p>
           <h3>¡EMPIEZA A CREAR TU CELOSÍA!</h3>
           <Link to="/personaliza" className={classes.personaliza}>
             <img src={handIcon} />
