@@ -11,7 +11,7 @@ export default () => (
       <h2>CELOSÍAS</h2>
       <span />
     </div>
-    <div className={classes.text}>
+    <div className={classes.text} id="conocenos">
       <h2>CONÓCENOS</h2>
       <p>
         Toma en cuenta los siguientes elementos para crear tu celosía perfecta

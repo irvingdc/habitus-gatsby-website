@@ -8,6 +8,7 @@ import SectionsIntro from "components/SectionsIntro/SectionsIntro";
 import PictureBanner from "components/PictureBanner/PictureBanner";
 import { img19 } from "src/images";
 import { Helmet } from "react-helmet";
+import BottomBanner from "../components/BottomBanner/BottomBanner";
 
 class Index extends Component {
   state = {
@@ -47,17 +48,7 @@ class Index extends Component {
         <Introduction />
         <SectionsIntro />
         <h3 className={[classes.middleMessage,"boxWithShadow"].join(" ")}>¿no estás seguro que buscas?</h3>
-        <div className={classes.bottomBanner}>
-          <PictureBanner
-            img={img19}
-            title="¡Inspírate!"
-            height="400px"
-            withpadding
-            buttoncontent="VE NUESTRO PORTAFOLIO"
-            link="/portafolio/"
-            background="linear-gradient(to right, #000000bb, #00000088, #00000022)"
-          />
-        </div>
+        <BottomBanner/>
         <Footer />
       </div>
     );

@@ -88,6 +88,7 @@ import lightIcon from "./images/lightIcon.png";
 import dropIcon from "./images/dropIcon.png";
 import mailIcon from "./images/mailIcon.png";
 import arrowIcon from "./images/arrowIcon.svg";
+import bottomBanner from "./images/bottomBanner.png";
 
 export {
   logo,
@@ -179,5 +180,6 @@ export {
   latticeHead1,
   latticeHead2,
   latticeHead3,
-  latticeHead4
+  latticeHead4,
+  bottomBanner
 };
