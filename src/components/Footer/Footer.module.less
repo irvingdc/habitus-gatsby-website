@@ -6,8 +6,8 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  > *{
-    left: -55px;
+  > * {
+    left: -30px;
   }
   .link {
     display: block;
@@ -44,7 +44,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 160px;
+  width: 200px;
   height: 100px;
   border-left: 3px solid white;
   a {
@@ -57,27 +57,34 @@
     border-radius: 50px;
     border: 2px solid white;
     margin-left: 20px;
+    img {
+      height: 20px;
+      width: auto;
+      filter: brightness(100);
+    }
   }
-  img {
-    height: 20px;
-    width: auto;
+  a:last-child{
+    border: none;
+    img{
+      height: 42px;
+    }
   }
 }
 @media (max-width: 650px) {
   .container {
     padding: 40px 10px 20px;
     display: block;
-    > *{
+    > * {
       left: 0px;
       display: block;
       margin: auto;
     }
-    .map{
-      img{
+    .map {
+      img {
         margin: 0px auto 30px;
       }
     }
-    .social{
+    .social {
       border: none;
       height: 70px;
     }

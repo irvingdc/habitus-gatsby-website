@@ -25,8 +25,8 @@ export default () => (
           tal es el caso del acero al carbón, acero inoxidable y aluminio.
         </p>
         <p>
-          Se recomienda utilizar pintura electrostática para brindar una mayor
-          vida en el exterior.
+          Se recomienda utilizar pintura electrostática en acero al carbón para
+          brindar una mayor vida en el exterior.
         </p>
       </Fragment>
     }
