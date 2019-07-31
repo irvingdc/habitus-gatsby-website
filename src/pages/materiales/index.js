@@ -35,13 +35,13 @@ export default () => (
       <Material title="MDF" img={img4} link="/materiales/mdf" />
       <Material title="TRIPLAY" img={img5} link="/materiales/triplay" />
     </div>
-    <MaterialsDialog/>
+    <MaterialsDialog />
     <Footer />
   </div>
 );
 
 const Material = ({ title, img, link }) => (
-  <div className={[classes.card, "boxWithShadow"].join(" ")}>
+  <Link to={link} className={[classes.card, "boxWithShadow"].join(" ")}>
     <h3>{title}</h3>
     <div
       className={classes.img}
@@ -49,6 +49,6 @@ const Material = ({ title, img, link }) => (
         background: `url(${img}) center center / cover no-repeat`
       }}
     />
-    <Link to={link}>+ INFO</Link>
-  </div>
+    <span>+ INFO</span>
+  </Link>
 );

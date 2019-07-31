@@ -42,16 +42,16 @@ export default () => (
 
 const Block = ({ title, img, text, link }) => (
   <div className={classes.application}>
-    <div
-      className={classes.img}
-      style={{
-        background: `url(${img}) center center / cover no-repeat`
-      }}
-    >
-      <Link to={link}>
+    <Link to={link}>
+      <div
+        className={classes.img}
+        style={{
+          background: `url(${img}) center center / cover no-repeat`
+        }}
+      >
         <Button>{title}</Button>
-      </Link>
-    </div>
+      </div>
+    </Link>
     <p>{text}</p>
   </div>
 );

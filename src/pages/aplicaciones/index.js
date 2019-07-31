@@ -53,7 +53,7 @@ export default () => (
         <Application
           title="BARANDALES"
           img={img16}
-          link="/aplicaciones/divisores"
+          link="/aplicaciones/barandales"
         />
         <Application
           title="PORTONES"
@@ -80,7 +80,7 @@ export default () => (
 );
 
 const Application = ({ title, img, link }) => (
-  <div className={[classes.card, "boxWithShadow"].join(" ")}>
+  <Link to={link} className={[classes.card, "boxWithShadow"].join(" ")}>
     <div
       className={classes.img}
       style={{
@@ -89,8 +89,8 @@ const Application = ({ title, img, link }) => (
     >
       <div className={classes.backdrop}>
         <h3>{title}</h3>
-        <Link to={link}>+ INFO</Link>
+        <span>+ INFO</span>
       </div>
     </div>
-  </div>
+  </Link>
 );

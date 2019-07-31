@@ -14,8 +14,8 @@ export default () => (
     }
     intro={
       <p>
-        Permite que tus tragaluces sean fabricados con nuestras celosías,
-        brindando seguridad y diseño a tu ambiente. juego de luz y sombras.
+        Permite que tus tragaluces sean fabricados con nuestras celosías,
+        brindando seguridad y diseño a tu ambiente con el juego de luz y sombras.
       </p>
     }
     recommendations={

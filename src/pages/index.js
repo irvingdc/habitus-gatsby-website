@@ -47,9 +47,11 @@ class Index extends Component {
         <Nav />
         <Introduction />
         <SectionsIntro />
-        <h3 className={[classes.middleMessage,"boxWithShadow"].join(" ")}>¿no estás seguro que buscas?</h3>
-        <BottomBanner/>
-        <Footer />
+        <h3 className={[classes.middleMessage, "boxWithShadow"].join(" ")}>
+          ¿no estás seguro que buscas?
+        </h3>
+        <BottomBanner />
+        <Footer hideContact />
       </div>
     );
   }

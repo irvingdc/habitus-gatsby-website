@@ -28,7 +28,7 @@ export default () => (
     <div className={classes.img}>
       <img src={intro} alt="Ejemplo" title="Ejemplo" />
       <div>
-        <SocialRow gray />
+        <SocialRow />
       </div>
     </div>
     <div className={classes.text}>

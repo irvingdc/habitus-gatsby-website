@@ -73,12 +73,11 @@ export default class Contact extends Component {
         />
         <div className={classes.container}>
           <Nav />
-          <SectionHeader type="A" img={latticeHead4} title="¡CONTÁCTANOS!" />
+          <SectionHeader type="A" img={latticeHead4} title="¡ASESÓRATE!" />
           <Toast />
           <p className={classes.intro}>
-            ¡Déjate asesorar por nuestros expertos!
-            <br />
-            Con gusto te brindarán la asesoría que necesitas para tu celosía
+            ¡Ponte en contácto con alguno de nuestros expertos! <br />
+            Con gusto te brindarán la asesoría que necesitas para tu celosía
           </p>
           <div className={classes.flex}>
             <div className={classes.left}>
@@ -160,7 +159,7 @@ export default class Contact extends Component {
           <Link to="/personaliza" className={classes.personaliza}>
             <img src={handIcon} />
           </Link>
-          <Footer />
+          <Footer hideContact />
         </div>
       </Fragment>
     );

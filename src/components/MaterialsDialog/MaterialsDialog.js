@@ -20,7 +20,7 @@ export default class MaterialsDialog extends Component {
       ],
       content: [
         [
-          "RESISTENCIA A LA INTEMPERIE",
+          "Resistencia a la intemperie",
           { val: true, special: false },
           { val: true, special: false },
           { val: true, special: true },
@@ -28,23 +28,23 @@ export default class MaterialsDialog extends Component {
           { val: false, special: false }
         ],
         [
-          "OXIDACIÓN",
+          "Resistencia a la oxidación",
           { val: true, special: false },
           { val: true, special: false },
-          { val: false, special: true },
-          { val: false, special: false },
-          { val: false, special: false }
-        ],
-        [
-          "DUREZA",
-          { val: false, special: false },
-          { val: false, special: false },
           { val: true, special: true },
           "n/a",
           "n/a"
         ],
         [
-          "MALEABILIDAD",
+          "Dureza",
+          { val: false, special: false },
+          { val: true, special: false },
+          { val: true, special: false },
+          { val: false, special: false },
+          { val: false, special: false },
+        ],
+        [
+          "Maleabilidad",
           { val: true, special: false },
           { val: false, special: false },
           { val: true, special: false },
@@ -52,7 +52,7 @@ export default class MaterialsDialog extends Component {
           { val: true, special: false }
         ],
         [
-          "DURABILIDAD EN INTERIORES",
+          "Durabilidad en interiores",
           { val: "Alto", special: false },
           { val: "Alto", special: false },
           { val: "Alto", special: false },
@@ -60,7 +60,7 @@ export default class MaterialsDialog extends Component {
           { val: "Alto", special: false }
         ],
         [
-          "PESO",
+          "Peso",
           { val: "Bajo", special: false },
           { val: "Alto", special: false },
           { val: "Alto", special: false },
@@ -68,7 +68,7 @@ export default class MaterialsDialog extends Component {
           { val: "Bajo", special: false }
         ],
         [
-          "SOLDABILIDAD",
+          "Soldabilidad",
           { val: false, special: false },
           { val: true, special: false },
           { val: true, special: false },
@@ -76,7 +76,7 @@ export default class MaterialsDialog extends Component {
           "n/a"
         ],
         [
-          "ACABADO",
+          "Acabado",
           { val: "Natural", special: false },
           { val: "Natural", special: false },
           { val: "Natural /", special: true },
@@ -84,7 +84,7 @@ export default class MaterialsDialog extends Component {
           { val: "Natural", special: false }
         ],
         [
-          "DOBLEZ",
+          "Doblez",
           { val: true, special: false },
           { val: true, special: false },
           { val: true, special: false },
