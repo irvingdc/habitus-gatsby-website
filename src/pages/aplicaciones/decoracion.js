@@ -1,9 +1,20 @@
 import React, { Fragment } from "react";
 import ApplicationsPage from "../../components/ApplicationsPage/ApplicationsPage";
 import { img22, reja_h } from "src/images";
-import "src/main.module.less";
+import { Helmet } from "react-helmet";
 
 export default () => (
+  <Fragment>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Habitus | Aplicaciones de Celosías: Decoración</title>
+      <link rel="canonical" href="https://habitus.com.mx/aplicaciones/decoracion/" />
+      <meta
+        name="description"
+        content="Destaca un espacio con celosías en cualquier habitación, ya sea en cabeceras, muros, o lo que tu desees.  En celosías para decoración la variedad de materiales a utilizar es más amplia."
+      />
+      <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+    </Helmet>
   <ApplicationsPage
     headerImage={img22}
     installationImage={reja_h}
@@ -29,4 +40,6 @@ export default () => (
       </Fragment>
     }
   />
+
+  </Fragment>
 );

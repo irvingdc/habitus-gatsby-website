@@ -2,8 +2,20 @@ import React, { Fragment } from "react";
 import ApplicationsPage from "../../components/ApplicationsPage/ApplicationsPage";
 import { img15, division_h } from "src/images";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
 
 export default () => (
+  <Fragment>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Habitus | Aplicaciones de Celosías: Divisores</title>
+      <link rel="canonical" href="https://habitus.com.mx/aplicaciones/divisores/" />
+      <meta
+        name="description"
+        content="Dividir un espacio con celosías brindará privacidad y visibilidad a otras áreas. Utiliza MDF o Acero para paneles divisores."
+      />
+      <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+    </Helmet>
   <ApplicationsPage
     headerImage={img15}
     installationImage={division_h}
@@ -30,4 +42,6 @@ export default () => (
       </Fragment>
     }
   />
+
+  </Fragment>
 );

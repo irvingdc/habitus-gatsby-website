@@ -71,6 +71,8 @@ import tragaluz_h from "./images/tragaluz_h.jpg";
 import height from "./images/height.png";
 import width from "./images/width.png";
 import phoneIcon from "./images/phone-icon.png";
+import phoneGray from "./images/phone-gray.png";
+import phoneSolid from "./images/phoneSolid.svg";
 import dotsIcon from "./images/dots-icon.png";
 import map from "./images/map.jpg";
 import intro from "./images/intro.jpeg";
@@ -173,6 +175,8 @@ export {
   whatsapp,
   intro,
   phoneIcon,
+  phoneGray,
+  phoneSolid,
   mailIcon,
   dotsIcon,
   arrowIcon,

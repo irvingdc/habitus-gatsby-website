@@ -15,6 +15,10 @@ import Toast from "components/Toast/Toast";
 import Message from "components/Message/Message";
 import ConfirmationMessage from "components/ConfirmationMessage/ConfirmationMessage";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
+import { phoneSolid } from "../images";
+import EventBus from "eventbusjs";
+import Axios from "axios";
 
 export default class Contact extends Component {
   state = {
@@ -32,7 +36,78 @@ export default class Contact extends Component {
     this.setState({ [field]: value });
   };
 
-  sendForm = () => {
+  sendForm = (first_name, last_name, phone, email, message) => {
+    let url = "https://habitus.com.mx/contact_extra.php";
+    let formData = new FormData();
+    formData.append("first_name", first_name);
+    formData.append("last_name", last_name);
+    formData.append("phone", phone);
+    formData.append("email", email);
+    formData.append("message", message);
+
+    Axios({
+      method: "post",
+      url: url,
+      data: formData,
+      config: { headers: { "Content-Type": "multipart/form-data" } }
+    })
+      .then(result => {
+        if (result.data === "success") {
+          setTimeout(
+            () =>
+              this.setState({
+                showMessage: false,
+                loading: false
+              }),
+            2000
+          );
+          setTimeout(
+            () =>
+              this.setState({
+                showConfirmationMessage: true
+              }),
+            2700
+          );
+        } else throw result;
+      })
+      .catch(error => {
+        this.setState({ loading: false, showMessage: false });
+        console.log("Error 2:", error);
+      });
+  };
+
+  validateForm = () => {
+    /*
+    var errors = [];
+    let { first_name, last_name, phone, email, message } = this.state;
+
+    if (!first_name) {
+      errors.push("nombre");
+    }
+    if (!last_name) {
+      errors.push("apellido");
+    }
+    if (!phone) {
+      errors.push("telefono");
+    }
+    if (!email) {
+      errors.push("correo");
+    }
+    if (!message) {
+      errors.push("message");
+    }
+
+    if (errors.length) {
+      EventBus.dispatch("ALERT", this, {
+        text:
+          "Por favor completa los campos faltantes: " + errors.join(", ") + ".",
+        time: 9000
+      });
+    } else {
+      this.sendForm(first_name, last_name, phone, email, message);
+    }
+    */
+
     console.log("sending form");
     if (typeof window.fbq === "function") window.fbq("track", "Lead");
     this.setState({
@@ -60,6 +135,7 @@ export default class Contact extends Component {
   };
 
   render() {
+    if (typeof window === "undefined") return null;
     return (
       <Fragment>
         <Message
@@ -73,10 +149,20 @@ export default class Contact extends Component {
         />
         <div className={classes.container}>
           <Nav />
+          <Helmet>
+            <meta charSet="utf-8" />
+            <title>Habitus | Contacto</title>
+            <link rel="canonical" href="https://habitus.com.mx/contacto/" />
+            <meta
+              name="description"
+              content="Escoge tu celosía ideal de la mano de nuestros expertos ¡contáctanos! Te brindaremos la asesoría que necesitas para tu celosía."
+            />
+            <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+          </Helmet>
           <SectionHeader type="A" img={latticeHead4} title="¡ASESÓRATE!" />
           <Toast />
           <p className={classes.intro}>
-            ¡Ponte en contácto con alguno de nuestros expertos! <br />
+            ¡Ponte en contacto con nuestros expertos! <br />
             Con gusto te brindarán la asesoría que necesitas para tu celosía
           </p>
           <div className={classes.flex}>
@@ -84,13 +170,21 @@ export default class Contact extends Component {
               <div>
                 <h4>Teléfono</h4>
                 <a
-                  href="https://wa.me/5212221228857"
+                  href={
+                    window.innerWidth > 700
+                      ? "https://wa.me/5212227254692"
+                      : "tel:5212227254692"
+                  }
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  + 52 1 (222) 122 8857
+                  + 52 1 (222) 725 4692
                 </a>
-                <img src={whatsapp} alt="Whatsapp" title="Whatsapp" />
+                <img
+                  src={window.innerWidth > 700 ? whatsapp : phoneSolid}
+                  alt="Phone Icon"
+                  title="Phone Icon"
+                />
               </div>
               <div>
                 <h4>Correo</h4>
@@ -147,7 +241,7 @@ export default class Contact extends Component {
                   this.handleInputChange("message", event.target.value)
                 }
               />
-              <button onClick={this.sendForm} className={classes.sendForm}>
+              <button onClick={this.validateForm} className={classes.sendForm}>
                 <img src={arrowIcon} alt="send" title="send" />
               </button>
             </div>
