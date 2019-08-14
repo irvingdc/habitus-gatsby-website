@@ -35,10 +35,8 @@ export default () => (
       <h1>CELOSÍAS QUE DESTACAN</h1>
       <p>
         <b>HABITUS</b> fabrica celosías y paneles personalizados para todo
-        proyecto de
-        <br />
-        arquitectura, construcción y diseño, ideales para dar vida a un espacio
-        o desarrollo.
+        proyecto de arquitectura, construcción y diseño; ideales para dar vida a
+        un espacio o desarrollo.
       </p>
     </div>
     <div className={classes.cards}>

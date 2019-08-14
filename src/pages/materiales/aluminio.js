@@ -2,8 +2,20 @@ import React, { Fragment } from "react";
 import MaterialsPage from "../../components/MaterialsPage/MaterialsPage";
 import { img2, exteriorIcon, interiorIcon, lightIcon } from "src/images";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
 
 export default () => (
+  <Fragment>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Habitus | Materiales de Celosías: Aluminio</title>
+      <link rel="canonical" href="https://habitus.com.mx/materiales/aluminio/" />
+      <meta
+        name="description"
+        content="Celosías de Aluminio, resistentes a la intemperie ideales para ambientes de alta salinidad."
+      />
+      <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+    </Helmet>
   <MaterialsPage
     headerImage={img2}
     title="ALUMINIO"
@@ -64,4 +76,6 @@ export default () => (
       }
     ]}
   />
+  </Fragment>
 );
+

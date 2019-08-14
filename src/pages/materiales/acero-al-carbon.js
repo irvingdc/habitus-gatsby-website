@@ -2,9 +2,20 @@ import React, { Fragment } from "react";
 import MaterialsPage from "../../components/MaterialsPage/MaterialsPage";
 import { img3, exteriorIcon, interiorIcon, strengthIcon } from "src/images";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
 
 export default () => (
-  <MaterialsPage
+  <Fragment>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Habitus | Materiales de Celosías: Acero al Carbón</title>
+      <link rel="canonical" href="https://habitus.com.mx/materiales/acero-al-carbon/" />
+      <meta
+        name="description"
+        content="Celosías en acero al carbón o lámina negra, excelentes para utilizarse en interiores y exteriores. Conoces nuestros acabados en acero al carbón con pintura electrostática o acero al carbón natural."
+      />
+      <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+    </Helmet><MaterialsPage
     headerImage={img3}
     title="ACERO AL CARBÓN"
     intro={
@@ -81,4 +92,5 @@ export default () => (
       }
     ]}
   />
+  </Fragment>
 );

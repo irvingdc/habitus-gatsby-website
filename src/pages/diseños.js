@@ -6,6 +6,7 @@ import Nav from "components/Nav/Nav";
 import { latticeHead3, celosia6, icono21 } from "src/images";
 import classes from "styles/diseños.module.less";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
 
 export default class Diseños extends Component {
   state = {
@@ -19,6 +20,19 @@ export default class Diseños extends Component {
     return (
       <div className={classes.container}>
         <Nav />
+        <Helmet>
+            <meta charSet="utf-8" />
+            <title>Habitus | Diseños de Celosías</title>
+            <link
+              rel="canonical"
+              href="https://habitus.com.mx/diseños/"
+            />
+            <meta
+              name="description"
+              content="Diseños para cualquier tipo de proyecto, diseños geométricos u orgánicos. Contamos con diseños estéticos y funcionales además de que podemos fabricar cualquier idea propia."
+            />
+            <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+          </Helmet>
         <SectionHeader type="A" img={latticeHead3} title="DISEÑOS" />
         <p className={classes.text}>
           ¡Diseños pensados especialmente para satisfacer{" "}

@@ -3,6 +3,7 @@ import SectionHeader from "components/SectionHeader/SectionHeader";
 import Footer from "components/Footer/Footer";
 import Nav from "components/Nav/Nav";
 import "src/main.module.less";
+import { Helmet } from "react-helmet";
 import {
   latticeHead2,
   img15,
@@ -20,6 +21,16 @@ import { Link } from "gatsby";
 export default () => (
   <div className={classes.container}>
     <Nav />
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Habitus | Aplicaciones de Celosías</title>
+      <link rel="canonical" href="https://habitus.com.mx/aplicaciones/" />
+      <meta
+        name="description"
+        content="Las celosías pueden utilizarse en cualquier aplicación que te imagines como barandales, divisores, puertas y portones, fachadas, rejas, pérgolas, decoración y tragaluces. Las ventajas de ocupar celosías son que brindan seguridad, calidez y creatividad a cualquier proyecto de arquitectura e interiorismo."
+      />
+      <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
+    </Helmet>
     <SectionHeader type="A" img={latticeHead2} title="APLICACIONES" />
     <p className={classes.text}>
       Brinda seguridad, calidez y creatividad a cualquier proyecto de

@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Footer.module.less";
-import { icono15, icono8, map, icono20 } from "../../images";
+import { icono15, icono8, map, icono20, phoneSolid } from "../../images";
 import { Link } from "gatsby";
 
 export default ({ hideContact }) => (
@@ -29,11 +29,12 @@ export default ({ hideContact }) => (
         <img src={icono8} title="Instagram" alt="Instagram" />
       </a>
       <a
-        href="https://wa.me/5212221228857"
+        href={window.innerWidth > 700 ? "https://wa.me/5212227254692" : "tel:5212227254692"}
         target="_blank"
         rel="noopener noreferrer"
+        className={window.innerWidth > 700 ? classes.whatsapp : ""}
       >
-        <img src={icono20} alt="Whatsapp" title="Whatsapp" />
+        <img src={window.innerWidth > 700 ? icono20 : phoneSolid} alt="Phone Icon" title="Phone Icon" />
       </a>
     </div>
   </div>
