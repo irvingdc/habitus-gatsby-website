@@ -3,7 +3,7 @@ import classes from "./Footer.module.less";
 import { icono15, icono8, map, icono20, phoneSolid } from "../../images";
 import { Link } from "gatsby";
 
-export default ({ hideContact }) => (
+export default ({ hideContact }) => typeof window === "undefined" ? null : (
   <div className={classes.container}>
     {!hideContact ? (
       <div className={classes.link}>

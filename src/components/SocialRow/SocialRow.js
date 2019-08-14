@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./SocialRow.module.less";
 import { facebook, instagram, whatsapp, phoneSolid } from "../../images";
 
-export default ({ style, gray }) => (
+export default ({ style, gray }) => typeof window === "undefined" ? null : (
   <div
     className={[classes.social, gray ? classes.gray : ""].join(" ")}
     style={style}
