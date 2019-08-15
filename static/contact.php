@@ -43,7 +43,7 @@
 		$mail->AddReplyTo("diseno@habitus.com.mx","Diseno Habitus");
 		$mail->SetFrom('diseno@habitus.com.mx', "Diseno Habitus");
 		$mail->AddBCC("irvingedc@gmail.com" , "Irving Diaz");
-		//$mail->AddAddress("diseno@habitus.com.mx", "Diseno Habitus");
+		$mail->AddAddress("diseno@habitus.com.mx", "Diseno Habitus");
 		$mail->Subject    = $title;
 		$mail->AltBody    = "To view the message properly, please use an HTML compatible email viewer.";
 		$mail->MsgHTML($body);                                           
