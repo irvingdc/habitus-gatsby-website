@@ -151,11 +151,11 @@ export default class Contact extends Component {
                   href={
                     window.innerWidth > 700
                       ? "https://wa.me/5212227254692"
-                      : "tel:5212227254692"
+                      : "tel:2227254692"
                   }
                   rel="noopener noreferrer"
                 >
-                  <span>+ 52 1 (222) 725 4692</span>
+                  <span>(222) 725 4692</span>
 
                   <img
                     src={window.innerWidth > 700 ? whatsapp : phoneSolid}
