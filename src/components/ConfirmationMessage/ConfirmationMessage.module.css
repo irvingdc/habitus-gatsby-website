@@ -33,11 +33,12 @@
     z-index: 1400;
 }
 .card{
-    background: var(--habitus-tertiary);
+    background: url("../../images/back-yellow.jpeg") no-repeat center;
+    background-size: 100% 100%;
     padding: 20px 20px 20px;
     box-shadow: 0px 5px 35px 0px #00000088;
     width: 100%;
-    max-width: 1000px;
+    max-width: 600px;
     z-index: 4000;
     text-align: center;
     border: 10px solid white;
@@ -51,7 +52,7 @@
     z-index: 4000;
 }
 .logo{
-    width: 130px;
+    width: 80px;
     display: block;
     margin: 10px auto;
 }
@@ -65,7 +66,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100px;
+    width: 200px;
     margin: auto;
 }
 .social a{
@@ -79,27 +80,11 @@
     height: 100%;
     width: auto;
 }
-.buttons{
-    padding: 50px 0px 10px;
-    width: fit-content;
-    margin: auto;
-    text-align: center;
-}
-.buttons button{
-    margin: auto;
-}
-.buttons p{
-    padding: 10px;
-    font-size: 20px;
-    color: var(--habitus-gray);
-}
-.buttons a{
-    text-decoration: none;
-}
 .content h2{
     font-size: 14px;
     padding: 10px;
     letter-spacing: 3px;
+    color: var(--habitus-secondary);
 }
 .content h2:nth-child(2){
     padding-bottom: 30px;

@@ -1,8 +1,8 @@
 import React from "react";
 import classes from "./SocialRow.module.less";
-import { facebook, instagram, whatsapp, phoneSolid } from "../../images";
+import { facebook, instagram, whatsapp } from "../../images";
 
-export default ({ style, gray }) => typeof window === "undefined" ? null : (
+export default ({ style, gray }) => (
   <div
     className={[classes.social, gray ? classes.gray : ""].join(" ")}
     style={style}
@@ -22,11 +22,11 @@ export default ({ style, gray }) => typeof window === "undefined" ? null : (
       <img src={instagram} alt="Instagram" title="Instagram" />
     </a>
     <a
-      href={window.innerWidth > 700 ? "https://wa.me/5212227254692" : "tel:5212227254692"}
+      href="https://wa.me/5212227254692"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src={window.innerWidth > 700 ? whatsapp : phoneSolid} alt="Phone Icon" title="Phone Icon" />
+      <img src={whatsapp} alt="Phone Icon" title="Phone Icon" />
     </a>
   </div>
 );

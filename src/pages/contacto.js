@@ -19,6 +19,7 @@ import { Helmet } from "react-helmet";
 import { phoneSolid } from "../images";
 import EventBus from "eventbusjs";
 import Axios from "axios";
+import { createIframe } from "../functions";
 
 export default class Contact extends Component {
   state = {
@@ -44,7 +45,12 @@ export default class Contact extends Component {
     formData.append("phone", phone);
     formData.append("email", email);
     formData.append("message", message);
-
+    this.setState({
+      alertMessage:
+        "Tu solicitud está siendo procesada. Quedará lista en unos momentos.",
+      showMessage: true,
+      loading: true
+    });
     Axios({
       method: "post",
       url: url,
@@ -53,6 +59,8 @@ export default class Contact extends Component {
     })
       .then(result => {
         if (result.data === "success") {
+          if(typeof window.fbq === "function") window.fbq('track', 'Lead');
+          createIframe("https://www.habitus.com.mx/?conf=1")
           setTimeout(
             () =>
               this.setState({
@@ -77,7 +85,6 @@ export default class Contact extends Component {
   };
 
   validateForm = () => {
-    /*
     var errors = [];
     let { first_name, last_name, phone, email, message } = this.state;
 
@@ -93,9 +100,6 @@ export default class Contact extends Component {
     if (!email) {
       errors.push("correo");
     }
-    if (!message) {
-      errors.push("message");
-    }
 
     if (errors.length) {
       EventBus.dispatch("ALERT", this, {
@@ -106,32 +110,6 @@ export default class Contact extends Component {
     } else {
       this.sendForm(first_name, last_name, phone, email, message);
     }
-    */
-
-    console.log("sending form");
-    if (typeof window.fbq === "function") window.fbq("track", "Lead");
-    this.setState({
-      message:
-        "Tu solicitud está siendo procesada. Quedará lista en unos momentos.",
-      showMessage: true,
-      loading: true
-    });
-    //mocked result
-    setTimeout(
-      () =>
-        this.setState({
-          showMessage: false,
-          loading: false
-        }),
-      2000
-    );
-    setTimeout(
-      () =>
-        this.setState({
-          showConfirmationMessage: true
-        }),
-      2700
-    );
   };
 
   render() {
@@ -141,7 +119,7 @@ export default class Contact extends Component {
         <Message
           display={this.state.showMessage}
           close={() => this.setState({ showMessage: false })}
-          title={this.state.message}
+          title={this.state.alertMessage}
         />
         <ConfirmationMessage
           display={this.state.showConfirmationMessage}
@@ -159,10 +137,10 @@ export default class Contact extends Component {
             />
             <link rel="shortcut icon" href="https://habitus.com.mx/logo.png" />
           </Helmet>
-          <SectionHeader type="A" img={latticeHead4} title="¡ASESÓRATE!" />
+          <SectionHeader type="A" img={latticeHead4} title="¡ ASESÓRATE !" />
           <Toast />
           <p className={classes.intro}>
-            ¡Ponte en contacto con nuestros expertos! <br />
+            ¡ Ponte en contacto con nuestros expertos! <br />
             Con gusto te brindarán la asesoría que necesitas para tu celosía
           </p>
           <div className={classes.flex}>
@@ -175,16 +153,16 @@ export default class Contact extends Component {
                       ? "https://wa.me/5212227254692"
                       : "tel:5212227254692"
                   }
-                  target="_blank"
                   rel="noopener noreferrer"
                 >
-                  + 52 1 (222) 725 4692
+                  <span>+ 52 1 (222) 725 4692</span>
+
+                  <img
+                    src={window.innerWidth > 700 ? whatsapp : phoneSolid}
+                    alt="Phone Icon"
+                    title="Phone Icon"
+                  />
                 </a>
-                <img
-                  src={window.innerWidth > 700 ? whatsapp : phoneSolid}
-                  alt="Phone Icon"
-                  title="Phone Icon"
-                />
               </div>
               <div>
                 <h4>Correo</h4>
@@ -193,9 +171,9 @@ export default class Contact extends Component {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  diseno@habitus.com.mx
+                  <span>diseno@habitus.com.mx</span>
+                  <img src={mailIcon} alt="Email" title="Email" />
                 </a>
-                <img src={mailIcon} alt="Email" title="Email" />
               </div>
             </div>
             <div className={classes.right}>

@@ -15,6 +15,7 @@ import Message from "components/Message/Message"
 import ConfirmationMessage from "components/ConfirmationMessage/ConfirmationMessage"
 import Axios from "axios"
 import { Helmet } from "react-helmet"
+import { createIframe } from "../functions";
 
 class Personaliza extends Component {
 
@@ -201,7 +202,6 @@ class Personaliza extends Component {
     }
 
     makeRequest = () => {
-        if(typeof window.fbq === "function") window.fbq('track', 'Lead');
         this.setState({
             message: "Tu solicitud está siendo procesada. Quedará lista en unos momentos.",
             showMessage: true,
@@ -238,6 +238,8 @@ class Personaliza extends Component {
             config: { headers: {'Content-Type': 'multipart/form-data' }}
         }).then(result => {
                 if(result.data === "success"){
+                    if(typeof window.fbq === "function") window.fbq('track', 'Lead');
+                    createIframe("https://www.habitus.com.mx/?conf=1")
                     setTimeout(()=>this.setState({
                         showMessage: false,
                         loading: false,
@@ -263,19 +265,6 @@ class Personaliza extends Component {
         let bannerStyle = window.innerWidth < 770 ? {padding:"0px"} : {padding:"20px"}
         let headerStyle = window.innerWidth < 770 ? {letterSpacing: "5px", fontSize: "28px", margin: "30px 10px"} : {letterSpacing: "20px", fontSize: "28px", margin: "30px"}
         let materialsWidth = window.innerWidth < 1300 ?  undefined : "210px"
-        let buttonstyle = window.innerWidth < 550 ? {
-            fontSize: "17px",
-            padding: "8px",
-            letterSpacing: "2px",
-            fontFamily: "GS",
-            fontWeight: "900",
-        } : {
-            fontSize: "20px",
-            padding: "10px",
-            letterSpacing: "3px",
-            fontFamily: "GS",
-            fontWeight: "900",
-        }
         return (
             <Fragment>
                 <Helmet>
