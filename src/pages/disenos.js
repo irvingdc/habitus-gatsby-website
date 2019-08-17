@@ -4,7 +4,7 @@ import Footer from "components/Footer/Footer";
 import DesignsCarousel from "components/DesignsCarousel/DesignsCarousel";
 import Nav from "components/Nav/Nav";
 import { latticeHead3, celosia6, icono21 } from "src/images";
-import classes from "styles/diseños.module.less";
+import classes from "styles/disenos.module.less";
 import "src/main.module.less";
 import { Helmet } from "react-helmet";
 
@@ -25,7 +25,7 @@ export default class Diseños extends Component {
             <title>Habitus | Diseños de Celosías</title>
             <link
               rel="canonical"
-              href="https://habitus.com.mx/diseños/"
+              href="https://habitus.com.mx/disenos/"
             />
             <meta
               name="description"
