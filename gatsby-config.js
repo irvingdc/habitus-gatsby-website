@@ -2,6 +2,13 @@ const path = require("path")
 module.exports = {
   plugins: [
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-117334884-2",
+        head: true
+      }
+    },
+    {
       resolve: "gatsby-plugin-root-import",
       options: {
         src: path.join(__dirname, "src"),
@@ -10,13 +17,6 @@ module.exports = {
         components: path.join(__dirname, "src/components"),
         styles: path.join(__dirname, "src/styles"),
       },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: "UA-117334884-2",
-        head: true
-      }
     },
     {
       resolve: "gatsby-plugin-less",

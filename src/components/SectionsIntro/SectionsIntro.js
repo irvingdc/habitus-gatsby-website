@@ -28,7 +28,7 @@ export default () => (
         title="DISEÑO"
         text="¿Cuál es el diseño que va con tu proyecto?"
         img={latticesMix}
-        link="/diseños/"
+        link="/disenos/"
       />
       <Block
         title="MATERIAL"

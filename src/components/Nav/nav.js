@@ -111,7 +111,7 @@ class Nav extends Component {
             </div>
           </div>
           <div className={classes.menu}>
-            <Link activeClassName={classes.active} to="/diseños/">
+            <Link activeClassName={classes.active} to="/disenos/">
               Diseños
             </Link>
           </div>
