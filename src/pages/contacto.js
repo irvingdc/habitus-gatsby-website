@@ -59,8 +59,11 @@ export default class Contact extends Component {
     })
       .then(result => {
         if (result.data === "success") {
-          if(typeof window.fbq === "function") window.fbq('track', 'Lead');
-          createIframe("https://www.habitus.com.mx/?conf=1")
+          if (typeof window.fbq === "function") {
+            window.fbq("track", "Lead");
+            window.fbq("track", "CompleteRegistration");
+          }
+          createIframe("https://www.habitus.com.mx/?conf=1");
           setTimeout(
             () =>
               this.setState({
