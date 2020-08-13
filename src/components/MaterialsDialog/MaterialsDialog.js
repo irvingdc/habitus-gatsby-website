@@ -94,7 +94,7 @@ export default class MaterialsDialog extends Component {
       ]
     };
     return (
-      <Fragment>
+      <div>
         <div className={classes.button}>
           <button onClick={() => this.setState({ open: true })}>
             VER TABLA DE COMPARACIÓN DE MATERIALES
@@ -112,7 +112,7 @@ export default class MaterialsDialog extends Component {
             <span>*</span> Pintado
           </p>
         </Dialog>
-      </Fragment>
+      </div>
     );
   }
 }

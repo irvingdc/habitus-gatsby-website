@@ -539,10 +539,12 @@ class Personaliza extends Component {
                   this.handleInputChange("email", event.target.value)
                 }
               />
-              <button onClick={this.sendForm} className={classes.sendForm}>
-                <img src={icono12} alt="send" title="send" />
-              </button>
             </span>
+
+            <button onClick={this.sendForm} className={classes.sendForm}>
+              ENVIAR
+              <img src={icono12} alt="send" title="send" /> 
+              </button>
           </div>
         </form>
         <Footer />

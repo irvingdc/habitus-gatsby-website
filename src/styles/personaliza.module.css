@@ -153,22 +153,32 @@
     margin-bottom: 5px;
 }
 .sendForm{
-    background: white;
-    border: 1px solid var(--habitus-gray);
-    border-radius: 30px;
-    width: 28px;
+    background: var(--habitus-primary);
+    border: none;
+    cursor: pointer;
     height: 28px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    right: 4px;
     bottom: 4px;
+    margin: 0px auto 160px;
+    color: white;
+    font-size: 19px;
+    padding: 24px 28px;
+    box-shadow: 0px 6px 10px -4px #000000b3;
+    outline: none;
+    filter: brightness(1);
+    transition: all 0.3s;
+    letter-spacing: 3px;
+}
+.sendForm:hover{
+filter: brightness(0.8);
 }
 .sendForm img{
     width: 20px;
     height: 20px;
-    left: 2px;
+    left: 8px;
+    filter: brightness(6);
 }
 .sizeSection > div{
     display: flex;
