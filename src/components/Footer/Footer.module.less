@@ -1,11 +1,21 @@
 .container {
   background: var(--habitus-primary);
-  padding: 60px 30px 40px;
+  padding: 60px 30px 80px;
   margin-top: 60px;
   display: flex;
   position: relative;
   justify-content: center;
   align-items: center;
+  .privacy {
+    position: absolute;
+    bottom: 30px;
+    left: calc(50% - 100px);
+    width: 200px;
+    text-align: center;
+    * {
+      color: white;
+    }
+  }
   > * {
     left: -30px;
   }
@@ -63,9 +73,9 @@
       filter: brightness(100);
     }
   }
-  .whatsapp{
+  .whatsapp {
     border: none;
-    img{
+    img {
       height: 42px;
     }
   }

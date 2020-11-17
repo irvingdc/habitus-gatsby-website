@@ -37,5 +37,8 @@ export default ({ hideContact }) => (
         <img src={icono20} alt="Phone Icon" title="Phone Icon" />
       </a>
     </div>
+    <div className={classes.privacy}>
+      <Link to="/privacidad">Aviso de Privacidad</Link>
+    </div>
   </div>
 );
