@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "eventbusjs": "^0.2.0",
-    "gatsby": "^2.13.67",
+    "gatsby": "^2.32.13",
     "gatsby-plugin-google-analytics": "^2.1.7",
     "gatsby-plugin-less": "^2.1.2",
     "gatsby-plugin-manifest": "^2.2.5",
